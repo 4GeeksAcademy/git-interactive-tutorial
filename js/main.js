@@ -150,7 +150,7 @@
             consoleArea.lastElementChild.classList.add('current-line');
             consoleArea.lastElementChild.style.marginTop  = "15px";
             lineaActual = document.querySelector('.current-line');
-            lineaActual.innerHTML = '<span>$ </span><textarea id="console-input" spellcheck="false"></textarea>';
+            lineaActual.innerHTML = '<span>$ </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>';
             // Ayudar listener para el textarea
             addTextareaListener();
             console.log(leccionActual);
