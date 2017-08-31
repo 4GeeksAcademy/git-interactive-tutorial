@@ -59,27 +59,29 @@ main {
 }
 
 .console-area {
-    height: 250px;
+    display: flex;
+    flex-direction: column;
+    font-size: .8rem;
+    height: 300px;
     padding: 10px 20px;
     font-family: 'Source Code Pro', monospace;    
     background-color: hsl(220, 13%, 18%);
-    overflow-y: auto;
+    overflow: auto;
     color: #eee;
     font-size: .8rem;
-    letter-spacing: .5px;
+    letter-spacing: .5px !important;
 }
 
-.console-area .line,
 .console-area .current-line {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
 }
 
-.console-area .line {
-    display: flex;
-    flex-direction: column;
+.console-area > * {
+    margin-top: 5px;
+    width: 100%;
 }
 
 .empty-p {
@@ -96,12 +98,14 @@ main {
 }
 
 .error, .success {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 15px;
 }
 
 .console-area textarea {
-    font-size: .8rem;
+    height: 43.4px;
+    overflow: auto;
+    font-family: 'Source Code Pro', monospace !important;    
     width: 100%;
     resize: none;
     background-color: transparent;
@@ -119,3 +123,16 @@ main {
 footer {
     padding: 10px;
 }
+
+
+
+
+.typed {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: type 5s steps(60, end);
+}
+
+@keyframes type{ 
+    from { width: 0; } 
+} 

@@ -8,22 +8,27 @@
 
 ( () => {
     var file = `{
-        "1": {
-            "orden": "1.1",
-            "titulo": "Got 15 minutes and want to learn Git?",
-            "tareas": [
-                "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
-                "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
-            ],
-            "comando": "git init",
-            "errorMessages": ["fatal: Not a git repository (or any of the parent directories): .git"],
-            "error": "Did not create a Git repo",
-            "successMessages": ["Initialized empty Git repository in /.git/"],
-            "success": "Success!",
-            "repoStatus": "Empty"
+        "config": {
+            "errorComando": "comand not found"
+        },
+        "lecciones": {
+            "1": {
+                "orden": "1.1",
+                "titulo": "Got 15 minutes and want to learn Git?",
+                "tareas": [
+                    "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
+                    "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
+                ],
+                "comando": "git init",
+                "errorMessages": ["fatal: Not a git repository (or any of the parent directories): .git"],
+                "alert": "Did not create a Git repo",
+                "successMessages": ["Initialized empty Git repository in /.git/"],
+                "repoStatus": "Empty"
+            }
         }
     }`;
-    var lecciones = JSON.parse(file);
+    var lecciones = JSON.parse(file).lecciones;
+    var config = JSON.parse(file).config;
 
     var leccionActual = 0;
 
@@ -59,51 +64,68 @@
     function mostrarResultado(passOrFail) {
         // Mostrar resultado
         if (passOrFail == 'pass') {
+            // PASSED
             for (var i = 0; i < lecciones[leccionActual].successMessages.length; i++) {
                 let parrafo = crearParrafo(lecciones[leccionActual].successMessages[i]);                                       
-                consoleArea.lastElementChild.appendChild(parrafo);
+                consoleArea.appendChild(parrafo);
             }
-            let parrafo = crearParrafo(lecciones[leccionActual].success);                                       
+            let parrafo = crearParrafo("Success!");      
+            console.log(parrafo);                                 
             parrafo.classList.add('success');                                    
-            consoleArea.lastElementChild.appendChild(parrafo);
+            consoleArea.appendChild(parrafo);
             // Siguiente leccion
             leccionActual++;
         } else {
-            for (var i = 0; i < lecciones[leccionActual].errorMessages.length; i++) {
-                let parrafo = crearParrafo(lecciones[leccionActual].errorMessages[i]);                                          
-                consoleArea.lastElementChild.appendChild(parrafo);
+            // FAILED
+            if (RegExp("(git)", "g").test(textarea.value.trim())) {
+                for (var i = 0; i < lecciones[leccionActual].errorMessages.length; i++) {
+                    let parrafo = crearParrafo(lecciones[leccionActual].errorMessages[i]);                                          
+                    consoleArea.appendChild(parrafo);
+                }
+            } else {
+                let comandError = crearParrafo(textarea.value + ": " + config.errorComando);                                  
+                consoleArea.lastElementChild.appendChild(comandError);
+                console.log(RegExp("(git)", "g").test(textarea.value.trim()));
             }
-            let parrafo = crearParrafo(lecciones[leccionActual].error);
+            // Red error message
+            let parrafo = crearParrafo(lecciones[leccionActual].alert);
             parrafo.classList.add('error');                                    
-            consoleArea.lastElementChild.appendChild(parrafo);
+            consoleArea.appendChild(parrafo);
         }
+        // let parrafoVacio = document.createElement("p");
+        // parrafoVacio.classList.add('empty-p');
+        // consoleArea.appendChild(parrafoVacio);
     }
 
     function cambiarLineaActual(passOrFail) {
         let lineaActual = document.querySelector('.current-line');
         let parrafo = crearParrafo("$ " + textarea.value);
-        let parrafoVacio = document.createElement("p");
-        parrafoVacio.classList.add('empty-p');
-        parrafoVacio.classList.innerHTML = " ";
-        lineaActual.innerHTML = "";
+        parrafo.style.marginTop  = "15px";
+        parrafo.style.marginBottom  = "15px";
+        // let parrafoVacio = document.createElement("p");
+        // parrafoVacio.classList.add('empty-p');
+        consoleArea.removeChild(lineaActual);
+        
+        consoleArea.appendChild(parrafo);
+        // consoleArea.appendChild(parrafoVacio);
+        consoleArea.classList.remove('current-line');
+        // lineaActual.classList.add('line');
 
-        lineaActual.appendChild(parrafo);
-        lineaActual.appendChild(parrafoVacio);
-        lineaActual.classList.remove('current-line');
-        lineaActual.classList.add('line');
-
-        mostrarResultado(passOrFail);
-
-        let div = document.createElement("div");
-        consoleArea.appendChild(div);
-
-        consoleArea.lastElementChild.classList.add('current-line');
-        lineaActual = document.querySelector('.current-line');
-        lineaActual.innerHTML = '<span>$ </span><textarea id="console-input"></textarea>';
-        // Ayudar listener para el textarea
-        addTextareaListener();
-        textarea.value = "";
-        textarea.focus();
+        setTimeout(function() {
+            mostrarResultado(passOrFail);
+            let div = document.createElement("div");
+            consoleArea.appendChild(div);
+    
+            consoleArea.lastElementChild.classList.add('current-line');
+            consoleArea.lastElementChild.style.marginTop  = "15px";
+            lineaActual = document.querySelector('.current-line');
+            lineaActual.innerHTML = '<span>$ </span><textarea id="console-input" spellcheck="false"></textarea>';
+            // Ayudar listener para el textarea
+            addTextareaListener();
+            textarea.value = "";
+            textarea.focus();
+        }, 2000);
+        
     }
 
     function crearParrafo(texto) {
@@ -147,6 +169,11 @@
             // }
         });
     }
+
+    document.querySelector('.comando').addEventListener('click', () => {
+        textarea.classList.add("typed");
+        textarea.value = lecciones[leccionActual].comando;
+    });
 
     // Actualizar instrucciones al cargar
     actualizarInstrucciones();
