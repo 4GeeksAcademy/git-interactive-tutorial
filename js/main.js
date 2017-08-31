@@ -20,17 +20,44 @@
                     "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
                 ],
                 "comando": "git init",
-                "errorMessages": ["fatal: Not a git repository (or any of the parent directories): .git"],
+                "errorMessages": [
+                    "fatal: Not a git repository (or any of the parent directories): .git"
+                ],
                 "alert": "Did not create a Git repo",
-                "successMessages": ["Initialized empty Git repository in /.git/"],
+                "successMessages": [
+                    "Initialized empty Git repository in /.git/"
+                ],
+                "repoStatus": "Empty"
+            },
+            "2": {
+                "orden": "1.2",
+                "titulo": "Checking the Status",
+                "tareas": [
+                    "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.", 
+                    "To save your progress as you go through this tutorial -- and earn a badge when you successfully complete it -- head over to create a free Code School account. We'll wait for you here.",
+                    "Next up, let's type the git status command to see what the current state of our project is:"
+                ],
+                "comando": "git status",
+                "errorMessages": [
+                    "fatal: Not a git repository (or any of the parent directories): .git"
+                ],
+                "alert": "Did not use git status",
+                "successMessages": [
+                    "# On branch master",
+                    "#",
+                    "# Initial commit",
+                    "#",
+                    "nothing to commit (create/copy files and use 'git add' to track)"
+                ],
                 "repoStatus": "Empty"
             }
         }
     }`;
     var lecciones = JSON.parse(file).lecciones;
+    // console.log(lecciones);
     var config = JSON.parse(file).config;
 
-    var leccionActual = 0;
+    var leccionActual = 1;
 
     var consoleArea = document.querySelector('.console-area');
     var textarea = document.querySelector('#console-input');
@@ -40,7 +67,6 @@
     var areaTareas = document.querySelector('.tareas');
 
     function actualizarInstrucciones() {
-        leccionActual++;
         // Actualizar titulo y orden
         let titulo = document.querySelector('#instrucciones h3 .titulo');
         titulo.innerHTML = lecciones[leccionActual].titulo;
@@ -51,7 +77,11 @@
         let button = document.querySelector('#instrucciones button');
         button.innerHTML = lecciones[leccionActual].comando;
 
-        // Actualizar tareas
+        // Limpiar areaTareas
+        while (areaTareas.firstChild) {
+            areaTareas.removeChild(areaTareas.firstChild);
+        }
+        // Agregar nuevas Tareas
         for (var i = 0; i < lecciones[leccionActual].tareas.length; i++) {
             // let parrafo = document.createElement("P");        
             // let tarea = document.createTextNode(lecciones[leccionActual].tareas[i]);
@@ -83,8 +113,9 @@
                     consoleArea.appendChild(parrafo);
                 }
             } else {
-                let comandError = crearParrafo(textarea.value + ": " + config.errorComando);                                  
-                consoleArea.lastElementChild.appendChild(comandError);
+                let comandError = crearParrafo(textarea.value + ": " + config.errorComando);
+                comandError.style.marginTop                                  
+                consoleArea.appendChild(comandError);
                 console.log(RegExp("(git)", "g").test(textarea.value.trim()));
             }
             // Red error message
@@ -122,9 +153,11 @@
             lineaActual.innerHTML = '<span>$ </span><textarea id="console-input" spellcheck="false"></textarea>';
             // Ayudar listener para el textarea
             addTextareaListener();
+            console.log(leccionActual);
+            actualizarInstrucciones();
             textarea.value = "";
             textarea.focus();
-        }, 2000);
+        }, 1000);
         
     }
 
