@@ -30,14 +30,33 @@
                         <p>Presiona Enter para ingresar tus comandos.</p>
                     <!-- </div> -->
                     <div class="current-line">
-                        <span>$ </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>
+                        <span class="line-marker">満 </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>
                     </div>
                 </div>
             </div>
-    
-            <div id="repo-status">
-                <div class="folder-root">
-
+            
+            <div id="repository">
+                <div class="header">
+                    <p class="title"></p>
+                    <div class="buttons">
+                        <i class="fa fa-window-minimize" aria-hidden="true"></i>
+                        <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                        <i class="fa fa-window-close close" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="repo-status">
+                    <div class="unstaged">
+                        <h3>Unstaged Files</h3>
+                        <ul></ul>
+                    </div>
+                    <div class="status">
+                        <h3>Status</h3>
+                        <ul></ul>
+                    </div>
+                    <div class="commits">
+                        <h3>Commits</h3>
+                        <ul></ul>
+                    </div>
                 </div>
             </div>
         </section>

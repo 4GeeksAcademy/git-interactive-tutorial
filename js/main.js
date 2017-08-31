@@ -9,6 +9,7 @@
 ( () => {
     var file = `{
         "config": {
+            "repoName": "Octobox",
             "errorComando": "comand not found"
         },
         "lecciones": {
@@ -27,7 +28,12 @@
                 "successMessages": [
                     "Initialized empty Git repository in /.git/"
                 ],
-                "repoStatus": "Empty"
+                "repoStatus": {
+                    "status": {
+                        "_comment": "Only add the 'msg' key if there are no files or folders",
+                        "msg": "No git repository"
+                    }
+                }
             },
             "2": {
                 "orden": "1.2",
@@ -49,10 +55,20 @@
                     "#",
                     "nothing to commit (create/copy files and use 'git add' to track)"
                 ],
-                "repoStatus": "Empty"
+                "repoStatus": {
+                    "status": {
+                        "folder": [
+                            ".git"
+                        ]
+                    },
+                    "unstaged": [
+                        "octotext.txt"
+                    ]
+                }
             }
         }
     }`;
+
     var lecciones = JSON.parse(file).lecciones;
     // console.log(lecciones);
     var config = JSON.parse(file).config;
@@ -65,29 +81,71 @@
     var commandPos = 1;
 
     var areaTareas = document.querySelector('.tareas');
+    var repoStatusArea = document.querySelector('#repository .repo-status .status ul');
+    var repoUnstagedArea = document.querySelector('#repository .repo-status .unstaged ul');
+    var repoCommitsArea = document.querySelector('#repository .repo-status .commits ul');
 
-    function actualizarInstrucciones() {
+    function actualizarInfoLeccion() {
         // Actualizar titulo y orden
         let titulo = document.querySelector('#instrucciones h3 .titulo');
         titulo.innerHTML = lecciones[leccionActual].titulo;
         let orden = document.querySelector('#instrucciones h3 .orden');
         orden.innerHTML = lecciones[leccionActual].orden;
 
-        // Actualizar comando
+        // Actualizar comando en boton
         let button = document.querySelector('#instrucciones button');
         button.innerHTML = lecciones[leccionActual].comando;
 
         // Limpiar areaTareas
-        while (areaTareas.firstChild) {
-            areaTareas.removeChild(areaTareas.firstChild);
-        }
+        deleteAllChilds(areaTareas);
         // Agregar nuevas Tareas
         for (var i = 0; i < lecciones[leccionActual].tareas.length; i++) {
-            // let parrafo = document.createElement("P");        
-            // let tarea = document.createTextNode(lecciones[leccionActual].tareas[i]);
-            // parrafo.appendChild(tarea);
-            let parrafo = crearParrafo(lecciones[leccionActual].tareas[i]);
+            let parrafo = createElementNode("p" ,lecciones[leccionActual].tareas[i]);
             areaTareas.appendChild(parrafo);     
+        }
+
+        // Actualizar Repo Status
+        deleteAllChilds(repoStatusArea);
+        if (lecciones[leccionActual].repoStatus.status.folder !== undefined) {
+            for (let i = 0; i < lecciones[leccionActual].repoStatus.status.folder.length; i++) {
+                let li = createElementNode("li", lecciones[leccionActual].repoStatus.status.folder[i]);
+                repoStatusArea.appendChild(li).classList.add('folder');
+            }
+        }
+        if (lecciones[leccionActual].repoStatus.status.files !== undefined) {
+            for (let i = 0; i < lecciones[leccionActual].repoStatus.status.files.length; i++) {
+                let li = createElementNode("li", lecciones[leccionActual].repoStatus.status.files[i]);
+                repoStatusArea.appendChild(li).classList.add('file');
+            }
+        }
+        
+        if (lecciones[leccionActual].repoStatus.status.msg !== undefined) {
+            let li = createElementNode("li", "Nothing to commit");
+            repoStatusArea.appendChild(li).classList.add('commit');
+        }
+
+        // Actualizar Repo Unstaged
+        deleteAllChilds(repoUnstagedArea);
+        if (lecciones[leccionActual].repoStatus.unstaged !== undefined) {
+            for (let i = 0; i < lecciones[leccionActual].repoStatus.unstaged.length; i++) {
+                let li = createElementNode("li", lecciones[leccionActual].repoStatus.unstaged[i]);
+                repoUnstagedArea.appendChild(li);
+            }
+        } else {
+            let li = createElementNode("li", "Nothing staged");
+            repoUnstagedArea.appendChild(li);
+        }
+
+        // Actualizar Repo Commits
+        deleteAllChilds(repoCommitsArea);
+        if (lecciones[leccionActual].repoStatus.commits !== undefined) {
+            for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
+                let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
+                repoCommitsArea.appendChild(li).classList.add('commit');
+            }
+        } else {
+            let li = createElementNode("li", "Nothing commited yet");
+            repoCommitsArea.appendChild(li).classList.add('commit');
         }
     }
 
@@ -96,11 +154,10 @@
         if (passOrFail == 'pass') {
             // PASSED
             for (var i = 0; i < lecciones[leccionActual].successMessages.length; i++) {
-                let parrafo = crearParrafo(lecciones[leccionActual].successMessages[i]);                                       
+                let parrafo = createElementNode("p", lecciones[leccionActual].successMessages[i]);                                       
                 consoleArea.appendChild(parrafo);
             }
-            let parrafo = crearParrafo("Success!");      
-            console.log(parrafo);                                 
+            let parrafo = createElementNode("p", "Success!");                                  
             parrafo.classList.add('success');                                    
             consoleArea.appendChild(parrafo);
             // Siguiente leccion
@@ -109,38 +166,32 @@
             // FAILED
             if (RegExp("(git)", "g").test(textarea.value.trim())) {
                 for (var i = 0; i < lecciones[leccionActual].errorMessages.length; i++) {
-                    let parrafo = crearParrafo(lecciones[leccionActual].errorMessages[i]);                                          
+                    let parrafo = createElementNode("p", lecciones[leccionActual].errorMessages[i]);                                          
                     consoleArea.appendChild(parrafo);
                 }
             } else {
-                let comandError = crearParrafo(textarea.value + ": " + config.errorComando);
+                let comandError = createElementNode("p", textarea.value + ": " + config.errorComando);
                 comandError.style.marginTop                                  
                 consoleArea.appendChild(comandError);
-                console.log(RegExp("(git)", "g").test(textarea.value.trim()));
             }
             // Red error message
-            let parrafo = crearParrafo(lecciones[leccionActual].alert);
+            let parrafo = createElementNode("p", lecciones[leccionActual].alert);
             parrafo.classList.add('error');                                    
             consoleArea.appendChild(parrafo);
         }
-        // let parrafoVacio = document.createElement("p");
-        // parrafoVacio.classList.add('empty-p');
-        // consoleArea.appendChild(parrafoVacio);
     }
 
     function cambiarLineaActual(passOrFail) {
         let lineaActual = document.querySelector('.current-line');
-        let parrafo = crearParrafo("$ " + textarea.value);
+        let parrafo = createElementNode("p", textarea.value);
+        let span = createElementNode("span", "満 ");
+        parrafo.insertBefore(span, parrafo.firstChild).classList.add('line-marker');
         parrafo.style.marginTop  = "15px";
         parrafo.style.marginBottom  = "15px";
-        // let parrafoVacio = document.createElement("p");
-        // parrafoVacio.classList.add('empty-p');
         consoleArea.removeChild(lineaActual);
         
         consoleArea.appendChild(parrafo);
-        // consoleArea.appendChild(parrafoVacio);
         consoleArea.classList.remove('current-line');
-        // lineaActual.classList.add('line');
 
         setTimeout(function() {
             mostrarResultado(passOrFail);
@@ -150,22 +201,21 @@
             consoleArea.lastElementChild.classList.add('current-line');
             consoleArea.lastElementChild.style.marginTop  = "15px";
             lineaActual = document.querySelector('.current-line');
-            lineaActual.innerHTML = '<span>$ </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>';
+            lineaActual.innerHTML = '<span class="line-marker">満 </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>';
             // Ayudar listener para el textarea
             addTextareaListener();
-            console.log(leccionActual);
-            actualizarInstrucciones();
+            actualizarInfoLeccion();
             textarea.value = "";
             textarea.focus();
         }, 1000);
         
     }
 
-    function crearParrafo(texto) {
-        let parrafo = document.createElement("P");
+    function createElementNode(elementTagAsString, texto) {
+        let element = document.createElement(elementTagAsString);
         let textNode = document.createTextNode(texto);
-        parrafo.appendChild(textNode);
-        return parrafo;
+        element.appendChild(textNode);
+        return element;
     }
 
     function addTextareaListener() {
@@ -203,13 +253,25 @@
         });
     }
 
+    function deleteAllChilds(parentElement) {
+        while (parentElement.firstChild) {
+            parentElement.removeChild(parentElement.firstChild);
+        }
+    }
+
     document.querySelector('.comando').addEventListener('click', () => {
+        textarea.value = "";
         textarea.classList.add("typed");
         textarea.value = lecciones[leccionActual].comando;
+        setTimeout(function() {
+            textarea.classList.remove("typed");
+        }, 1000);
     });
 
     // Actualizar instrucciones al cargar
-    actualizarInstrucciones();
+    actualizarInfoLeccion();
     // Ayudar listener para el textarea al cargar
     addTextareaListener();
+    // Coloca nombre de Repo en header de folderArea
+    document.querySelector('#repository .header .title').innerHTML = config.repoName + " Repository";
 })();
