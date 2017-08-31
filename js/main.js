@@ -74,9 +74,10 @@
     var config = JSON.parse(file).config;
 
     var leccionActual = 1;
+    var leccionesTotal = getObjLength(lecciones);
     var avanceActual = 0;
-    var leccionPorcentaje = 100 / getObjLength(lecciones);
-
+    var leccionPorcentaje = 100 / leccionesTotal;
+    
     var consoleArea = document.querySelector('.console-area');
     var textarea = document.querySelector('#console-input');
     var commandHist = [];
@@ -160,7 +161,7 @@
             document.querySelector('#myBar').style.width = avanceActual + "%";
             // Mensajes de exito
             for (var i = 0; i < lecciones[leccionActual].successMessages.length; i++) {
-                let parrafo = createElementNode("p", lecciones[leccionActual].successMessages[i]);                                       
+                let parrafo = createElementNode("p", lecciones[leccionActual].successMessages[i]);
                 consoleArea.appendChild(parrafo);
             }
             let parrafo = createElementNode("p", "Success!");                                  
@@ -172,7 +173,7 @@
             // FAILED
             if (RegExp("(git)", "g").test(textarea.value.trim())) {
                 for (var i = 0; i < lecciones[leccionActual].errorMessages.length; i++) {
-                    let parrafo = createElementNode("p", lecciones[leccionActual].errorMessages[i]);                                          
+                    let parrafo = createElementNode("p", lecciones[leccionActual].errorMessages[i]);  
                     consoleArea.appendChild(parrafo);
                 }
             } else {
@@ -208,11 +209,22 @@
             consoleArea.lastElementChild.style.marginTop  = "15px";
             lineaActual = document.querySelector('.current-line');
             lineaActual.innerHTML = '<span class="line-marker">満 </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>';
-            // Ayudar listener para el textarea
-            addTextareaListener();
-            actualizarInfoLeccion();
-            textarea.value = "";
-            textarea.focus();
+
+            if (leccionActual > leccionesTotal) {
+                sweetAlert({
+                    title: "Congratulations!",
+                    text: "Good job! You have reached the end of this tutorial.",
+                    type: "success",
+                    timer: 5000,
+                    showConfirmButton: false
+                });
+            } else {
+                actualizarInfoLeccion();
+                // Ayudar listener para el textarea
+                addTextareaListener();
+                textarea.value = "";
+                textarea.focus();
+            }
         }, 1000);
         
     }
