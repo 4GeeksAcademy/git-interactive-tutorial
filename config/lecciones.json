@@ -1,0 +1,20 @@
+{
+    "1": {
+        "orden": "1.1",
+        "titulo": "Got 15 minutes and want to learn Git?",
+        "tareas": [
+            "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
+            "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
+        ],
+        "comando": "git init",
+        "errorMessages": [
+            "fatal: Not a git repository (or any of the parent directories): .git"
+        ],
+        "error": "Did not create a Git repo",
+        "successMessages": [
+            "Initialized empty Git repository in /.git/"
+        ],
+        "success": "Success!",
+        "repoStatus": "Empty"
+    }
+}

@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+body {
+    background-color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#leccion > div {
+    padding: 10px;
+}
+
+#instrucciones > h3 {
+    padding: 5px 0;
+}
+
+.tareas > p {
+    padding: 8px 0;
+}
+
+#instrucciones button.comando {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    font-family: monospace;
+    background-color: #ccc;
+}
+
+#instrucciones button.comando:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.console-area {
+    height: 250px;
+    padding: 10px 20px;
+    font-family: monospace;
+    background-color: hsl(220, 13%, 18%);
+    overflow-y: auto;
+    color: #eee;
+    font-size: .8rem;
+    letter-spacing: .5px;
+}
+
+.console-area .line,
+.console-area .current-line {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.console-area .line {
+    display: flex;
+    flex-direction: column;
+}
+
+.empty-p {
+    height: 18.4px !important;
+    content: " ";
+}
+
+.error {
+    color: #fb8a8a;
+}
+
+.success {
+    color: #64c53d;
+}
+
+.error, .success {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.console-area textarea {
+    font-size: .8rem;
+    width: 100%;
+    resize: none;
+    background-color: transparent;
+    /* color: black!important; */
+    color: #eee;
+    border: none;
+    padding: 0 10px 5px 10px;
+    line-height: 1.5;    
+}
+
+.console-area textarea:focus {
+    outline: none;
+}
+
+footer {
+    padding: 10px;
+}
