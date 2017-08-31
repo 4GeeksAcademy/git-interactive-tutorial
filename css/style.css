@@ -47,6 +47,12 @@ main {
     background-color: #ccc;
 }
 
+#instrucciones button.comando::before {
+    font-family: FontAwesome;
+    content: '\f120';
+    margin-right: 5px;
+}
+
 #instrucciones button.comando:hover {
     opacity: .8;
     cursor: pointer;
@@ -55,7 +61,7 @@ main {
 .console-area {
     height: 250px;
     padding: 10px 20px;
-    font-family: monospace;
+    font-family: 'Source Code Pro', monospace;    
     background-color: hsl(220, 13%, 18%);
     overflow-y: auto;
     color: #eee;

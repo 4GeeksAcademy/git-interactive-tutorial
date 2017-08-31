@@ -81,7 +81,7 @@
 
     function cambiarLineaActual(passOrFail) {
         let lineaActual = document.querySelector('.current-line');
-        let parrafo = crearParrafo("> " + textarea.value);
+        let parrafo = crearParrafo("$ " + textarea.value);
         let parrafoVacio = document.createElement("p");
         parrafoVacio.classList.add('empty-p');
         parrafoVacio.classList.innerHTML = " ";
@@ -99,7 +99,7 @@
 
         consoleArea.lastElementChild.classList.add('current-line');
         lineaActual = document.querySelector('.current-line');
-        lineaActual.innerHTML = '<span>> </span><textarea id="console-input"></textarea>';
+        lineaActual.innerHTML = '<span>$ </span><textarea id="console-input"></textarea>';
         // Ayudar listener para el textarea
         addTextareaListener();
         textarea.value = "";
@@ -148,7 +148,8 @@
         });
     }
 
+    // Actualizar instrucciones al cargar
     actualizarInstrucciones();
-    // Ayudar listener para el textarea
+    // Ayudar listener para el textarea al cargar
     addTextareaListener();
 })();
