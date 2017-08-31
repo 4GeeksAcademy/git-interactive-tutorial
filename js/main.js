@@ -74,6 +74,8 @@
     var config = JSON.parse(file).config;
 
     var leccionActual = 1;
+    var avanceActual = 0;
+    var leccionPorcentaje = 100 / getObjLength(lecciones);
 
     var consoleArea = document.querySelector('.console-area');
     var textarea = document.querySelector('#console-input');
@@ -153,6 +155,10 @@
         // Mostrar resultado
         if (passOrFail == 'pass') {
             // PASSED
+            // Actualizar barra de progreso
+            avanceActual += leccionPorcentaje;
+            document.querySelector('#myBar').style.width = avanceActual + "%";
+            // Mensajes de exito
             for (var i = 0; i < lecciones[leccionActual].successMessages.length; i++) {
                 let parrafo = createElementNode("p", lecciones[leccionActual].successMessages[i]);                                       
                 consoleArea.appendChild(parrafo);
@@ -257,6 +263,18 @@
         while (parentElement.firstChild) {
             parentElement.removeChild(parentElement.firstChild);
         }
+    }
+
+    function getObjLength(obj) {
+        let count = 0;
+        let i;
+
+        for (i in obj) {
+            if (obj.hasOwnProperty(i)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     document.querySelector('.comando').addEventListener('click', () => {

@@ -13,53 +13,60 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-        
-    <main class="container">
-        <h1>GitHub Tutorial</h1>
-        <section id="leccion">
-            <div id="instrucciones">
-                <h3 id="instruccion"><span class="orden"></span> - <span class="titulo">Instrucciones</span></h3>
-                <div class="tareas">
-                    <!-- Tareas cargadas como parrafos desde JSON -->
-                </div>
-                <button class="comando"></button>
+    <main>
+        <div class="container">
+            <div id="myProgress">
+                <div id="myBar"></div>
             </div>
-            <div id="terminal">
-                <div class="console-area">
-                    <!-- <div class="line"> -->
-                        <p>Presiona Enter para ingresar tus comandos.</p>
-                    <!-- </div> -->
-                    <div class="current-line">
-                        <span class="line-marker">満 </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>
-                    </div>
-                </div>
-            </div>
+        </div>
             
-            <div id="repository">
-                <div class="header">
-                    <p class="title"></p>
-                    <div class="buttons">
-                        <i class="fa fa-window-minimize" aria-hidden="true"></i>
-                        <i class="fa fa-window-maximize" aria-hidden="true"></i>
-                        <i class="fa fa-window-close close" aria-hidden="true"></i>
+        <div id="area-practica" class="container">
+            <h1>GitHub Tutorial</h1>
+            <section id="leccion">
+                <div id="instrucciones">
+                    <h3 id="instruccion"><span class="orden"></span> - <span class="titulo">Instrucciones</span></h3>
+                    <div class="tareas">
+                        <!-- Tareas cargadas como parrafos desde JSON -->
+                    </div>
+                    <button class="comando"></button>
+                </div>
+                <div id="terminal">
+                    <div class="console-area">
+                        <!-- <div class="line"> -->
+                            <p>Presiona Enter para ingresar tus comandos.</p>
+                        <!-- </div> -->
+                        <div class="current-line">
+                            <span class="line-marker">満 </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="repo-status">
-                    <div class="unstaged">
-                        <h3>Unstaged Files</h3>
-                        <ul></ul>
+                
+                <div id="repository">
+                    <div class="header">
+                        <p class="title"></p>
+                        <div class="buttons">
+                            <i class="fa fa-window-minimize" aria-hidden="true"></i>
+                            <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                            <i class="fa fa-window-close close" aria-hidden="true"></i>
+                        </div>
                     </div>
-                    <div class="status">
-                        <h3>Status</h3>
-                        <ul></ul>
-                    </div>
-                    <div class="commits">
-                        <h3>Commits</h3>
-                        <ul></ul>
+                    <div class="repo-status">
+                        <div class="unstaged">
+                            <h3>Unstaged Files</h3>
+                            <ul></ul>
+                        </div>
+                        <div class="status">
+                            <h3>Status</h3>
+                            <ul></ul>
+                        </div>
+                        <div class="commits">
+                            <h3>Commits</h3>
+                            <ul></ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
