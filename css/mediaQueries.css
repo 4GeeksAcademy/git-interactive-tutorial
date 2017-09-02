@@ -3,7 +3,8 @@
         font-size: 13px;
     }
 
-    .console-area {
+    .console-area,
+    textarea {
         font-size: .7rem !important;
     }
 
@@ -45,5 +46,17 @@
     #repository .repo-status .commits {
         width: 100%;
         min-height: 100px;
+    }
+
+    #repository .repo-status .repo-folder {
+        border-bottom-left-radius: 0;
+    }
+
+    #repository .repo-status .commits {
+        border-bottom-left-radius: 3px;
+    }
+
+    li.folder:active {
+        background-color: transparent;
     }
 }

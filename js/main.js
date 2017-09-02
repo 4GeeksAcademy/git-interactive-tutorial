@@ -9,7 +9,8 @@ oReq.onerror = function () {
     console.log("Error with JSON");
     sweetAlert({
         title: "Something happened!",
-        text: "It seems we couldn't fetch the course data. <br> This page will be reload if 5 seconds.",
+        text: "<p>It seems we couldn't fetch the course data.</p><p>This page will be reload if 5 seconds.</p>",
+        html: true,
         type: "error",
         timer: 5000,
         showConfirmButton: false
@@ -222,7 +223,8 @@ function loadPage() {
             if (leccionActual > leccionesTotal) {
                 sweetAlert({
                     title: "Congratulations!",
-                    text: "<p>Good job! You have reached the end of this tutorial.</p> <p>This page will reload in 5 seconds.</p>",
+                    text: "<p>Good job! You have reached the end of this tutorial.</p><p>This page will reload in 5 seconds.</p>",
+                    html: true,
                     type: "success",
                     timer: 5000,
                     showConfirmButton: false
