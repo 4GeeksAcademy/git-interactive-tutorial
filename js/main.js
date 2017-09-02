@@ -1,85 +1,85 @@
-// var lecciones, config;
-// var oReq = new XMLHttpRequest();
-// oReq.onload = (e) => {
-//     lecciones = JSON.parse(e.target.responseText).lecciones;
-//     config = JSON.parse(e.target.responseText).config;
-//     loadPage();
-// };
-// oReq.onerror = function () {
-//     console.log("Error with JSON");
-//     sweetAlert({
-//         title: "Something happened!",
-//         text: "It seems we couldn't fetch the course data. <br> This page will be reload if 5 seconds.",
-//         type: "error",
-//         timer: 5000,
-//         showConfirmButton: false
-//     }, () => {
-//         location.reload();
-//     });
-// }
-// oReq.open("get", "hhttps://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
-// oReq.send();
+var lecciones, config;
+var oReq = new XMLHttpRequest();
+oReq.onload = (e) => {
+    lecciones = JSON.parse(e.target.responseText).lecciones;
+    config = JSON.parse(e.target.responseText).config;
+    loadPage();
+};
+oReq.onerror = function () {
+    console.log("Error with JSON");
+    sweetAlert({
+        title: "Something happened!",
+        text: "It seems we couldn't fetch the course data. <br> This page will be reload if 5 seconds.",
+        type: "error",
+        timer: 5000,
+        showConfirmButton: false
+    }, () => {
+        location.reload();
+    });
+}
+oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
+oReq.send();
 
-// function loadPage() {
-    var file = `{
-        "config": {
-            "repoName": "Octobox",
-            "errorComando": "comand not found"
-        },
-        "lecciones": {
-            "1": {
-                "orden": "1.1",
-                "titulo": "Got 15 minutes and want to learn Git?",
-                "tareas": [
-                    "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
-                    "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
-                ],
-                "comando": "git init",
-                "errorMessages": [
-                    "fatal: Not a git repository (or any of the parent directories): .git"
-                ],
-                "alert": "Did not create a Git repo",
-                "successMessages": [
-                    "Initialized empty Git repository in /.git/"
-                ],
-                "repoStatus": {}
-            },
-            "2": {
-                "orden": "1.2",
-                "titulo": "Checking the Status",
-                "tareas": [
-                    "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.", 
-                    "To save your progress as you go through this tutorial -- and earn a badge when you successfully complete it -- head over to create a free Code School account. We'll wait for you here.",
-                    "Next up, let's type the git status command to see what the current state of our project is:"
-                ],
-                "comando": "git status",
-                "errorMessages": [
-                    "fatal: Not a git repository (or any of the parent directories): .git"
-                ],
-                "alert": "Did not use git status",
-                "successMessages": [
-                    "# On branch master",
-                    "#",
-                    "# Initial commit",
-                    "#",
-                    "nothing to commit (create/copy files and use 'git add' to track)"
-                ],
-                "repoStatus": {
-                    "repoFolder": [
-                        { ".git": [  ]  },
-                        "octotext.txt"
-                    ]
-                }
-            }
-        }
-    }`;
+function loadPage() {
+    // var file = `{
+    //     "config": {
+    //         "repoName": "Octobox",
+    //         "errorComando": "comand not found"
+    //     },
+    //     "lecciones": {
+    //         "1": {
+    //             "orden": "1.1",
+    //             "titulo": "Got 15 minutes and want to learn Git?",
+    //             "tareas": [
+    //                 "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
+    //                 "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
+    //             ],
+    //             "comando": "git init",
+    //             "errorMessages": [
+    //                 "fatal: Not a git repository (or any of the parent directories): .git"
+    //             ],
+    //             "alert": "Did not create a Git repo",
+    //             "successMessages": [
+    //                 "Initialized empty Git repository in /.git/"
+    //             ],
+    //             "repoStatus": {}
+    //         },
+    //         "2": {
+    //             "orden": "1.2",
+    //             "titulo": "Checking the Status",
+    //             "tareas": [
+    //                 "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.", 
+    //                 "To save your progress as you go through this tutorial -- and earn a badge when you successfully complete it -- head over to create a free Code School account. We'll wait for you here.",
+    //                 "Next up, let's type the git status command to see what the current state of our project is:"
+    //             ],
+    //             "comando": "git status",
+    //             "errorMessages": [
+    //                 "fatal: Not a git repository (or any of the parent directories): .git"
+    //             ],
+    //             "alert": "Did not use git status",
+    //             "successMessages": [
+    //                 "# On branch master",
+    //                 "#",
+    //                 "# Initial commit",
+    //                 "#",
+    //                 "nothing to commit (create/copy files and use 'git add' to track)"
+    //             ],
+    //             "repoStatus": {
+    //                 "repoFolder": [
+    //                     { ".git": [  ]  },
+    //                     "octotext.txt"
+    //                 ]
+    //             }
+    //         }
+    //     }
+    // }`;
 
     // =================================================
     //  GLOBAL VARIABLES
     // ==================================================
 
-    var lecciones = JSON.parse(file).lecciones;
-    var config = JSON.parse(file).config;
+    // var lecciones = JSON.parse(file).lecciones;
+    // var config = JSON.parse(file).config;
 
     var leccionActual = 1;
     var leccionesTotal = getObjLength(lecciones);
@@ -286,9 +286,9 @@
     }
 
     function deleteAllChilds(parentElement, exceptionTagAsString) {
-        while (parentElement.firstChild) {;
+        while (parentElement.firstChild && parentElement.childElementCount > 1) {
             if (exceptionTagAsString !== undefined && parentElement.firstChild.tagName === exceptionTagAsString.toUpperCase()) {
-                return;
+                parentElement.removeChild(parentElement.firstChild.nextSibling);
             }  else {
                 parentElement.removeChild(parentElement.firstChild);
             }
@@ -370,4 +370,4 @@
     setTimeout(function() {
         document.body.style.opacity = 1;
     }, 500);
-// };
+};
