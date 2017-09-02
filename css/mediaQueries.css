@@ -1,6 +1,49 @@
 @media screen and (max-width: 700px) {
+    .only-mobile {
+        display: block;
+    }
+
     body {
         font-size: 13px;
+    }
+
+    .main-menu {
+        height: 100vh !important;
+        display: none;
+    }
+
+    .expanded {
+        display: block !important;
+        width: 330px;
+        overflow: visible;
+        overflow-y: auto;
+    }
+
+    #showNavbar {
+        padding: 0;
+        margin-top: 10px;
+        padding: 3px 5px 5px 10px;
+        width: 48px;
+        height: 40px;
+        position: fixed;
+        color: #434343;
+        background: #fbfbfb;
+        border-right: 1px solid #e5e5e5;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;   
+        top: 0;
+        border-bottom-right-radius: 3px;
+    }
+
+    #showNavbar::before {
+        width: 42px ;
+        height: 42px;
+        font-family: FontAwesome;
+        content: "\f0c9";
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
     }
 
     .console-area,
@@ -13,7 +56,7 @@
     }
 
     #myProgress {
-        width: 90% !important;
+        margin: 15px 10px 0 50px;
         background-color: #f44336;
         border-radius: 30px;
         box-shadow: 0 0 20px #434343 inset;

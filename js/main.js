@@ -1,86 +1,89 @@
-var lecciones, config;
-var oReq = new XMLHttpRequest();
-oReq.onload = (e) => {
-    lecciones = JSON.parse(e.target.responseText).lecciones;
-    config = JSON.parse(e.target.responseText).config;
-    loadPage();
-};
-oReq.onerror = function () {
-    console.log("Error with JSON");
-    sweetAlert({
-        title: "Something happened!",
-        text: "<p>It seems we couldn't fetch the course data.</p><p>This page will be reload if 5 seconds.</p>",
-        html: true,
-        type: "error",
-        timer: 5000,
-        showConfirmButton: false
-    }, () => {
-        location.reload();
-    });
-}
-oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
-oReq.send();
+// var lecciones, config;
+// var oReq = new XMLHttpRequest();
+// oReq.onload = (e) => {
+//     lecciones = JSON.parse(e.target.responseText).lecciones;
+//     config = JSON.parse(e.target.responseText).config;
+//     loadPage();
+// };
+// oReq.onerror = function () {
+//     console.log("Error with JSON");
+//     sweetAlert({
+//         title: "Something happened!",
+//         text: "<p>It seems we couldn't fetch the course data.</p><p>This page will be reload if 5 seconds.</p>",
+//         html: true,
+//         type: "error",
+//         timer: 5000,
+//         showConfirmButton: false
+//     }, () => {
+//         location.reload();
+//     });
+// }
+// oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
+// oReq.send();
 
-function loadPage() {
-    // var file = `{
-    //     "config": {
-    //         "repoName": "Octobox",
-    //         "errorComando": "comand not found"
-    //     },
-    //     "lecciones": {
-    //         "1": {
-    //             "orden": "1.1",
-    //             "titulo": "Got 15 minutes and want to learn Git?",
-    //             "tareas": [
-    //                 "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
-    //                 "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
-    //             ],
-    //             "comando": "git init",
-    //             "errorMessages": [
-    //                 "fatal: Not a git repository (or any of the parent directories): .git"
-    //             ],
-    //             "alert": "Did not create a Git repo",
-    //             "successMessages": [
-    //                 "Initialized empty Git repository in /.git/"
-    //             ],
-    //             "repoStatus": {}
-    //         },
-    //         "2": {
-    //             "orden": "1.2",
-    //             "titulo": "Checking the Status",
-    //             "tareas": [
-    //                 "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.", 
-    //                 "To save your progress as you go through this tutorial -- and earn a badge when you successfully complete it -- head over to create a free Code School account. We'll wait for you here.",
-    //                 "Next up, let's type the git status command to see what the current state of our project is:"
-    //             ],
-    //             "comando": "git status",
-    //             "errorMessages": [
-    //                 "fatal: Not a git repository (or any of the parent directories): .git"
-    //             ],
-    //             "alert": "Did not use git status",
-    //             "successMessages": [
-    //                 "# On branch master",
-    //                 "#",
-    //                 "# Initial commit",
-    //                 "#",
-    //                 "nothing to commit (create/copy files and use 'git add' to track)"
-    //             ],
-    //             "repoStatus": {
-    //                 "repoFolder": [
-    //                     { ".git": [  ]  },
-    //                     "octotext.txt"
-    //                 ]
-    //             }
-    //         }
-    //     }
-    // }`;
+// function loadPage() {
+    var file = `{
+        "config": {
+            "repoName": "Octobox",
+            "_comment": "errorComando, in case no command match",
+            "errorComando": "comand not found"
+        },
+        "lecciones": {
+            "1": {
+                "orden": "1.1",
+                "titulo": "Got 15 minutes and want to learn Git?",
+                "tituloCorto": "Learn Git?",
+                "tareas": [
+                    "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
+                    "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
+                ],
+                "comando": "git init",
+                "errorMessages": [
+                    "fatal: Not a git repository (or any of the parent directories): .git"
+                ],
+                "alert": "Did not create a Git repo",
+                "successMessages": [
+                    "Initialized empty Git repository in /.git/"
+                ],
+                "repoStatus": {}
+            },
+            "2": {
+                "orden": "1.2",
+                "titulo": "Checking the Status",
+                "tituloCorto": "Checking the Status",
+                "tareas": [
+                    "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.", 
+                    "To save your progress as you go through this tutorial -- and earn a badge when you successfully complete it -- head over to create a free Code School account. We'll wait for you here.",
+                    "Next up, let's type the git status command to see what the current state of our project is:"
+                ],
+                "comando": "git status",
+                "errorMessages": [
+                    "fatal: Not a git repository (or any of the parent directories): .git"
+                ],
+                "alert": "Did not use git status",
+                "successMessages": [
+                    "# On branch master",
+                    "#",
+                    "# Initial commit",
+                    "#",
+                    "nothing to commit (create/copy files and use 'git add' to track)"
+                ],
+                "repoStatus": {
+                    "repoFolder": [
+                        { ".git": [  ]  },
+                        "octotext.txt"
+                    ]
+                }
+            }
+        }
+    }`;
 
     // =================================================
     //  GLOBAL VARIABLES
     // ==================================================
 
-    // var lecciones = JSON.parse(file).lecciones;
-    // var config = JSON.parse(file).config;
+    var lecciones = JSON.parse(file).lecciones;
+    var config = JSON.parse(file).config;
 
     var leccionActual = 1;
     var leccionesTotal = getObjLength(lecciones);
@@ -91,6 +94,7 @@ function loadPage() {
     var commandHist = [];
     var commandPos = 1;
     // General areas
+    var navbar = document.querySelector('nav');
     var consoleArea = document.querySelector('.console-area');
     var textarea = document.querySelector('#console-input');
     var areaTareas = document.querySelector('.tareas');
@@ -120,6 +124,10 @@ function loadPage() {
             let parrafo = createElementNode("p" ,lecciones[leccionActual].tareas[i]);
             areaTareas.appendChild(parrafo);     
         }
+
+        // Actualizar Navbar 
+        deleteAllChilds(navbar, "a");
+        navbar.appendChild(createNavbarLinks());
 
         // Actualizar Repo Folder
         deleteAllChilds(repoFolderArea, 'h3');
@@ -276,6 +284,51 @@ function loadPage() {
             // }
         });
     }
+
+    function createNavbarLinks() {
+        let ul = document.createElement('ul');
+        for (let i = 1; i <= leccionesTotal; i++) {
+            let li = document.createElement('li');
+            let a = createElementNode('a', lecciones[i].orden + " - " + lecciones[i].tituloCorto);
+            li.appendChild(a).classList.add('nav-text');
+            // Add link icon class
+            if (i < leccionActual) {
+                li.appendChild(a).classList.add('completed');
+            } else {
+                li.appendChild(a).classList.add('learning');
+            }
+            li.addEventListener('click', () => {
+                navbar.classList.remove('expanded');
+                consoleArea.appendChild(clearTerminal());
+                addTextareaListener();
+                leccionActual = i;
+                actualizarInfoLeccion();
+                // Ayudar listener para el textarea
+                textarea.value = "";
+                textarea.focus();
+            })
+            ul.appendChild(li);
+        }
+        return ul;
+    }
+
+    function clearTerminal() {
+        deleteAllChilds(consoleArea, 'p');
+        let div = document.createElement('div');
+        div.classList.add('current-line');
+        let span = createElementNode('span', "満 ");
+        let newTextarea = document.createElement('textarea');
+        // <span class="line-marker">満 </span>
+        // <textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>
+        div.appendChild(span).classList.add('line-marker');
+        newTextarea.id = 'console-input';
+        newTextarea.setAttribute('autoComplete', "off");
+        newTextarea.setAttribute('autoCorrect', "off");
+        newTextarea.setAttribute('autoCapitalize', "off");
+        newTextarea.setAttribute('spellCheck', "off");
+        div.appendChild(newTextarea);
+        return div;
+    }
     
     // =================================================
     //  HELPER FUNCTIONS
@@ -362,6 +415,10 @@ function loadPage() {
         }, 1000);
     });
 
+    document.querySelector('#showNavbar').addEventListener('click', () => {
+        navbar.classList.toggle('expanded');
+    });
+
     // Actualizar instrucciones al cargar
     actualizarInfoLeccion();
     // Ayudar listener para el textarea al cargar
@@ -372,4 +429,4 @@ function loadPage() {
     setTimeout(function() {
         document.body.style.opacity = 1;
     }, 1000);
-};
+// };

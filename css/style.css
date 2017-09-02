@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+.only-mobile {
+    display: none;
+}
+
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -50,6 +54,114 @@ h1 {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* =================================
+    NAVIGATION
+=================================== */
+
+nav ul, 
+nav li {
+    outline: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu {
+    display: block;
+    z-index: 10;
+    background: #fbfbfb;
+    border-right: 1px solid #e5e5e5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 97% !important;
+    left: 0;
+    width: 59px;
+    overflow: hidden;
+    transition: width .05s linear;
+    transform: translateZ(0) scale(1,1);
+    user-select: none;
+    border: none;
+    border-bottom-right-radius: 3px;
+}
+
+.main-menu:hover {
+    display: block !important;
+    width: 330px;
+    overflow: visible;
+    overflow-y: auto;
+}
+
+.main-menu a.logo-link:link,
+.main-menu a.logo-link:hover,
+.main-menu a.logo-link:active {
+    outline: none;
+    width: 59px !important;
+    display: block;
+}
+
+.main-menu img {
+    display: block;
+    margin: 15px auto 20px auto;
+    width: 50px;
+    
+}
+
+.main-menu > ul {
+    margin: 7px 0;
+}
+
+.main-menu li {
+    position: relative;
+    display: block;
+    width:330px;
+}
+
+.main-menu li > a {
+    position: relative;
+    color: #999;
+    font-size: 14px;
+    transform: translateZ(0) scale(1,1);
+    transition: all .1s linear;
+    display: flex;
+    flex-direction: row;   
+}
+
+.main-menu li:hover > a {
+    cursor: pointer;
+    color: #fff;
+    background-color: #5fa2db;
+}
+
+.main-menu .nav-text {
+    width: 100%;
+    position: relative;
+    vertical-align: middle;
+    text-transform: uppercase;
+    padding: 8px 8px 8px 0;
+    vertical-align: middle;
+}
+
+.main-menu .nav-text::before {
+    font-family: FontAwesome;
+    height: 100%;
+    width: 59px !important;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.main-menu .nav-text.completed::before {
+    content: "\f00c";
+}
+
+.main-menu .nav-text.learning::before {
+    content: "\f212";
+}
+
 /* =================================
     PROGRESS BAR
 =================================== */
@@ -76,6 +188,13 @@ h1 {
     padding: 10px;
 }
 
+#instrucciones {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 #instrucciones > h3 {
     padding: 5px 0;
 }
@@ -85,6 +204,7 @@ h1 {
 }
 
 #instrucciones button.comando {
+    width: fit-content;
     outline: none;
     margin-top: 10px;
     padding: 10px;
@@ -324,6 +444,7 @@ footer {
     padding: 10px;
     background-color: #434343;
     color: #EEE;
+    z-index: 99;
 }
 
 /* =================================
