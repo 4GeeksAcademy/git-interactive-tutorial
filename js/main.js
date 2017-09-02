@@ -1,12 +1,26 @@
-// var lecciones;
+// var lecciones, config;
 // var oReq = new XMLHttpRequest();
 // oReq.onload = (e) => {
-//     lecciones = JSON.parse(e.target.responseText);
+//     lecciones = JSON.parse(e.target.responseText).lecciones;
+//     config = JSON.parse(e.target.responseText).config;
+//     loadPage();
 // };
-// oReq.open("get", "https://s3.amazonaws.com/laraveltienda/config.json", true);
+// oReq.onerror = function () {
+//     console.log("Error with JSON");
+//     sweetAlert({
+//         title: "Something happened!",
+//         text: "It seems we couldn't fetch the course data. <br> This page will be reload if 5 seconds.",
+//         type: "error",
+//         timer: 5000,
+//         showConfirmButton: false
+//     }, () => {
+//         location.reload();
+//     });
+// }
+// oReq.open("get", "hhttps://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
 // oReq.send();
 
-( () => {
+// function loadPage() {
     var file = `{
         "config": {
             "repoName": "Octobox",
@@ -28,12 +42,7 @@
                 "successMessages": [
                     "Initialized empty Git repository in /.git/"
                 ],
-                "repoStatus": {
-                    "status": {
-                        "_comment": "Only add the 'msg' key if there are no files or folders",
-                        "msg": "No git repository"
-                    }
-                }
+                "repoStatus": {}
             },
             "2": {
                 "orden": "1.2",
@@ -56,12 +65,8 @@
                     "nothing to commit (create/copy files and use 'git add' to track)"
                 ],
                 "repoStatus": {
-                    "status": {
-                        "folder": [
-                            ".git"
-                        ]
-                    },
-                    "unstaged": [
+                    "repoFolder": [
+                        { ".git": [  ]  },
                         "octotext.txt"
                     ]
                 }
@@ -69,8 +74,11 @@
         }
     }`;
 
+    // =================================================
+    //  GLOBAL VARIABLES
+    // ==================================================
+
     var lecciones = JSON.parse(file).lecciones;
-    // console.log(lecciones);
     var config = JSON.parse(file).config;
 
     var leccionActual = 1;
@@ -78,15 +86,20 @@
     var avanceActual = 0;
     var leccionPorcentaje = 100 / leccionesTotal;
     
-    var consoleArea = document.querySelector('.console-area');
-    var textarea = document.querySelector('#console-input');
+    // User-introduced command history 
     var commandHist = [];
     var commandPos = 1;
-
+    // General areas
+    var consoleArea = document.querySelector('.console-area');
+    var textarea = document.querySelector('#console-input');
     var areaTareas = document.querySelector('.tareas');
-    var repoStatusArea = document.querySelector('#repository .repo-status .status ul');
-    var repoUnstagedArea = document.querySelector('#repository .repo-status .unstaged ul');
-    var repoCommitsArea = document.querySelector('#repository .repo-status .commits ul');
+    var repoFolderArea = document.querySelector('#repository .repo-status .repo-folder');
+    var repoStagedArea = document.querySelector('#repository .repo-status .staged');
+    var repoCommitsArea = document.querySelector('#repository .repo-status .commits');
+
+    // =================================================
+    //  COURSE TASKS FUNCTIONS
+    // ==================================================
 
     function actualizarInfoLeccion() {
         // Actualizar titulo y orden
@@ -107,48 +120,44 @@
             areaTareas.appendChild(parrafo);     
         }
 
-        // Actualizar Repo Status
-        deleteAllChilds(repoStatusArea);
-        if (lecciones[leccionActual].repoStatus.status.folder !== undefined) {
-            for (let i = 0; i < lecciones[leccionActual].repoStatus.status.folder.length; i++) {
-                let li = createElementNode("li", lecciones[leccionActual].repoStatus.status.folder[i]);
-                repoStatusArea.appendChild(li).classList.add('folder');
-            }
-        }
-        if (lecciones[leccionActual].repoStatus.status.files !== undefined) {
-            for (let i = 0; i < lecciones[leccionActual].repoStatus.status.files.length; i++) {
-                let li = createElementNode("li", lecciones[leccionActual].repoStatus.status.files[i]);
-                repoStatusArea.appendChild(li).classList.add('file');
-            }
-        }
-        
-        if (lecciones[leccionActual].repoStatus.status.msg !== undefined) {
-            let li = createElementNode("li", "Nothing to commit");
-            repoStatusArea.appendChild(li).classList.add('commit');
+        // Actualizar Repo Folder
+        deleteAllChilds(repoFolderArea, 'h3');
+        if (lecciones[leccionActual].repoStatus.repoFolder !== undefined) {
+            let folderStructure = createFolderStructure(lecciones[leccionActual].repoStatus.repoFolder);
+            repoFolderArea.appendChild(folderStructure);
+        } else {
+            let ul = document.createElement('ul');
+            let li = createElementNode("li", "No files in this folder");
+            ul.appendChild(li).classList.add('info');
+            repoFolderArea.appendChild(ul);
         }
 
-        // Actualizar Repo Unstaged
-        deleteAllChilds(repoUnstagedArea);
-        if (lecciones[leccionActual].repoStatus.unstaged !== undefined) {
-            for (let i = 0; i < lecciones[leccionActual].repoStatus.unstaged.length; i++) {
-                let li = createElementNode("li", lecciones[leccionActual].repoStatus.unstaged[i]);
-                repoUnstagedArea.appendChild(li);
-            }
+        // Actualizar Staged
+        deleteAllChilds(repoStagedArea, 'h3');
+        if (lecciones[leccionActual].repoStatus.staged !== undefined) {
+            let folderStructure = createFolderStructure(lecciones[leccionActual].repoStatus.staged);
+            repoStagedArea.appendChild(folderStructure);
         } else {
-            let li = createElementNode("li", "Nothing staged");
-            repoUnstagedArea.appendChild(li);
+            let ul = document.createElement('ul');
+            let li = createElementNode("li", "No files to commit");
+            ul.appendChild(li).classList.add('commit');
+            repoStagedArea.appendChild(ul);
         }
 
         // Actualizar Repo Commits
-        deleteAllChilds(repoCommitsArea);
+        deleteAllChilds(repoCommitsArea, 'h3');
         if (lecciones[leccionActual].repoStatus.commits !== undefined) {
+            let ul = document.createElement('ul');
             for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
                 let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
-                repoCommitsArea.appendChild(li).classList.add('commit');
+                ul.appendChild(li).classList.add('commit');
             }
+            repoCommitsArea.appendChild(ul)
         } else {
+            let ul = document.createElement('ul');
             let li = createElementNode("li", "Nothing commited yet");
-            repoCommitsArea.appendChild(li).classList.add('commit');
+            ul.appendChild(li).classList.add('commit');
+            repoCommitsArea.appendChild(ul);
         }
     }
 
@@ -217,6 +226,8 @@
                     type: "success",
                     timer: 5000,
                     showConfirmButton: false
+                }, () => {
+                    location.reload();
                 });
             } else {
                 actualizarInfoLeccion();
@@ -227,13 +238,6 @@
             }
         }, 1000);
         
-    }
-
-    function createElementNode(elementTagAsString, texto) {
-        let element = document.createElement(elementTagAsString);
-        let textNode = document.createTextNode(texto);
-        element.appendChild(textNode);
-        return element;
     }
 
     function addTextareaListener() {
@@ -270,10 +274,24 @@
             // }
         });
     }
+    
+    // =================================================
+    //  HELPER FUNCTIONS
+    // ==================================================
+    
+    function createElementNode(elementTagAsString, texto) {
+        let element = document.createElement(elementTagAsString);
+        element.innerHTML = texto;
+        return element;
+    }
 
-    function deleteAllChilds(parentElement) {
-        while (parentElement.firstChild) {
-            parentElement.removeChild(parentElement.firstChild);
+    function deleteAllChilds(parentElement, exceptionTagAsString) {
+        while (parentElement.firstChild) {;
+            if (exceptionTagAsString !== undefined && parentElement.firstChild.tagName === exceptionTagAsString.toUpperCase()) {
+                return;
+            }  else {
+                parentElement.removeChild(parentElement.firstChild);
+            }
         }
     }
 
@@ -289,12 +307,56 @@
         return count;
     }
 
+    function createFolderStructure(folderArray) {
+        let ul = document.createElement('ul');
+        for (var i = 0; i < folderArray.length; i++) {
+            var element = folderArray[i];
+            if (typeof(element) === 'object') {
+                for (var key in element) {
+                    let li = createElementNode('li', key);
+                    li.addEventListener('click', (e) => {
+                        e.target.nextSibling.classList.toggle('closed');
+                    })
+                    ul.appendChild(li).classList.add('folder');
+                    if (element[key].length > 0) {
+                        let liContainer = document.createElement('li');
+                        let innerUl = createFolderStructure(element[key]);
+                        liContainer.appendChild(innerUl);
+                        ul.appendChild(liContainer);
+                    } else if (key === ".git") {
+                        let liContainer = document.createElement('li');
+                        liContainer.classList.add('closed');
+                        let innerUl = createElementNode('ul', '<li class="info">Too many files to show! LOL</li>');
+                        liContainer.appendChild(innerUl);
+                        ul.appendChild(liContainer);
+                    } else {
+                        let liContainer = document.createElement('li');
+                        liContainer.classList.add('closed');
+                        let innerUl = createElementNode('ul', '<li class="info">Empty folder</li>');
+                        liContainer.appendChild(innerUl);
+                        ul.appendChild(liContainer);
+                    }
+                }
+            } else {
+                let li = createElementNode('li', element);
+                ul.appendChild(li).classList.add('file');
+            }
+        }
+
+        return ul;
+    }
+
+    // ===================================================
+    //  APLICATION FIRST START
+    // ===================================================
+
     document.querySelector('.comando').addEventListener('click', () => {
         textarea.value = "";
         textarea.classList.add("typed");
-        textarea.value = lecciones[leccionActual].comando;
+        textarea.value = lecciones[leccionActual].comando;        
         setTimeout(function() {
             textarea.classList.remove("typed");
+            textarea.focus();
         }, 1000);
     });
 
@@ -303,5 +365,9 @@
     // Ayudar listener para el textarea al cargar
     addTextareaListener();
     // Coloca nombre de Repo en header de folderArea
-    document.querySelector('#repository .header .title').innerHTML = config.repoName + " Repository";
-})();
+    document.querySelector('#repository .header .title').innerHTML = config.repoName;
+    // Show body after half a second
+    setTimeout(function() {
+        document.body.style.opacity = 1;
+    }, 500);
+// };
