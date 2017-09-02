@@ -1,7 +1,6 @@
 /* =================================
     GENERALES
 =================================== */
-
 * {
     padding: 0;
     margin: 0;
@@ -12,8 +11,11 @@
     display: none; 
 }
 
+html {
+    width: 100vw !important;
+}
+
 body {
-    min-width: 600px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -25,7 +27,12 @@ body {
     transition: opacity 1s;
 }
 
+main {
+    flex: 1;
+}
+
 .container {
+    width: 80%;
     max-width: 1024px;
     margin: 0 auto;
 }
@@ -113,7 +120,7 @@ h1 {
 .console-area {
     display: flex;
     flex-direction: column;
-    font-size: .8rem;
+    font-size: .8rem !important;
     height: 300px;
     padding: 10px 20px;
     font-family: 'Source Code Pro', monospace;    
@@ -181,8 +188,7 @@ h1 {
     REPO FOLDER STRUCTURE
 =================================== */
 #repository {
-    height: 250px;
-    font-size: .9rem;
+    font-size: .9rem !important;
     color: #FFF;
 }
 
@@ -246,6 +252,7 @@ h1 {
 #repository .repo-status .commits {
     width: 34%;
     height: 100%;
+    min-height: 250px;
     padding: 5px 10px;
     columns: #232323;
     overflow-y: auto;
@@ -313,7 +320,7 @@ h1 {
 =================================== */
 
 footer {
-    font-size: .8rem;
+    font-size: .8rem !important;
     padding: 10px;
     background-color: #434343;
     color: #EEE;
@@ -331,4 +338,4 @@ footer {
 
 @keyframes type{ 
     from { width: 0; } 
-} 
+}

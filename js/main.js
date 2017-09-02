@@ -222,7 +222,7 @@ function loadPage() {
             if (leccionActual > leccionesTotal) {
                 sweetAlert({
                     title: "Congratulations!",
-                    text: "Good job! You have reached the end of this tutorial.",
+                    text: "<p>Good job! You have reached the end of this tutorial.</p> <p>This page will reload in 5 seconds.</p>",
                     type: "success",
                     timer: 5000,
                     showConfirmButton: false
@@ -369,5 +369,5 @@ function loadPage() {
     // Show body after half a second
     setTimeout(function() {
         document.body.style.opacity = 1;
-    }, 500);
+    }, 1000);
 };

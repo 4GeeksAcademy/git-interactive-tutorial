@@ -1,0 +1,49 @@
+@media screen and (max-width: 700px) {
+    body {
+        font-size: 13px;
+    }
+
+    .console-area {
+        font-size: .7rem !important;
+    }
+
+    .container {
+        width: 100%
+    }
+
+    #myProgress {
+        width: 90% !important;
+        background-color: #f44336;
+        border-radius: 30px;
+        box-shadow: 0 0 20px #434343 inset;
+    }
+
+    button.comando {
+        font-size: .7rem !important;
+    }
+
+    #repository {
+        font-size: .8rem !important;
+    }
+
+    #repository .header .title {
+        width: 80%;
+    }
+
+    #repository .header .buttons {
+        width: 20%;
+        padding: 6px;
+    }
+
+    #repository .repo-status {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #repository .repo-status .staged,
+    #repository .repo-status .repo-folder,
+    #repository .repo-status .commits {
+        width: 100%;
+        min-height: 100px;
+    }
+}
