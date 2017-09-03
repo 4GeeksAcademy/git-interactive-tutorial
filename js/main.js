@@ -118,7 +118,9 @@
         button.innerHTML = lecciones[leccionActual].comando;
 
         // Limpiar areaTareas
+        console.log("=================================================");
         deleteAllChilds(areaTareas);
+        console.log("=================================================");
         // Agregar nuevas Tareas
         for (var i = 0; i < lecciones[leccionActual].tareas.length; i++) {
             let parrafo = createElementNode("p" ,lecciones[leccionActual].tareas[i]);
@@ -341,13 +343,18 @@
     }
 
     function deleteAllChilds(parentElement, exceptionTagAsString) {
-        while (parentElement.firstChild && parentElement.childElementCount > 1) {
-            if (exceptionTagAsString !== undefined && parentElement.firstChild.tagName === exceptionTagAsString.toUpperCase()) {
-                parentElement.removeChild(parentElement.firstChild.nextSibling);
-            }  else {
-                parentElement.removeChild(parentElement.firstChild);
+        var target = 0;
+        if (parentElement.childElementCount !== 0) {
+            for (let i = 0; target < parentElement.childElementCount; i++) {
+                if (exceptionTagAsString !== undefined &&
+                    parentElement.children[i].tagName === exceptionTagAsString.toUpperCase()) {
+                    target++;
+                    continue;
+                }
+                parentElement.removeChild(parentElement.children[target]);
             }
         }
+        return;
     }
 
     function getObjLength(obj) {
@@ -405,6 +412,17 @@
     //  APLICATION FIRST START
     // ===================================================
 
+    // Actualizar instrucciones al cargar
+    actualizarInfoLeccion();
+    // Ayudar listener para el textarea al cargar
+    addTextareaListener();
+    // Coloca nombre de Repo en header de folderArea
+    document.querySelector('#repository .header .title').innerHTML = config.repoName;
+    // Show body after one second
+    setTimeout(function() {
+        document.body.style.opacity = 1;
+    }, 1000);
+
     document.querySelector('.comando').addEventListener('click', () => {
         textarea.value = "";
         textarea.classList.add("typed");
@@ -418,15 +436,4 @@
     document.querySelector('#showNavbar').addEventListener('click', () => {
         navbar.classList.toggle('expanded');
     });
-
-    // Actualizar instrucciones al cargar
-    actualizarInfoLeccion();
-    // Ayudar listener para el textarea al cargar
-    addTextareaListener();
-    // Coloca nombre de Repo en header de folderArea
-    document.querySelector('#repository .header .title').innerHTML = config.repoName;
-    // Show body after half a second
-    setTimeout(function() {
-        document.body.style.opacity = 1;
-    }, 1000);
 // };
