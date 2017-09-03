@@ -118,9 +118,7 @@
         button.innerHTML = lecciones[leccionActual].comando;
 
         // Limpiar areaTareas
-        console.log("=================================================");
         deleteAllChilds(areaTareas);
-        console.log("=================================================");
         // Agregar nuevas Tareas
         for (var i = 0; i < lecciones[leccionActual].tareas.length; i++) {
             let parrafo = createElementNode("p" ,lecciones[leccionActual].tareas[i]);
@@ -178,6 +176,7 @@
             // PASSED
             // Actualizar barra de progreso
             avanceActual += leccionPorcentaje;
+            console.log(avanceActual);
             document.querySelector('#myBar').style.width = avanceActual + "%";
             // Mensajes de exito
             for (var i = 0; i < lecciones[leccionActual].successMessages.length; i++) {
@@ -304,6 +303,8 @@
                 consoleArea.appendChild(clearTerminal());
                 addTextareaListener();
                 leccionActual = i;
+                avanceActual = (leccionActual - 1)  * leccionPorcentaje;
+                document.querySelector('#myBar').style.width = avanceActual + "%";
                 actualizarInfoLeccion();
                 // Ayudar listener para el textarea
                 textarea.value = "";
