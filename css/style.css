@@ -74,10 +74,11 @@ nav li {
     z-index: 10;
     background: #fbfbfb;
     border-right: 1px solid #e5e5e5;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
-    height: 97% !important;
+    height: fit-content;
+    padding-bottom: 30px;
     left: 0;
     width: 59px;
     overflow: hidden;
