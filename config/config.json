@@ -1,12 +1,14 @@
 {
     "config": {
         "repoName": "Octobox",
+        "_comment": "errorComando, in case no command match",
         "errorComando": "comand not found"
     },
     "lecciones": {
         "1": {
             "orden": "1.1",
             "titulo": "Got 15 minutes and want to learn Git?",
+            "tituloCorto": "Learn Git?",
             "tareas": [
                 "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
                 "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
@@ -24,6 +26,7 @@
         "2": {
             "orden": "1.2",
             "titulo": "Checking the Status",
+            "tituloCorto": "Checking the Status",
             "tareas": [
                 "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.", 
                 "To save your progress as you go through this tutorial -- and earn a badge when you successfully complete it -- head over to create a free Code School account. We'll wait for you here.",
