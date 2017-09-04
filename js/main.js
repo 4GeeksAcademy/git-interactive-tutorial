@@ -26,7 +26,16 @@
         "config": {
             "repoName": "Octobox",
             "_comment": "errorComando, in case no command match",
-            "errorComando": "comand not found"
+            "errorComando": "comand not found",
+            "_comment": "if user writes git show following error",
+            "errorMessages": [
+                "usage: git [--version] [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]",
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-p|--paginate|--no-pager] [--no-replace-objects] [--bare]",
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[--git-dir=&lt;path>] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]",
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-c name=value] [--help]",
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;command> [&lt;args&gt;]",
+                "&nbsp;"
+            ]
         },
         "lecciones": {
             "1": {
@@ -35,12 +44,9 @@
                 "tituloCorto": "Learn Git?",
                 "tareas": [
                     "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
-                    "Our terminal prompt below is currently in a directory we decided to name 'octobox'. To initialize a Git repository here, type the following command:"
+                    "Our terminal prompt below is currently in a directory we decided to name \\"octobox\\". To initialize a Git repository here, type the following command:"
                 ],
                 "comando": "git init",
-                "errorMessages": [
-                    "fatal: Not a git repository (or any of the parent directories): .git"
-                ],
                 "alert": "Did not create a Git repo",
                 "successMessages": [
                     "Initialized empty Git repository in /.git/"
@@ -52,26 +58,129 @@
                 "titulo": "Checking the Status",
                 "tituloCorto": "Checking the Status",
                 "tareas": [
-                    "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.", 
-                    "To save your progress as you go through this tutorial -- and earn a badge when you successfully complete it -- head over to create a free Code School account. We'll wait for you here.",
+                    "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.",
                     "Next up, let's type the git status command to see what the current state of our project is:"
                 ],
                 "comando": "git status",
-                "errorMessages": [
-                    "fatal: Not a git repository (or any of the parent directories): .git"
-                ],
                 "alert": "Did not use git status",
                 "successMessages": [
                     "# On branch master",
                     "#",
                     "# Initial commit",
                     "#",
-                    "nothing to commit (create/copy files and use 'git add' to track)"
+                    "nothing to commit (create/copy files and use \\"git add\\" to track)"
                 ],
                 "repoStatus": {
                     "repoFolder": [
                         { ".git": [  ]  },
                         "octotext.txt"
+                    ]
+                }
+            },
+            "3": {
+                "orden": "1.3",
+                "titulo": "Adding & Committing",
+                "tituloCorto": "Adding & Committing",
+                "tareas": [
+                    "I created a file called octocat.txt in the octobox repository for you (as you can see in the browser below).", 
+                    "You should run the git status command again to see how the repository status has changed:"
+                ],
+                "comando": "git status",
+                "alert": "Did not use git status",
+                "successMessages": [
+                    "# On branch master",
+                    "#",
+                    "# Initial commit",
+                    "#",
+                    "# Untracked files:",
+                    "#   (use \\"git add <file>...\\" to include in what will be committed)",
+                    "#",
+                    "#   <strong class=\\"red\\">octocat.txt</strong>",
+                    "nothing added to commit but untracked files present (use 'git add' to track)"
+                ],
+                "repoStatus": {
+                    "repoFolder": [
+                        { ".git": [  ]  },
+                        "octotext.txt"
+                    ]
+                }
+            },
+            "4": {
+                "orden": "1.4",
+                "titulo": "Adding Changes",
+                "tituloCorto": "Adding Changes",
+                "tareas": [
+                    "Good, it looks like our Git repository is working properly. Notice how Git says octocat.txt is \\"untracked\\"? That means Git sees that  octocat.txt is a new file.", 
+                    "To tell Git to start tracking changes made to octocat.txt, we first need to add it to the staging area by using git add."
+                ],
+                "comando": "git add octocat.txt",
+                "alert": "Did not add octocat.txt",
+                "successMessages": [
+                    "<span class=\\"success\\">Nice job, you've added octocat.txt to the Staging Area!</span>"
+                ],
+                "repoStatus": {
+                    "repoFolder": [
+                        { ".git": [  ]  },
+                        "octotext.txt"
+                    ],
+                    "staged": [
+                        "octotext.txt"
+                    ]
+                }
+            },
+            "5": {
+                "orden": "1.5",
+                "titulo": "Checking for Changes",
+                "tituloCorto": "Checking for Changes",
+                "tareas": [
+                    "Good job! Git is now tracking our octocat.txt file. Let's run git status again to see where we stand:"
+                ],
+                "comando": "git status",
+                "alert": "Did not use git status",
+                "successMessages": [
+                    "# On branch master",
+                    "#",
+                    "# Initial commit",
+                    "#",
+                    "# Changes to be committed:",
+                    "#   (use \\"git rm --cached <file>...\\" to unstage)",
+                    "#",
+                    "#   <span class=\\"success\\">new file:   octocat.txt</span>",
+                    "#"
+                ],
+                "repoStatus": {
+                    "repoFolder": [
+                        { ".git": [  ]  },
+                        "octotext.txt"
+                    ],
+                    "staged": [
+                        "octotext.txt"
+                    ]
+                }
+            },
+            "6": {
+                "orden": "1.6",
+                "titulo": "Committing",
+                "tituloCorto": "Committing",
+                "tareas": [
+                    "Notice how Git says changes to be committed? The files listed here are in the Staging Area, and they are not in our repository yet. We could add or remove files from the stage before we store them in the repository.",
+                    "To store our staged changes we run the commit command with a message describing what we've changed. Let's do that now by typing:"
+                ],
+                "comando": "git commit -m \\"Add cute octocat story\\"",
+                "alert": "Did not use git commit",
+                "successMessages": [
+                    "[master (root-commit) 20b5ccd] Add cute octocat story",
+                    "1 file changed, 1 insertion(+)",
+                    "create mode 100644 octocat.txt",
+                    "&nbsp;"
+                ],
+                "repoStatus": {
+                    "repoFolder": [
+                        { ".git": [  ]  },
+                        "octotext.txt"
+                    ],
+                    "commits": [
+                        "100644 - Add cute octocat story"
                     ]
                 }
             }
@@ -140,34 +249,6 @@
             ul.appendChild(li).classList.add('info');
             repoFolderArea.appendChild(ul);
         }
-
-        // Actualizar Staged
-        deleteAllChilds(repoStagedArea, 'h3');
-        if (lecciones[leccionActual].repoStatus.staged !== undefined) {
-            let folderStructure = createFolderStructure(lecciones[leccionActual].repoStatus.staged);
-            repoStagedArea.appendChild(folderStructure);
-        } else {
-            let ul = document.createElement('ul');
-            let li = createElementNode("li", "No files to commit");
-            ul.appendChild(li).classList.add('commit');
-            repoStagedArea.appendChild(ul);
-        }
-
-        // Actualizar Repo Commits
-        deleteAllChilds(repoCommitsArea, 'h3');
-        if (lecciones[leccionActual].repoStatus.commits !== undefined) {
-            let ul = document.createElement('ul');
-            for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
-                let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
-                ul.appendChild(li).classList.add('commit');
-            }
-            repoCommitsArea.appendChild(ul)
-        } else {
-            let ul = document.createElement('ul');
-            let li = createElementNode("li", "Nothing commited yet");
-            ul.appendChild(li).classList.add('commit');
-            repoCommitsArea.appendChild(ul);
-        }
     }
 
     function mostrarResultado(passOrFail) {
@@ -176,7 +257,6 @@
             // PASSED
             // Actualizar barra de progreso
             avanceActual += leccionPorcentaje;
-            console.log(avanceActual);
             document.querySelector('#myBar').style.width = avanceActual + "%";
             // Mensajes de exito
             for (var i = 0; i < lecciones[leccionActual].successMessages.length; i++) {
@@ -186,13 +266,40 @@
             let parrafo = createElementNode("p", "Success!");                                  
             parrafo.classList.add('success');                                    
             consoleArea.appendChild(parrafo);
+            // Actualizar Staged
+            deleteAllChilds(repoStagedArea, 'h3');
+            if (lecciones[leccionActual].repoStatus.staged !== undefined) {
+                let folderStructure = createFolderStructure(lecciones[leccionActual].repoStatus.staged);
+                repoStagedArea.appendChild(folderStructure);
+            } else {
+                let ul = document.createElement('ul');
+                let li = createElementNode("li", "No files to commit");
+                ul.appendChild(li).classList.add('commit');
+                repoStagedArea.appendChild(ul);
+            }
+
+            // Actualizar Repo Commits
+            deleteAllChilds(repoCommitsArea, 'h3');
+            if (lecciones[leccionActual].repoStatus.commits !== undefined) {
+                let ul = document.createElement('ul');
+                for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
+                    let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
+                    ul.appendChild(li).classList.add('commit');
+                }
+                repoCommitsArea.appendChild(ul)
+            } else {
+                let ul = document.createElement('ul');
+                let li = createElementNode("li", "Nothing commited yet");
+                ul.appendChild(li).classList.add('commit');
+                repoCommitsArea.appendChild(ul);
+            }
             // Siguiente leccion
             leccionActual++;
         } else {
             // FAILED
             if (RegExp("(git)", "g").test(textarea.value.trim())) {
-                for (var i = 0; i < lecciones[leccionActual].errorMessages.length; i++) {
-                    let parrafo = createElementNode("p", lecciones[leccionActual].errorMessages[i]);  
+                for (var i = 0; i < config.errorMessages.length; i++) {
+                    let parrafo = createElementNode("p", config.errorMessages[i]);  
                     consoleArea.appendChild(parrafo);
                 }
             } else {
@@ -230,16 +337,18 @@
             lineaActual.innerHTML = '<span class="line-marker">満 </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>';
 
             if (leccionActual > leccionesTotal) {
-                sweetAlert({
-                    title: "Congratulations!",
-                    text: "<p>Good job! You have reached the end of this tutorial.</p><p>This page will reload in 5 seconds.</p>",
-                    html: true,
-                    type: "success",
-                    timer: 5000,
-                    showConfirmButton: false
-                }, () => {
-                    location.reload();
-                });
+                setTimeout(function() {
+                    sweetAlert({
+                        title: "Congratulations!",
+                        text: "<p>Good job! You have reached the end of this tutorial.</p><p>This page will reload in 5 seconds.</p>",
+                        html: true,
+                        type: "success",
+                        timer: 5000,
+                        showConfirmButton: false
+                    }, () => {
+                        location.reload();
+                    });
+                }, 5000);
             } else {
                 actualizarInfoLeccion();
                 // Ayudar listener para el textarea
