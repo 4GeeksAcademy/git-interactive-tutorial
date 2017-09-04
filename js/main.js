@@ -1,198 +1,31 @@
-// var lecciones, config;
-// var oReq = new XMLHttpRequest();
-// oReq.onload = (e) => {
-//     lecciones = JSON.parse(e.target.responseText).lecciones;
-//     config = JSON.parse(e.target.responseText).config;
-//     loadPage();
-// };
-// oReq.onerror = function () {
-//     console.log("Error with JSON");
-//     sweetAlert({
-//         title: "Something happened!",
-//         text: "<p>It seems we couldn't fetch the course data.</p><p>This page will be reload if 5 seconds.</p>",
-//         html: true,
-//         type: "error",
-//         timer: 5000,
-//         showConfirmButton: false
-//     }, () => {
-//         location.reload();
-//     });
-// }
-// oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
-// oReq.send();
+var lecciones, config;
+var oReq = new XMLHttpRequest();
+oReq.onload = (e) => {
+    lecciones = JSON.parse(e.target.responseText).lecciones;
+    config = JSON.parse(e.target.responseText).config;
+    loadPage();
+};
+oReq.onerror = function () {
+    console.log("Error with JSON");
+    sweetAlert({
+        title: "Something happened!",
+        text: "<p>It seems we couldn't fetch the course data.</p><p>This page will be reload if 5 seconds.</p>",
+        html: true,
+        type: "error",
+        timer: 5000,
+        showConfirmButton: false
+    }, () => {
+        location.reload();
+    });
+}
+oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
+oReq.send();
 
-// function loadPage() {
-    var file = `{
-        "config": {
-            "repoName": "Octobox",
-            "_comment": "errorComando, in case no command match",
-            "errorComando": "comand not found",
-            "_comment": "if user writes git show following error",
-            "errorMessages": [
-                "usage: git [--version] [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]",
-                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-p|--paginate|--no-pager] [--no-replace-objects] [--bare]",
-                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[--git-dir=&lt;path>] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]",
-                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-c name=value] [--help]",
-                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;command> [&lt;args&gt;]",
-                "&nbsp;"
-            ]
-        },
-        "lecciones": {
-            "1": {
-                "orden": "1.1",
-                "titulo": "Got 15 minutes and want to learn Git?",
-                "tituloCorto": "Learn Git?",
-                "tareas": [
-                    "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
-                    "Our terminal prompt below is currently in a directory we decided to name \\"octobox\\". To initialize a Git repository here, type the following command:"
-                ],
-                "comando": "git init",
-                "alert": "Did not create a Git repo",
-                "successMessages": [
-                    "Initialized empty Git repository in /.git/"
-                ],
-                "repoStatus": {}
-            },
-            "2": {
-                "orden": "1.2",
-                "titulo": "Checking the Status",
-                "tituloCorto": "Checking the Status",
-                "tareas": [
-                    "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.",
-                    "Next up, let's type the git status command to see what the current state of our project is:"
-                ],
-                "comando": "git status",
-                "alert": "Did not use git status",
-                "successMessages": [
-                    "# On branch master",
-                    "#",
-                    "# Initial commit",
-                    "#",
-                    "nothing to commit (create/copy files and use \\"git add\\" to track)"
-                ],
-                "repoStatus": {
-                    "repoFolder": [
-                        { ".git": [  ]  },
-                        "octotext.txt"
-                    ]
-                }
-            },
-            "3": {
-                "orden": "1.3",
-                "titulo": "Adding & Committing",
-                "tituloCorto": "Adding & Committing",
-                "tareas": [
-                    "I created a file called octocat.txt in the octobox repository for you (as you can see in the browser below).", 
-                    "You should run the git status command again to see how the repository status has changed:"
-                ],
-                "comando": "git status",
-                "alert": "Did not use git status",
-                "successMessages": [
-                    "# On branch master",
-                    "#",
-                    "# Initial commit",
-                    "#",
-                    "# Untracked files:",
-                    "#   (use \\"git add <file>...\\" to include in what will be committed)",
-                    "#",
-                    "#   <strong class=\\"red\\">octocat.txt</strong>",
-                    "nothing added to commit but untracked files present (use 'git add' to track)"
-                ],
-                "repoStatus": {
-                    "repoFolder": [
-                        { ".git": [  ]  },
-                        "octotext.txt"
-                    ]
-                }
-            },
-            "4": {
-                "orden": "1.4",
-                "titulo": "Adding Changes",
-                "tituloCorto": "Adding Changes",
-                "tareas": [
-                    "Good, it looks like our Git repository is working properly. Notice how Git says octocat.txt is \\"untracked\\"? That means Git sees that  octocat.txt is a new file.", 
-                    "To tell Git to start tracking changes made to octocat.txt, we first need to add it to the staging area by using git add."
-                ],
-                "comando": "git add octocat.txt",
-                "alert": "Did not add octocat.txt",
-                "successMessages": [
-                    "<span class=\\"success\\">Nice job, you've added octocat.txt to the Staging Area!</span>"
-                ],
-                "repoStatus": {
-                    "repoFolder": [
-                        { ".git": [  ]  },
-                        "octotext.txt"
-                    ],
-                    "staged": [
-                        "octotext.txt"
-                    ]
-                }
-            },
-            "5": {
-                "orden": "1.5",
-                "titulo": "Checking for Changes",
-                "tituloCorto": "Checking for Changes",
-                "tareas": [
-                    "Good job! Git is now tracking our octocat.txt file. Let's run git status again to see where we stand:"
-                ],
-                "comando": "git status",
-                "alert": "Did not use git status",
-                "successMessages": [
-                    "# On branch master",
-                    "#",
-                    "# Initial commit",
-                    "#",
-                    "# Changes to be committed:",
-                    "#   (use \\"git rm --cached <file>...\\" to unstage)",
-                    "#",
-                    "#   <span class=\\"success\\">new file:   octocat.txt</span>",
-                    "#"
-                ],
-                "repoStatus": {
-                    "repoFolder": [
-                        { ".git": [  ]  },
-                        "octotext.txt"
-                    ],
-                    "staged": [
-                        "octotext.txt"
-                    ]
-                }
-            },
-            "6": {
-                "orden": "1.6",
-                "titulo": "Committing",
-                "tituloCorto": "Committing",
-                "tareas": [
-                    "Notice how Git says changes to be committed? The files listed here are in the Staging Area, and they are not in our repository yet. We could add or remove files from the stage before we store them in the repository.",
-                    "To store our staged changes we run the commit command with a message describing what we've changed. Let's do that now by typing:"
-                ],
-                "comando": "git commit -m \\"Add cute octocat story\\"",
-                "alert": "Did not use git commit",
-                "successMessages": [
-                    "[master (root-commit) 20b5ccd] Add cute octocat story",
-                    "1 file changed, 1 insertion(+)",
-                    "create mode 100644 octocat.txt",
-                    "&nbsp;"
-                ],
-                "repoStatus": {
-                    "repoFolder": [
-                        { ".git": [  ]  },
-                        "octotext.txt"
-                    ],
-                    "commits": [
-                        "100644 - Add cute octocat story"
-                    ]
-                }
-            }
-        }
-    }`;
+function loadPage() {
 
     // =================================================
     //  GLOBAL VARIABLES
     // ==================================================
-
-    var lecciones = JSON.parse(file).lecciones;
-    var config = JSON.parse(file).config;
 
     var leccionActual = 1;
     var leccionesTotal = getObjLength(lecciones);
@@ -543,7 +376,14 @@
         }, 1000);
     });
 
-    document.querySelector('#showNavbar').addEventListener('click', () => {
-        navbar.classList.toggle('expanded');
+    // Mostrar y ocultar Sidebar menu 
+    document.querySelector('#showNavbar').addEventListener('mouseover', () => {
+        setTimeout(function() {
+            navbar.classList.add('expanded');
+        }, 100);
     });
-// };
+
+    document.querySelector('#showNavbar').addEventListener('mouseleave', () => {
+            navbar.classList.remove('expanded');
+    });
+};
