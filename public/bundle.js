@@ -560,6 +560,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_sweetalert__);
 
 
+// Loading JSON
 var lecciones, config;
 var oReq = new XMLHttpRequest();
 oReq.onload = (e) => {
@@ -588,7 +589,7 @@ function loadPage() {
     var avanceActual = 0;
     var leccionPorcentaje = 100 / leccionesTotal;
     
-    // User-introduced command history 
+    // User command history 
     var commandHist = [];
     var commandPos = 1;
     // General areas
@@ -603,7 +604,7 @@ function loadPage() {
     // =================================================
     //  COURSE TASKS FUNCTIONS
     // ==================================================
-
+    // Updates every contentn area in the site
     function actualizarInfoLeccion() {
         // Actualizar titulo y orden
         let titulo = document.querySelector('#instrucciones .titulo');
@@ -640,6 +641,7 @@ function loadPage() {
         }
     }
 
+    // Evaluates command and shows a preddefined message from JSON
     function mostrarResultado(passOrFail) {
         // Mostrar resultado
         if (passOrFail == 'pass') {
@@ -702,7 +704,7 @@ function loadPage() {
             consoleArea.appendChild(parrafo);
         }
     }
-
+    // Changes line and shows result every time the users presses Enter in console area
     function cambiarLineaActual(passOrFail) {
         let lineaActual = document.querySelector('.current-line');
         let div = document.createElement('div');
@@ -756,7 +758,7 @@ function loadPage() {
         }, 1000);
         
     }
-
+    // Add listener to text area every time it's appended in the console area
     function addTextareaListener() {
         textarea = document.querySelector('#console-input');
         textarea.addEventListener('keydown', (e) => {
@@ -782,18 +784,10 @@ function loadPage() {
                 textarea.value = "";
                 textarea.value = commandHist[commandHist.length - commandPos];
                 commandPos++;
-                // console.log(commandPos);
             } 
-            // else if (e.keyCode === 40 && commandPos > 1 && commandHist.length > 0) {
-            //     // Down pressed
-            //     textarea.value = "";
-            //     commandPos--;
-            //     textarea.value = commandHist[commandPos + 1];
-            //     console.log(commandPos);
-            // }
         });
     }
-
+    // Every time a lesson changes the navbar is rebuilt based on current lesson
     function createNavbarLinks() {
         let ul = document.createElement('ul');
         for (let i = 1; i <= leccionesTotal; i++) {
@@ -822,7 +816,7 @@ function loadPage() {
         }
         return ul;
     }
-
+    // Clears the terminal of any content
     function clearTerminal() {
         deleteAllChilds(consoleArea);
         let div = document.createElement('div');
@@ -843,13 +837,13 @@ function loadPage() {
     // =================================================
     //  HELPER FUNCTIONS
     // ==================================================
-    
+    // Creates element tag with text
     function createElementNode(elementTagAsString, texto) {
         let element = document.createElement(elementTagAsString);
         element.innerHTML = texto;
         return element;
     }
-
+    // Deletes every child elements but the one that matches the exception
     function deleteAllChilds(parentElement, exceptionTagAsString) {
         var target = 0;
         if (parentElement.childElementCount !== 0) {
@@ -864,7 +858,7 @@ function loadPage() {
         }
         return;
     }
-
+    // Return object length
     function getObjLength(obj) {
         let count = 0;
         let i;
@@ -876,7 +870,7 @@ function loadPage() {
         }
         return count;
     }
-
+    // Creates the entire folder structure based on the folder array in JSON
     function createFolderStructure(folderArray) {
         let ul = document.createElement('ul');
         for (var i = 0; i < folderArray.length; i++) {
@@ -930,7 +924,7 @@ function loadPage() {
     setTimeout(function() {
         document.body.style.opacity = 1;
     }, 1000);
-
+    // Click event for button that 'writes' commando in console
     document.querySelector('.comando').addEventListener('click', () => {
         textarea.value = "";
         textarea.classList.add("typed");
@@ -962,7 +956,6 @@ function loadPage() {
     })
     // Volver a mostrar columna del repositorio
     document.querySelector('.show-repo').addEventListener('click', () => {
-        let repo = document.querySelector('#repository');
         let column1 = document.querySelector('.column-1');
         let column2 = document.querySelector('.column-2');
         column1.style.width = '70%';
