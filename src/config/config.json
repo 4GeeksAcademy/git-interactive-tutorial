@@ -20,7 +20,7 @@
             "tituloCorto": "Learn Git?",
             "tareas": [
                 "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
-                "Our terminal prompt below is currently in a directory we decided to name \\"octobox\\". To initialize a Git repository here, type the following command:"
+                "Our terminal prompt below is currently in a directory we decided to name \"octobox\". To initialize a Git repository here, type the following command:"
             ],
             "comando": "git init",
             "alert": "Did not create a Git repo",
@@ -44,7 +44,7 @@
                 "#",
                 "# Initial commit",
                 "#",
-                "nothing to commit (create/copy files and use \\"git add\\" to track)"
+                "nothing to commit (create/copy files and use \"git add\" to track)"
             ],
             "repoStatus": {
                 "repoFolder": [
@@ -69,9 +69,9 @@
                 "# Initial commit",
                 "#",
                 "# Untracked files:",
-                "#   (use \\"git add <file>...\\" to include in what will be committed)",
+                "#   (use \"git add <file>...\" to include in what will be committed)",
                 "#",
-                "#   <strong class=\\"red\\">octocat.txt</strong>",
+                "#   <strong class=\"red\">octocat.txt</strong>",
                 "nothing added to commit but untracked files present (use 'git add' to track)"
             ],
             "repoStatus": {
@@ -86,13 +86,13 @@
             "titulo": "Adding Changes",
             "tituloCorto": "Adding Changes",
             "tareas": [
-                "Good, it looks like our Git repository is working properly. Notice how Git says octocat.txt is \\"untracked\\"? That means Git sees that  octocat.txt is a new file.", 
+                "Good, it looks like our Git repository is working properly. Notice how Git says octocat.txt is \"untracked\"? That means Git sees that  octocat.txt is a new file.", 
                 "To tell Git to start tracking changes made to octocat.txt, we first need to add it to the staging area by using git add."
             ],
             "comando": "git add octocat.txt",
             "alert": "Did not add octocat.txt",
             "successMessages": [
-                "<span class=\\"success\\">Nice job, you've added octocat.txt to the Staging Area!</span>"
+                "<span class=\"success\">Nice job, you've added octocat.txt to the Staging Area!</span>"
             ],
             "repoStatus": {
                 "repoFolder": [
@@ -119,9 +119,9 @@
                 "# Initial commit",
                 "#",
                 "# Changes to be committed:",
-                "#   (use \\"git rm --cached <file>...\\" to unstage)",
+                "#   (use \"git rm --cached <file>...\" to unstage)",
                 "#",
-                "#   <span class=\\"success\\">new file:   octocat.txt</span>",
+                "#   <span class=\"success\">new file:   octocat.txt</span>",
                 "#"
             ],
             "repoStatus": {
@@ -142,7 +142,7 @@
                 "Notice how Git says changes to be committed? The files listed here are in the Staging Area, and they are not in our repository yet. We could add or remove files from the stage before we store them in the repository.",
                 "To store our staged changes we run the commit command with a message describing what we've changed. Let's do that now by typing:"
             ],
-            "comando": "git commit -m \\"Add cute octocat story\\"",
+            "comando": "git commit -m \"Add cute octocat story\"",
             "alert": "Did not use git commit",
             "successMessages": [
                 "[master (root-commit) 20b5ccd] Add cute octocat story",

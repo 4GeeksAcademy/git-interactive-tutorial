@@ -1,3 +1,5 @@
+import {} from 'sweetalert';
+
 var lecciones, config;
 var oReq = new XMLHttpRequest();
 oReq.onload = (e) => {
@@ -6,17 +8,11 @@ oReq.onload = (e) => {
     loadPage();
 };
 oReq.onerror = function () {
-    console.log("Error with JSON");
-    sweetAlert({
-        title: "Something happened!",
-        text: "<p>It seems we couldn't fetch the course data.</p><p>This page will be reload if 5 seconds.</p>",
-        html: true,
-        type: "error",
-        timer: 5000,
-        showConfirmButton: false
-    }, () => {
-        location.reload();
-    });
+    document.body.innerHTML = `<div class="container no-json">
+                                    <h1 class="red animated pulse loop">Error loading course data :'(</h1>
+                                    <p>Please check your internet connection and reload this page.</p>
+                                </div>`;
+    document.body.style.opacity = 1;
 }
 oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
 oReq.send();
@@ -50,9 +46,9 @@ function loadPage() {
 
     function actualizarInfoLeccion() {
         // Actualizar titulo y orden
-        let titulo = document.querySelector('#instrucciones h3 .titulo');
+        let titulo = document.querySelector('#instrucciones .titulo');
         titulo.innerHTML = lecciones[leccionActual].titulo;
-        let orden = document.querySelector('#instrucciones h3 .orden');
+        let orden = document.querySelector('#instrucciones .orden');
         orden.innerHTML = lecciones[leccionActual].orden;
 
         // Actualizar comando en boton
@@ -78,7 +74,7 @@ function loadPage() {
             repoFolderArea.appendChild(folderStructure);
         } else {
             let ul = document.createElement('ul');
-            let li = createElementNode("li", "No files in this folder");
+            let li = createElementNode("li", "No files in this folder yet");
             ul.appendChild(li).classList.add('info');
             repoFolderArea.appendChild(ul);
         }
@@ -149,37 +145,45 @@ function loadPage() {
 
     function cambiarLineaActual(passOrFail) {
         let lineaActual = document.querySelector('.current-line');
+        let div = document.createElement('div');
+        div.classList.add('line');
         let parrafo = createElementNode("p", textarea.value);
-        let span = createElementNode("span", "満 ");
-        parrafo.insertBefore(span, parrafo.firstChild).classList.add('line-marker');
         parrafo.style.marginTop  = "15px";
         parrafo.style.marginBottom  = "15px";
-        consoleArea.removeChild(lineaActual);
         
-        consoleArea.appendChild(parrafo);
+        let img = document.createElement('img');
+        img.classList.add('line-marker');
+        img.setAttribute('src', './img/logo-blue.png');
+        
+        consoleArea.removeChild(lineaActual);
+        div.appendChild(img);
+        div.appendChild(parrafo);
+        consoleArea.appendChild(div);
         consoleArea.classList.remove('current-line');
 
         setTimeout(function() {
             mostrarResultado(passOrFail);
             let div = document.createElement("div");
             consoleArea.appendChild(div);
-    
+
             consoleArea.lastElementChild.classList.add('current-line');
             consoleArea.lastElementChild.style.marginTop  = "15px";
             lineaActual = document.querySelector('.current-line');
-            lineaActual.innerHTML = '<span class="line-marker">満 </span><textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>';
+            lineaActual.innerHTML = '<img class="line-marker" src="./img/logo-blue.png"></img><textarea id="console-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellCheck="false"></textarea>';
 
             if (leccionActual > leccionesTotal) {
+                // Mark navbar element as completed
+                document.querySelector('.main-menu ul li:last-child a').classList.remove('learning');
+                document.querySelector('.main-menu ul li:last-child a').classList.add('completed');
+                
                 setTimeout(function() {
                     sweetAlert({
                         title: "Congratulations!",
-                        text: "<p>Good job! You have reached the end of this tutorial.</p><p>This page will reload in 5 seconds.</p>",
+                        text: "<p>Good job! You have reached the end of this tutorial.</p><p>Hope you managed to get it all.</p>",
                         html: true,
                         type: "success",
                         timer: 5000,
                         showConfirmButton: false
-                    }, () => {
-                        location.reload();
                     });
                 }, 5000);
             } else {
@@ -196,17 +200,19 @@ function loadPage() {
     function addTextareaListener() {
         textarea = document.querySelector('#console-input');
         textarea.addEventListener('keydown', (e) => {
+            
             if (e.keyCode === 13) {
+                e.preventDefault();
+                if (textarea.value.trim().length < 1) {
+                    textarea.value = "";
+                    return;
+                }
+
                 if (textarea.value.trim() === lecciones[leccionActual].comando) {
-                    e.preventDefault();
+                    commandHist.push(textarea.value);
                     cambiarLineaActual("pass");
                 } else {
-                    e.preventDefault();
-                    if (textarea.value !== "") {
-                        commandHist.push(textarea.value);
-                    }
-                    // console.log(commandHist);
-                    // textarea.value = "";
+                    commandHist.push(textarea.value);
                     cambiarLineaActual();
                 }
             }
@@ -258,19 +264,18 @@ function loadPage() {
     }
 
     function clearTerminal() {
-        deleteAllChilds(consoleArea, 'p');
+        deleteAllChilds(consoleArea);
         let div = document.createElement('div');
         div.classList.add('current-line');
-        let span = createElementNode('span', "満 ");
+        let img = document.createElement('img');
+        img.setAttribute('src', './img/logo-blue.png');
         let newTextarea = document.createElement('textarea');
-        // <span class="line-marker">満 </span>
-        // <textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>
-        div.appendChild(span).classList.add('line-marker');
+        div.appendChild(img).classList.add('line-marker');
         newTextarea.id = 'console-input';
-        newTextarea.setAttribute('autoComplete', "off");
-        newTextarea.setAttribute('autoCorrect', "off");
-        newTextarea.setAttribute('autoCapitalize', "off");
-        newTextarea.setAttribute('spellCheck', "off");
+        newTextarea.setAttribute('autocomplete', "off");
+        newTextarea.setAttribute('autocorrect', "off");
+        newTextarea.setAttribute('autocapitalize', "off");
+        newTextarea.setAttribute('spellcheck', "false");
         div.appendChild(newTextarea);
         return div;
     }
@@ -360,7 +365,7 @@ function loadPage() {
     // Ayudar listener para el textarea al cargar
     addTextareaListener();
     // Coloca nombre de Repo en header de folderArea
-    document.querySelector('#repository .header .title').innerHTML = config.repoName;
+    document.querySelector('#repository .header .title').innerHTML = config.repoName + " repository";
     // Show body after one second
     setTimeout(function() {
         document.body.style.opacity = 1;
@@ -384,6 +389,28 @@ function loadPage() {
     });
 
     document.querySelector('#showNavbar').addEventListener('mouseleave', () => {
-            navbar.classList.remove('expanded');
+        navbar.classList.remove('expanded');
     });
+
+    // Ocultar columna del repositorio
+    document.querySelector('.hide-repo').addEventListener('click', () => {
+        let column1 = document.querySelector('.column-1');
+        let column2 = document.querySelector('.column-2');
+        document.querySelector('.show-repo').classList.toggle('hidden');
+        column1.style.width = '100%';
+        column2.classList.toggle('hidden');
+    })
+    // Volver a mostrar columna del repositorio
+    document.querySelector('.show-repo').addEventListener('click', () => {
+        let repo = document.querySelector('#repository');
+        let column1 = document.querySelector('.column-1');
+        let column2 = document.querySelector('.column-2');
+        column1.style.width = '70%';
+        setTimeout(function() {
+            column2.classList.toggle('hidden');
+        }, 900);
+        setTimeout( () => {
+            document.querySelector('.show-repo').classList.toggle('hidden');    
+        }, 1000);
+    })
 };

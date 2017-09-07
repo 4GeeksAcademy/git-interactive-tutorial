@@ -1,0 +1,203 @@
+@media screen and (max-width: 749px) {
+    .column-1, .column-2 {
+        width: 100% !important;
+    }
+
+    .column-2 {
+        margin-top: 10px;
+    }
+
+    #repository .repo-status .staged,
+    #repository .repo-status .repo-folder,
+    #repository .repo-status .commits {
+        box-shadow: 0 -1px 1px 1px #aaa inset;
+    }
+
+    #instrucciones button.comando {
+        left: 30px;
+    }
+    
+    #instrucciones button.comando:active {
+        left: 31px;
+    }
+}
+
+@media screen and (max-width: 940px) { 
+    body {
+        font-size: 16px !important;
+    }
+
+    .title {
+        font-size: .8rem !important;
+        padding: 12px 5px !important;
+    }
+
+    .repo-status > div {
+        font-size: .8rem !important;
+    }
+
+    #repository .repo-status ul {
+        margin-top: 5px;
+        margin-left: 5px;
+        width: 100%;
+    }
+    
+    #repository ul li > ul {
+        margin-top: 1px !important;
+        margin-left: 5px !important;
+        margin-bottom: 10px;
+    }
+    
+    #repository .repo-status li {
+        width: 100% !important;
+        user-select: none;
+        margin-top: 2px;
+    }
+
+    #repository .repo-status li::before {
+        font-family: FontAwesome;
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+
+    .console-area {
+        padding: 10px 20px !important;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .not-mobile {
+        display: hidden !important;
+    }
+
+    .only-mobile {
+        display: block;
+    }
+
+    main {
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+    }
+
+    #area-practica {
+        margin: 10px 10px 0 10px;
+    }
+
+    .main-menu {
+        display: none;
+    }
+
+    .main-menu.expanded > a img {
+        width: 150px;
+        margin-left: 30px;
+    }
+
+    .expanded {
+        display: block !important;
+        width: 330px;
+        overflow: visible;
+        overflow-y: auto;
+        padding-bottom: 40px; 
+    }
+
+    #showNavbar {
+        padding: 0;
+        margin-top: 10px;
+        padding: 3px 5px 5px 10px;
+        width: 48px;
+        height: 40px;
+        position: fixed;
+        color: #fbfbfb;
+        background: #434343;
+        border-right: 1px solid #666;
+        border-top: 1px solid #666;
+        border-bottom: 1px solid #666;   
+        top: 0;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    #showNavbar::before {
+        width: 42px ;
+        height: 42px;
+        font-family: FontAwesome;
+        content: "\f0c9";
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #leccion {
+        flex-direction: column !important;
+    }
+
+    #leccion > div {
+        width: 100%;
+    }
+
+    .console-area,
+    textarea {
+        font-size: .7rem !important;
+    }
+
+    .container {
+        width: 100%
+    }
+
+    #myProgress {
+        position: fixed;
+        width: 100%;
+    }
+
+    button.comando {
+        font-size: .7rem !important;
+    }
+
+    #repository {
+        margin-left: 0;
+        margin-bottom: 10px;
+        font-size: .8rem !important;
+    }
+
+    #repository .header {
+        width: 100% !important;
+        margin-right: 0;
+    }
+
+    #repository .header .buttons {
+        width: 20%;
+        padding: 6px;
+    }
+
+    #repository .repo-status {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #repository .repo-status .staged,
+    #repository .repo-status .repo-folder,
+    #repository .repo-status .commits {
+        width: 100%;
+        min-height: 100px;
+    }
+
+    #repository .repo-status .commits {
+        border-radius: 0 !important;
+    }
+
+    li.folder:active {
+        background-color: transparent;
+    }
+
+    footer {
+        margin-top: 0px;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    footer > * {
+        margin: 0 auto!important;
+    }
+}
