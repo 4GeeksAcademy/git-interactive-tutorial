@@ -10,7 +10,8 @@
     #repository .repo-status .staged,
     #repository .repo-status .repo-folder,
     #repository .repo-status .commits {
-        box-shadow: 0 -1px 1px 1px #aaa inset;
+        -webkit-box-shadow: 0 -1px 1px 1px #aaa inset;
+                box-shadow: 0 -1px 1px 1px #aaa inset;
     }
 
     button.comando {
@@ -55,7 +56,10 @@
     
     #repository .repo-status li {
         width: 100% !important;
-        user-select: none;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
         margin-top: 2px;
     }
 
@@ -138,7 +142,10 @@
     }
 
     #leccion {
-        flex-direction: column !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: normal !important;
+            -ms-flex-direction: column !important;
+                flex-direction: column !important;
     }
 
     #leccion > div {
@@ -180,8 +187,13 @@
     }
 
     #repository .repo-status {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     #repository .repo-status .staged,
@@ -201,8 +213,12 @@
 
     footer {
         margin-top: 0px;
-        flex-direction: column;
-        justify-content: space-around;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
     }
 
     footer > * {

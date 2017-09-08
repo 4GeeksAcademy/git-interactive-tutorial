@@ -4,7 +4,8 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 .only-mobile {
@@ -24,22 +25,35 @@ html {
 body {
     opacity: 0;
     min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     color: #333;
+    -webkit-transition: opacity 1s;
     transition: opacity 1s;
     overflow-x: hidden;
     overflow-y: visible;
 }
 
 main {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     background: #fbfbfb;
     margin-left: 59px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .container {
@@ -49,9 +63,16 @@ main {
 }
 
 #area-practica {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 100%;
 }
 
@@ -108,9 +129,15 @@ nav li {
     left: 0;
     width: 59px;
     overflow: hidden;
-    transform: translateZ(0) scale(1,1);
-    user-select: none;
+    -webkit-transform: translateZ(0) scale(1,1);
+            transform: translateZ(0) scale(1,1);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     border: none;
+
+    -webkit-transition: width .2s linear;
 
     transition: width .2s linear;
 }
@@ -158,10 +185,17 @@ a.logo-link {
     position: relative;
     color: #ccc;
     font-size: 14px;
-    transform: translateZ(0) scale(1,1);
+    -webkit-transform: translateZ(0) scale(1,1);
+            transform: translateZ(0) scale(1,1);
+    -webkit-transition: all .1s linear;
     transition: all .1s linear;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;   
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;   
 }
 
 .main-menu li:hover > a {
@@ -207,13 +241,15 @@ a.logo-link {
     height: 7px;
     width: 100% !important;
     background-color: #f44336;
-    box-shadow: 0 0 10px #434343 inset;
+    -webkit-box-shadow: 0 0 10px #434343 inset;
+            box-shadow: 0 0 10px #434343 inset;
 }
 
 #myBar {
     width: 0%;
     height: 100%;
     background-color: #1976D2;
+    -webkit-transition: width 1s;
     transition: width 1s;
 }
 
@@ -222,17 +258,32 @@ a.logo-link {
 =================================== */
 
 #leccion {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
 }
 
 #leccion .column-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 70%;
+    -webkit-transition: width 1s;
     transition: width 1s;
 }
 
@@ -247,11 +298,18 @@ a.logo-link {
 #instrucciones {
     background-color: #FBFBFB;
     color: #434343;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     padding: 30px 30px 10px 30px;
     min-height: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     max-width: 1300px;
 }
 
@@ -265,6 +323,8 @@ a.logo-link {
 }
 
 .comando {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     outline: none;
     margin-top: 10px;
@@ -277,7 +337,8 @@ a.logo-link {
     background-color: #37474F;
     position: relative;
     color: #eee;
-    align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
     margin-top: auto;
 }
 
@@ -307,8 +368,13 @@ div#terminal {
 }
 
 .console-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     font-size: .8rem !important;
     height: 400px;
     padding: 10px 30px;
@@ -343,8 +409,13 @@ div#terminal {
 .console-area .line {
     width: 100%;
     margin-top: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
 .console-area .line {
@@ -424,8 +495,13 @@ div#terminal {
 }
 
 #repository .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     height: 5%;
     width: 100%;
     background-color: #424242;
@@ -447,15 +523,23 @@ div#terminal {
     font-weight: bold;
     padding: 5px 15px;
     text-align: left;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     letter-spacing: 1px;
     font-size: 1.2rem;
 }
 
 #repository .repo-status {
     height: 95%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 #repository .repo-status .staged,
@@ -469,7 +553,8 @@ div#terminal {
     overflow-y: auto;
     font-size: 1rem;
     background-color: #fbfbfb;
-    box-shadow: 1px 0 1px 0 #aaa inset;
+    -webkit-box-shadow: 1px 0 1px 0 #aaa inset;
+            box-shadow: 1px 0 1px 0 #aaa inset;
 }
 
 #repository .repo-status ul {
@@ -530,9 +615,16 @@ div#terminal {
 =================================== */
 
 footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     font-size: .8rem !important;
     padding: 13px;
     background-color: #434343;
@@ -560,7 +652,12 @@ footer a:hover {
 .typed {
     white-space: nowrap;
     overflow: hidden;
-    animation: type 4s steps(60, end);
+    -webkit-animation: type 4s steps(60, end);
+            animation: type 4s steps(60, end);
+}
+
+@-webkit-keyframes type{ 
+    from { width: 0; } 
 }
 
 @keyframes type{ 
