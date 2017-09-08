@@ -75,7 +75,7 @@ function loadPage() {
             repoFolderArea.appendChild(folderStructure);
         } else {
             let ul = document.createElement('ul');
-            let li = createElementNode("li", "No files in this folder yet");
+            let li = createElementNode("li", config.emptyFolderMessage);
             ul.appendChild(li).classList.add('info');
             repoFolderArea.appendChild(ul);
         }
@@ -94,7 +94,7 @@ function loadPage() {
                 let parrafo = createElementNode("p", lecciones[leccionActual].successMessages[i]);
                 consoleArea.appendChild(parrafo);
             }
-            let parrafo = createElementNode("p", "Success!");                                  
+            let parrafo = createElementNode("p", config.success);                                  
             parrafo.classList.add('success');                                    
             consoleArea.appendChild(parrafo);
             // Actualizar Staged
@@ -104,7 +104,7 @@ function loadPage() {
                 repoStagedArea.appendChild(folderStructure);
             } else {
                 let ul = document.createElement('ul');
-                let li = createElementNode("li", "No files to commit");
+                let li = createElementNode("li", config.emptyStageAreaMessage);
                 ul.appendChild(li).classList.add('commit');
                 repoStagedArea.appendChild(ul);
             }
@@ -120,7 +120,7 @@ function loadPage() {
                 repoCommitsArea.appendChild(ul)
             } else {
                 let ul = document.createElement('ul');
-                let li = createElementNode("li", "Nothing commited yet");
+                let li = createElementNode("li", config.emptyCommitsAreaMessage);
                 ul.appendChild(li).classList.add('commit');
                 repoCommitsArea.appendChild(ul);
             }
@@ -181,7 +181,7 @@ function loadPage() {
                 setTimeout(function() {
                     sweetAlert({
                         title: "Congratulations!",
-                        text: "<p>Good job! You have reached the end of this tutorial.</p><p>Hope you managed to get it all.</p>",
+                        text: config.tutorialCompletedMessage,
                         html: true,
                         type: "success",
                         timer: 5000,
@@ -206,7 +206,13 @@ function loadPage() {
             if (e.keyCode === 13) {
                 e.preventDefault();
                 if (textarea.value.trim().length < 1) {
-                    textarea.value = "";
+                    return;
+                }
+
+                if (textarea.value.trim() === 'clear') {
+                    consoleArea.appendChild(clearTerminal());
+                    addTextareaListener();
+                    textarea.focus();
                     return;
                 }
 
@@ -256,7 +262,8 @@ function loadPage() {
         }
         return ul;
     }
-    // Clears the terminal of any content
+    // creates a new textarea for the console
+    // If added to the consoleArea it can efectively clear it,
     function clearTerminal() {
         deleteAllChilds(consoleArea);
         let div = document.createElement('div');
@@ -359,7 +366,7 @@ function loadPage() {
     // Ayudar listener para el textarea al cargar
     addTextareaListener();
     // Coloca nombre de Repo en header de folderArea
-    document.querySelector('#repository .header .title').innerHTML = config.repoName + " repository";
+    document.querySelector('#repository .header .title').innerHTML = config.repoName;
     // Show body after one second
     setTimeout(function() {
         document.body.style.opacity = 1;
@@ -416,9 +423,9 @@ function loadPage() {
         column1.style.flexDirection = 'column';
         instrucciones.style.width = '100%';
         instrucciones.style.height = 'auto';
-        consoleArea.style.height = '400px';
+        consoleArea.style.height = '500px';
         terminal.style.width = '100%';
-        terminal.style.height = '400px';
+        terminal.style.height = '500px';
         terminal.style.marginTop = '0';
         setTimeout(function() {
             column2.classList.toggle('hidden');
