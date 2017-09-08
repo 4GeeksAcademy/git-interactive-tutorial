@@ -1,9 +1,13 @@
 {
     "config": {
-        "repoName": "Octobox",
+        "repoName": "mi_proyecto",
         "_comment": "errorComando, in case no command match",
         "errorComando": "comand not found",
-        "_comment": "if user writes git show following error",
+        "success": "Success!",
+        "_comment2": "if user writes 'git', show following error",
+        "emptyFolderMessage": "No files in this folder yet",
+        "emptyStageAreaMessage": "No files to commit",
+        "emptyCommitsAreaMessage": "Nothing commited yet",
         "errorMessages": [
             "usage: git [--version] [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]",
             "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-p|--paginate|--no-pager] [--no-replace-objects] [--bare]",
@@ -11,16 +15,18 @@
             "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-c name=value] [--help]",
             "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;command> [&lt;args&gt;]",
             "&nbsp;"
-        ]
+        ],
+        "_comment3": "the following field must have those parragraph tags to work properly. You can add as many as you need.",
+        "tutorialCompletedMessage": "<p>Good job! You have reached the end of this tutorial.</p><p>Hope you managed to get it all.</p>"
     },
     "lecciones": {
         "1": {
-            "orden": "1.1",
-            "titulo": "Got 15 minutes and want to learn Git?",
-            "tituloCorto": "Learn Git?",
+            "orden": "1",
+            "titulo": "¿Quieres aprender a usar Git?",
+            "tituloCorto": "¿Quieres aprender Git?",
             "tareas": [
-                "Git allows groups of people to work on the same documents (often code) at the same time, and without stepping on each other's toes. It's a distributed version control system.", 
-                "Our terminal prompt below is currently in a directory we decided to name \"octobox\". To initialize a Git repository here, type the following command:"
+                "Git es un <em>sistema de control de versiones distribuido</em> que permite a equipos de trabajo tratar con un mismo documento o código al mismo tiempo, evitando choques entre los miembros.", 
+                "En la terminal que puedes ver en pantalla hemos creado un <em>repositorio</em> llamado  \"mi_proyecto\". Para inicializar un repositorio en Git debes escribir el siguiente comando: <strong>git init</strong>."
             ],
             "comando": "git init",
             "alert": "Did not create a Git repo",
@@ -30,12 +36,12 @@
             "repoStatus": {}
         },
         "2": {
-            "orden": "1.2",
-            "titulo": "Checking the Status",
-            "tituloCorto": "Checking the Status",
+            "orden": "2",
+            "titulo": "Revisando el status del repositorio",
+            "tituloCorto": "Revisando el status",
             "tareas": [
-                "Good job! As Git just told us, our 'octobox' directory now has an empty repository in /.git/. The repository is a hidden directory where Git operates.",
-                "Next up, let's type the git status command to see what the current state of our project is:"
+                "Bien hecho. Haz logrado crear tu primer repositorio. Ahora en nuestro repositorio se ha creado una carpeta llamada <strong>/.git/</strong>. Si creas un repositorio en tu equipo, esta carpeta estará oculta. En ella se encuentran una serie de subcarpetas con archivos que contienen referencias a todos los cambios que han ocurrido en tu repositorio.",
+                "Ahora, usando el comando <strong>git status</strong> veamos cuál es el estado actual de nuestro repositorio."
             ],
             "comando": "git status",
             "alert": "Did not use git status",
@@ -49,17 +55,18 @@
             "repoStatus": {
                 "repoFolder": [
                     { ".git": [  ]  },
-                    "octotext.txt"
+                    "mi_plan.txt"
                 ]
             }
         },
         "3": {
-            "orden": "1.3",
-            "titulo": "Adding & Committing",
-            "tituloCorto": "Adding & Committing",
+            "orden": "3",
+            "titulo": "Agregar archivos y hacer commit",
+            "tituloCorto": "Agregar y Commit",
             "tareas": [
-                "I created a file called octocat.txt in the octobox repository for you (as you can see in the browser below).", 
-                "You should run the git status command again to see how the repository status has changed:"
+                "Si a lo largo de este tutorial sientes que en tu terminal hay demasiado texto, puedes usar el comando <strong>clear</strong> para limpiar todo el contenido de ella.",
+                "Sigamos. Imagina que agregas un nuevo archivo llamado <strong>mi_plan.txt</strong> a tu repositorio.", 
+                "Ahora, si usamos de nuevo el comando <strong>git status</strong> podrás notar que el estado de tu repositorio ha cambiado."
             ],
             "comando": "git status",
             "alert": "Did not use git status",
@@ -71,45 +78,46 @@
                 "# Untracked files:",
                 "#   (use \"git add <file>...\" to include in what will be committed)",
                 "#",
-                "#   <strong class=\"red\">octocat.txt</strong>",
+                "#   <strong class=\"red\">mi_plan.txt</strong>",
                 "nothing added to commit but untracked files present (use 'git add' to track)"
             ],
             "repoStatus": {
                 "repoFolder": [
                     { ".git": [  ]  },
-                    "octotext.txt"
+                    "mi_plan.txt"
                 ]
             }
         },
         "4": {
-            "orden": "1.4",
-            "titulo": "Adding Changes",
-            "tituloCorto": "Adding Changes",
+            "orden": "4",
+            "titulo": "Haciendo cambios",
+            "tituloCorto": "Haciendo cambios",
             "tareas": [
-                "Good, it looks like our Git repository is working properly. Notice how Git says octocat.txt is \"untracked\"? That means Git sees that  octocat.txt is a new file.", 
-                "To tell Git to start tracking changes made to octocat.txt, we first need to add it to the staging area by using git add."
+                "¿Notaste cómo el archivo <strong>mi_plan.txt</strong> aparece marcado como <strong>untracked</strong>?",
+                "Eso significa que el archivo es nuevo y git aún no está siguiendo su cambios.", 
+                "Para que git pueda seguir todos los cambios que se realicen en el archivo, primero debemos agregarlo a la zona de preparación o <strong>Staging</strong> con el comando <strong>git add [nombre del archivo]</strong>."
             ],
-            "comando": "git add octocat.txt",
-            "alert": "Did not add octocat.txt",
+            "comando": "git add mi_plan.txt",
+            "alert": "Did not add mi_plan.txt",
             "successMessages": [
-                "<span class=\"success\">Nice job, you've added octocat.txt to the Staging Area!</span>"
+                "<span class=\"success\">¡Bien hecho! mi_plan.txt ha sido agregado a la zona de <strong>Staging</strong></span>"
             ],
             "repoStatus": {
                 "repoFolder": [
                     { ".git": [  ]  },
-                    "octotext.txt"
+                    "mi_plan.txt"
                 ],
                 "staged": [
-                    "octotext.txt"
+                    "mi_plan.txt"
                 ]
             }
         },
         "5": {
-            "orden": "1.5",
-            "titulo": "Checking for Changes",
-            "tituloCorto": "Checking for Changes",
+            "orden": "5",
+            "titulo": "Revisando los cambios",
+            "tituloCorto": "Revisando los cambios",
             "tareas": [
-                "Good job! Git is now tracking our octocat.txt file. Let's run git status again to see where we stand:"
+                "¡Excelente! Ahora que git ya está pendiente de los cambios de nuestro archivo, podemos usar de nuevo el comando <strong>git status</strong> para asegurarnos de que todo está bien."
             ],
             "comando": "git status",
             "alert": "Did not use git status",
@@ -121,42 +129,267 @@
                 "# Changes to be committed:",
                 "#   (use \"git rm --cached <file>...\" to unstage)",
                 "#",
-                "#   <span class=\"success\">new file:   octocat.txt</span>",
+                "#   <span class=\"green\">new file:   mi_plan.txt</span>",
                 "#"
             ],
             "repoStatus": {
                 "repoFolder": [
                     { ".git": [  ]  },
-                    "octotext.txt"
+                    "mi_plan.txt"
                 ],
                 "staged": [
-                    "octotext.txt"
+                    "mi_plan.txt"
                 ]
             }
         },
         "6": {
-            "orden": "1.6",
-            "titulo": "Committing",
-            "tituloCorto": "Committing",
+            "orden": "6",
+            "titulo": "Haciendo commit",
+            "tituloCorto": "Haciendo commit",
             "tareas": [
-                "Notice how Git says changes to be committed? The files listed here are in the Staging Area, and they are not in our repository yet. We could add or remove files from the stage before we store them in the repository.",
-                "To store our staged changes we run the commit command with a message describing what we've changed. Let's do that now by typing:"
+                "Ahora con tu archivo preparado y en el area de <strong>Staging</strong> podemos seguir con el siguiente paso, hacer <strong>commit</strong>. Hacer <strong>commit</strong> es simplemente enviar nuestros cambios desde la zona de <strong>staging</strong> a nuestro repositorio. Si quisieras, podrías agregar y quitar archivos de la zona de <strong>staging</strong> antes de hacer commit.",
+                "Para guardar tus cambios en el repositorio usamos el comando <strong>git commit -m</strong> seguido por un mensaje que describa los cambios que hemos realizado. En este caso, solo hemos agregado un nuevo archivo, así que solo escribiremos <i>Agregar mi_plan.txt</i> entre comillas."
             ],
-            "comando": "git commit -m \"Add cute octocat story\"",
+            "comando": "git commit -m \"Agregar mi_plan.txt\"",
             "alert": "Did not use git commit",
             "successMessages": [
-                "[master (root-commit) 20b5ccd] Add cute octocat story",
+                "[master (root-commit) 20b5ccd] Agregar mi_plan.txt",
                 "1 file changed, 1 insertion(+)",
-                "create mode 100644 octocat.txt",
+                "create mode 100644 mi_plan.txt",
                 "&nbsp;"
             ],
             "repoStatus": {
                 "repoFolder": [
                     { ".git": [  ]  },
-                    "octotext.txt"
+                    "mi_plan.txt"
                 ],
                 "commits": [
-                    "100644 - Add cute octocat story"
+                    "20b5ccd - Agregar mi_plan.txt"
+                ]
+            }
+        },
+        "7": {
+            "orden": "7",
+            "titulo": "Agregando varios archivos",
+            "tituloCorto": "Agregando varios archivos",
+            "tareas": [
+                "Nuestro repositorio ya tiene un commit. Pero ahora, imagina que has estado trabajando todo el día en tu proyecto y has terminado creando varios archivos de texto. Usar el comando <strong>git add</strong> para agregarlos uno a uno es bastante fastidioso, ¿verdad? Pues git nos ofrece un metodo un poco más comodo.",
+                "Para ello usaremos el comando <strong>git add \"*.txt\"</strong> el cual agregará todos los archivos de texto que hayan sido editados en nuestro repositorio."
+            ],
+            "comando": "git add \"*.txt\"",
+            "alert": "Did not use git add",
+            "successMessages": [
+                "<span class=\"success\">Archivos agregados</span>"
+            ],
+            "repoStatus": {
+                "repoFolder": [
+                    { ".git": [  ]  },
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt",
+                    "mi_plan.txt"
+                ],
+                "staged": [
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt"
+                ],
+                "commits": [
+                    "20b5ccd - Agregar mi_plan.txt"
+                ]
+            }
+        },
+        "8": {
+            "orden": "8",
+            "titulo": "Haciendo commit a todos los archivos",
+            "tituloCorto": "Haciendo commit #2",
+            "tareas": [
+                "Ya tenemos nuestros archivos en la zona de staging, ahora solo tenemos que hacer commit.",
+                "¿Aún recuerdas cómo hacerlo? Usamos el comando <strong>git commit -m</strong> seguido de un mensaje. ¿Qué tal si usamos \"Agregar todos los archivos de texto\"?"
+            ],
+            "comando": "git commit -m \"Agregar todos los archivos de texto\"",
+            "alert": "Did not use git commit",
+            "successMessages": [
+                "[master (root-commit) 3852b4d] c",
+                "3 file changed, 3 insertion(+)",
+                "create mode 100644 desarrollo.txt",
+                "create mode 100644 maquetado.txt",
+                "create mode 100644 reuniones_del_mes.txt",
+                "&nbsp;"
+            ],
+            "repoStatus": {
+                "repoFolder": [
+                    { ".git": [  ]  },
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt",
+                    "mi_plan.txt"
+                ],
+                "staged": [
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt"
+                ],
+                "commits": [
+                    "20b5ccd - Agregar mi_plan.txt",
+                    "3852b4d - Agregar todos los archivos de texto"
+                ]
+            }
+        },
+        "9": {
+            "orden": "9",
+            "titulo": "Revisando el historial con git log",
+            "tituloCorto": "Usado git log",
+            "tareas": [
+                "¿Qué tal? Ya llevamos dos commits hasta ahora.",
+                "Git nos ofrece un comando que permite revisar un historial con todos los commits que hemos hecho hasta el momento en orden cronológico. Este comando es <strong>git log</strong>"
+            ],
+            "comando": "git log",
+            "alert": "Did not use git log",
+            "successMessages": [
+                "<span class=\"yellow\">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>",
+                "Author: 4Geeks Student <student@4geeksacademy.co>",
+                "Date: Fri Sep 13 22:30:00 2017 -0400",
+                "&nbsp;&nbsp;&nbsp; Agregar mi_plan.txt",
+                "&nbsp;",
+                "<span class=\"yellow\">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>",
+                "Author: 4Geeks Student <student@4geeksacademy.co>",
+                "Date: Thu Sep 12 01:00:32 2017 -0400",
+                "&nbsp;&nbsp;&nbsp; Agregar todos los archivos de texto"
+            ],
+            "repoStatus": {
+                "repoFolder": [
+                    { ".git": [  ]  },
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt",
+                    "mi_plan.txt"
+                ],
+                "commits": [
+                    "20b5ccd - Agregar mi_plan.txt",
+                    "3852b4d - Agregar todos los archivos de texto"
+                ]
+            }
+        },
+        "10": {
+            "orden": "10",
+            "titulo": "Manejando repositorios remotos",
+            "tituloCorto": "Git remote",
+            "tareas": [
+                "Bien, ya hemos aprendido los comandos más básicos de git. Ahora veamos su utilidad práctica. Imagina que quieres que otras personas tengan acceso a tu repositorio. Para lograr debes subir nuestro repositorio a una plataforma como <strong>GitHub</strong> que se encarga resguardar repositorios publicos y privados en sus servidores.",
+                "Ahora, una vez creado un repositorio en GitHub tendremos que asociarlo a nuestro repositorio local, para ello usamos <strong>git remote add</strong> seguido del nombre con el cual queremos asociar el repositorio remoto que deseamos agregar y de su URL. Se acostumbra llamar al repositorio remoto principal <strong>origin</strong>, así que haremos eso. Y su URL es <strong>https://github.com/4geeksAcademy/proyectos.git</strong>. Esta vez no son necesarias las comillas."
+            ],
+            "comando": "git remote add origin https://github.com/4geeksAcademy/proyectos.git",
+            "alert": "Did not use git remote add",
+            "successMessages": [
+                "<span class=\"success\">Repositorio agregado con éxito</span>"
+            ],
+            "repoStatus": {
+                "repoFolder": [
+                    { ".git": [  ]  },
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt",
+                    "mi_plan.txt"
+                ],
+                "commits": [
+                    "20b5ccd - Agregar mi_plan.txt",
+                    "3852b4d - Agregar todos los archivos de texto"
+                ]
+            }
+        },
+        "11": {
+            "orden": "11",
+            "titulo": "Usando git push",
+            "tituloCorto": "Git push",
+            "tareas": [
+                "Una vez asociado nuestro repositorio local solo tenemos que subir nuestros archivos locales a ese repositorio en línea, a esto se le llama hacer un <strong>push</strong>.",
+                "Para hacerlo usamos el comando <strong>git push -u</strong> seguido del nombre del repositorio remoto a donde queremos hacer el push y luego el nombre de la <em>rama</em> del repositorio local donde están nuestros archivos. Por defecto, al inicializar un repositorio se crea una rama principal llamada <strong>master</strong>, allí están nuestros documentos.",
+                "¿Qué tal si lo intentas?"
+            ],
+            "comando": "git push -u origin master",
+            "alert": "Did not use git push",
+            "successMessages": [
+                "Branch master set up to track remote branch master from origin."
+            ],
+            "repoStatus": {
+                "repoFolder": [
+                    { ".git": [  ]  },
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt",
+                    "mi_plan.txt"
+                ],
+                "commits": [
+                    "20b5ccd - Agregar mi_plan.txt",
+                    "3852b4d - Agregar todos los archivos de texto"
+                ]
+            }
+        },
+        "12": {
+            "orden": "12",
+            "titulo": "Usando git pull",
+            "tituloCorto": "Git pull",
+            "tareas": [
+                "Ahora, imagina que no estás en tu PC o laptop y necesitas trabajar en tus documentos. ¿Cómo hacemos para tener acceso a ese repositorio en línea que creamos hace poco?",
+                "Pues, usamos <strong>git pull</strong> seguido del nombre del repositorio en línea de donde copiaremos los archivos y luego el nombre de la rama de nuestro repositorio local donde deseamos que se copien."
+            ],
+            "comando": "git pull origin master",
+            "alert": "Did not use git pull",
+            "successMessages": [
+                "Updating 3852b4d..3e70b0f",
+                "Fast-forward",
+                "&nbsp; resumen_mensual.txt | <span class=\"green\">1+</span>",
+                "&nbsp; 1 file changed, 1 insertion(+)",
+                "&nbsp; create mode 100644 resumen_mensual.txt"
+            ],
+            "repoStatus": {
+                "repoFolder": [
+                    { ".git": [  ]  },
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt",
+                    "mi_plan.txt"
+                ],
+                "commits": [
+                    "20b5ccd - Agregar mi_plan.txt",
+                    "3852b4d - Agregar todos los archivos de texto",
+                    "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                ]
+            }
+        },
+        "13": {
+            "orden": "13",
+            "titulo": "Observando las ediciones con git diff",
+            "tituloCorto": "Git diff",
+            "tareas": [
+                "¿Notas algo diferente en la carpeta de tu repositorio?",
+                "Parece que un miembro de tu equipo ha editado nuestro archivo mi_plan.txt y ha hecho un push al repositorio en GitHub. Antes de comenzar a trabajar creo que mejor revisamos qué cambios realizó nuestro compañero.",
+                "Para ello podemos usar el comando <strong>git diff HEAD</strong> donde HEAD es una referencia al commit más reciente."
+            ],
+            "comando": "git diff HEAD",
+            "alert": "Did not use git diff",
+            "successMessages": [
+                "diff --git a/mi_plan.txt b/mi_plan.txt",
+                "index 7d8d808..e725ef6 100644",
+                "--- a/mi_plan.txt",
+                "+++ b/mi_plan.txt",
+                "<span class=\"blue\">@@ -1 +1 @@</span>",
+                "<span class=\"red\">-Realizar reuniones mensuales</span>",
+                "<span class=\"green\">+[Realizar reuniones quincenales]</span>"
+            ],
+            "repoStatus": {
+                "repoFolder": [
+                    { ".git": [  ]  },
+                    { "planes_septiembre" : [ "desarrollo.txt" ] },
+                    { "planes_octubre" : [ "maquetado.txt" ] },
+                    "reuniones_del_mes.txt",
+                    "mi_plan.txt"
+                ],
+                "commits": [
+                    "20b5ccd - Agregar mi_plan.txt",
+                    "3852b4d - Agregar todos los archivos de texto",
+                    "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
                 ]
             }
         }
