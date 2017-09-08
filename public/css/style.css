@@ -196,7 +196,7 @@ a.logo-link {
 
 .main-menu .nav-text.learning::before {
     content: "\f212";
-    color: #1976D2;
+    color: #148FCB;
 }
 
 /* =================================
@@ -264,39 +264,38 @@ a.logo-link {
     padding: 8px 0;
 }
 
-#instrucciones button.comando {
+.comando {
     width: fit-content;
     outline: none;
     margin-top: 10px;
     padding: 10px;
     border: none;
-    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     font-size: .9rem;
     letter-spacing: 1px;
     font-family: 'Source Code Pro', monospace;
     background-color: #37474F;
     position: relative;
-    top: 10px;
-    left: 31px;
     color: #eee;
     align-self: flex-end;
     margin-top: auto;
 }
 
-#instrucciones button.comando::before {
+.comando::before {
     font-family: FontAwesome;
     content: '\f120';
     margin-right: 15px;
 }
 
-#instrucciones button.comando:hover {
+.comando:hover {
     opacity: .9;
     cursor: pointer;
 }
 
-#instrucciones button.comando:active {
+.comando:active {
     position: relative;
-    left: 32px;
+    left: 0;
+    top: 1px;
 }
 
 /* =================================
@@ -311,7 +310,7 @@ div#terminal {
     display: flex;
     flex-direction: column;
     font-size: .8rem !important;
-    height: 300px;
+    height: 400px;
     padding: 10px 30px;
     font-family: 'Source Code Pro', monospace;    
     background-color: hsl(220, 13%, 18%);
@@ -408,10 +407,10 @@ div#terminal {
     outline: none;
     color: #fbfbfb;
     position: absolute;
-    top: 10px !important;
+    top: 7px !important;
     right: 0 !important;
     padding: 3px 20px;
-    height: 35px;
+    height: 38px;
     width: 50px;
     z-index: 0;
     background-color: #424242;

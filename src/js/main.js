@@ -53,7 +53,7 @@ function loadPage() {
         orden.innerHTML = lecciones[leccionActual].orden;
 
         // Actualizar comando en boton
-        let button = document.querySelector('#instrucciones button');
+        let button = document.querySelector('.comando');
         button.innerHTML = lecciones[leccionActual].comando;
 
         // Limpiar areaTareas
@@ -392,13 +392,34 @@ function loadPage() {
         let column2 = document.querySelector('.column-2');
         document.querySelector('.show-repo').classList.toggle('hidden');
         column1.style.width = '100%';
+        column1.style.flexDirection = 'row';
         column2.classList.toggle('hidden');
+
+        // Reordenar columna 1
+        let instrucciones = document.querySelector('#instrucciones');
+        let terminal = document.querySelector('#terminal');
+        instrucciones.style.width = '50%';
+        instrucciones.style.height = '100%';
+        consoleArea.style.height = '100%';
+        terminal.style.width = '50%';
+        terminal.style.height = '100%';
+        terminal.style.marginTop = 'auto';
     })
     // Volver a mostrar columna del repositorio
     document.querySelector('.show-repo').addEventListener('click', () => {
         let column1 = document.querySelector('.column-1');
         let column2 = document.querySelector('.column-2');
+        // Reordenar columna 1
+        let instrucciones = document.querySelector('#instrucciones');
+        let terminal = document.querySelector('#terminal');
         column1.style.width = '70%';
+        column1.style.flexDirection = 'column';
+        instrucciones.style.width = '100%';
+        instrucciones.style.height = 'auto';
+        consoleArea.style.height = '400px';
+        terminal.style.width = '100%';
+        terminal.style.height = '400px';
+        terminal.style.marginTop = '0';
         setTimeout(function() {
             column2.classList.toggle('hidden');
         }, 900);

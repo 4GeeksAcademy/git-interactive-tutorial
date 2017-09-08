@@ -13,12 +13,17 @@
         box-shadow: 0 -1px 1px 1px #aaa inset;
     }
 
-    #instrucciones button.comando {
-        left: 30px;
+    button.comando {
+        left: 0;
     }
     
-    #instrucciones button.comando:active {
-        left: 31px;
+    button.comando:active {
+        top: 1px;
+        left: 0;
+    }
+
+    footer {
+        font-size: .7rem !important;
     }
 }
 
@@ -66,8 +71,8 @@
 }
 
 @media screen and (max-width: 749px) {
-    .not-mobile {
-        display: hidden !important;
+    i.hide-repo {
+        visibility: hidden !important;
     }
 
     .only-mobile {
@@ -86,16 +91,19 @@
 
     .main-menu {
         display: none;
+        width: 290px !important;
     }
 
-    .main-menu.expanded > a img {
-        width: 150px;
+    a.logo-link {
+        background: url('../img/logo.png') no-repeat center;
+        background-size: contain;
+        width: 150px !important;
         margin-left: 30px;
     }
 
     .expanded {
         display: block !important;
-        width: 330px;
+        width: 290px;
         overflow: visible;
         overflow-y: auto;
         padding-bottom: 40px; 
