@@ -100,6 +100,18 @@ li {
     color: #f44336;
 }
 
+.green {
+    color: #64c53d;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.blue {
+    color: #2196F3;
+}
+
 .no-json {
     margin-top: 50px;
     text-align: center;
@@ -316,6 +328,7 @@ a.logo-link {
 #instrucciones > #instruccion {
     padding: 5px 0;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .tareas > p {
@@ -376,7 +389,7 @@ div#terminal {
         -ms-flex-direction: column;
             flex-direction: column;
     font-size: .8rem !important;
-    height: 400px;
+    height: 500px;
     padding: 10px 30px;
     font-family: 'Source Code Pro', monospace;    
     background-color: hsl(220, 13%, 18%);
