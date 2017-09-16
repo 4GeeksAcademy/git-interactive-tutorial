@@ -575,7 +575,7 @@ oReq.onerror = function () {
                                 </div>`;
     document.body.style.opacity = 1;
 }
-oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/test/config.json", true);
+oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
 oReq.send();
 
 function loadPage() {
