@@ -325,14 +325,19 @@ a.logo-link {
     max-width: 1300px;
 }
 
+#instrucciones a:link,
+#instrucciones a:visited {
+    color: #1976D2;
+}
+
 #instrucciones > #instruccion {
     padding: 5px 0;
-    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .tareas > p {
     padding: 8px 0;
+    font-size: 1.1rem;
 }
 
 .comando {
@@ -389,7 +394,7 @@ div#terminal {
         -ms-flex-direction: column;
             flex-direction: column;
     font-size: .8rem !important;
-    height: 500px;
+    height: 340px;
     padding: 10px 30px;
     font-family: 'Source Code Pro', monospace;    
     background-color: hsl(220, 13%, 18%);
@@ -494,7 +499,7 @@ div#terminal {
     top: 7px !important;
     right: 0 !important;
     padding: 3px 20px;
-    height: 38px;
+    height: 38.4px;
     width: 50px;
     z-index: 0;
     background-color: #424242;
@@ -522,7 +527,7 @@ div#terminal {
 
 #repository .header i {
     width: 10%;
-    padding: 9px 20px;
+    padding: 3px 20px;
     font-size: 1.5rem;
 }
 
@@ -555,10 +560,14 @@ div#terminal {
             flex-direction: column;
 }
 
+.branch {
+    color: orangered;
+}
+
 #repository .repo-status .staged,
 #repository .repo-status .repo-folder,
 #repository .repo-status .commits {
-    height: 33.333%;
+    height: 40%;
     width: 100%;
     min-height: 200px;
     padding: 5px 10px;
@@ -568,6 +577,10 @@ div#terminal {
     background-color: #fbfbfb;
     -webkit-box-shadow: 1px 0 1px 0 #aaa inset;
             box-shadow: 1px 0 1px 0 #aaa inset;
+}
+
+#repository .repo-status .commits {
+    height: 20%;
 }
 
 #repository .repo-status ul {

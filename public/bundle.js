@@ -575,7 +575,7 @@ oReq.onerror = function () {
                                 </div>`;
     document.body.style.opacity = 1;
 }
-oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
+oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/test/config.json", true);
 oReq.send();
 
 function loadPage() {
@@ -597,6 +597,7 @@ function loadPage() {
     var consoleArea = document.querySelector('.console-area');
     var textarea = document.querySelector('#console-input');
     var areaTareas = document.querySelector('.tareas');
+    var branchArea = document.querySelector('.branch');
     var repoFolderArea = document.querySelector('#repository .repo-status .repo-folder');
     var repoStagedArea = document.querySelector('#repository .repo-status .staged');
     var repoCommitsArea = document.querySelector('#repository .repo-status .commits');
@@ -630,7 +631,10 @@ function loadPage() {
 
         // Actualizar Repo Folder
         deleteAllChilds(repoFolderArea, 'h3');
-        if (lecciones[leccionActual].repoStatus.repoFolder !== undefined) {
+        if (lecciones[leccionActual].repoStatus.branch !== undefined) {
+            if (lecciones[leccionActual].repoStatus.branch !== undefined) {
+                branchArea.innerHTML = '(' + lecciones[leccionActual].repoStatus.branch + ')';
+            }
             let folderStructure = createFolderStructure(lecciones[leccionActual].repoStatus.repoFolder);
             repoFolderArea.appendChild(folderStructure);
         } else {
@@ -688,20 +692,34 @@ function loadPage() {
             leccionActual++;
         } else {
             // FAILED
-            if (RegExp("(git)", "g").test(textarea.value.trim())) {
+            let userCommand = textarea.value;
+            let splitCommand = userCommand.match(/(git)\s(\w+)/g)[0];
+            let comando = lecciones[leccionActual].comando;
+            if (comando.match(/(git)\s(\w+)/g)[0] == splitCommand) {
+                let parrafo = createElementNode("p", "Used " + splitCommand);  
+                parrafo.classList.add('blue');
+                consoleArea.appendChild(parrafo);
+                parrafo = createElementNode("p", "Check your arguments");  
+                consoleArea.appendChild(parrafo);
+            } else if (RegExp("(git)", "g").test(textarea.value.trim())) {
                 for (var i = 0; i < config.errorMessages.length; i++) {
                     let parrafo = createElementNode("p", config.errorMessages[i]);  
+                    consoleArea.appendChild(parrafo);
+                    // Red error message
+                    parrafo = createElementNode("p", lecciones[leccionActual].alert);
+                    parrafo.classList.add('error');                                    
                     consoleArea.appendChild(parrafo);
                 }
             } else {
                 let comandError = createElementNode("p", textarea.value + ": " + config.errorComando);
                 comandError.style.marginTop                                  
                 consoleArea.appendChild(comandError);
+                // Red error message
+                let parrafo = createElementNode("p", lecciones[leccionActual].alert);
+                parrafo.classList.add('error');                                    
+                consoleArea.appendChild(parrafo);
             }
-            // Red error message
-            let parrafo = createElementNode("p", lecciones[leccionActual].alert);
-            parrafo.classList.add('error');                                    
-            consoleArea.appendChild(parrafo);
+            
         }
     }
     // Changes line and shows result every time the users presses Enter in console area
@@ -744,8 +762,7 @@ function loadPage() {
                         text: config.tutorialCompletedMessage,
                         html: true,
                         type: "success",
-                        timer: 5000,
-                        showConfirmButton: false
+                        showConfirmButton: true
                     });
                 }, 5000);
             } else {
@@ -766,6 +783,13 @@ function loadPage() {
             if (e.keyCode === 13) {
                 e.preventDefault();
                 if (textarea.value.trim().length < 1) {
+                    return;
+                }
+
+                if (textarea.value.trim() === 'clear') {
+                    consoleArea.appendChild(clearTerminal());
+                    addTextareaListener();
+                    textarea.focus();
                     return;
                 }
 
@@ -814,6 +838,32 @@ function loadPage() {
                 avanceActual = (leccionActual - 1)  * leccionPorcentaje;
                 document.querySelector('#myBar').style.width = avanceActual + "%";
                 actualizarInfoLeccion();
+                // Actualizar Staged
+                deleteAllChilds(repoStagedArea, 'h3');
+                if (lecciones[leccionActual - 1].repoStatus.staged !== undefined) {
+                    let folderStructure = createFolderStructure(lecciones[leccionActual - 1].repoStatus.staged);
+                    repoStagedArea.appendChild(folderStructure);
+                } else {
+                    let ul = document.createElement('ul');
+                    let li = createElementNode("li", config.emptyStageAreaMessage);
+                    ul.appendChild(li).classList.add('commit');
+                    repoStagedArea.appendChild(ul);
+                }
+                // Actualizar Repo Commits
+                deleteAllChilds(repoCommitsArea, 'h3');
+                if (lecciones[leccionActual - 1].repoStatus.commits !== undefined) {
+                    let ul = document.createElement('ul');
+                    for (let i = 0; i < lecciones[leccionActual - 1].repoStatus.commits.length; i++) {
+                        let li = createElementNode("li", lecciones[leccionActual - 1].repoStatus.commits[i]);
+                        ul.appendChild(li).classList.add('commit');
+                    }
+                    repoCommitsArea.appendChild(ul)
+                } else {
+                    let ul = document.createElement('ul');
+                    let li = createElementNode("li", config.emptyCommitsAreaMessage);
+                    ul.appendChild(li).classList.add('commit');
+                    repoCommitsArea.appendChild(ul);
+                }
                 // Ayudar listener para el textarea
                 textarea.value = "";
                 textarea.focus();
@@ -892,6 +942,7 @@ function loadPage() {
                     if (element[key].length > 0) {
                         let liContainer = document.createElement('li');
                         let innerUl = createFolderStructure(element[key]);
+                        liContainer.classList.add('closed');
                         liContainer.appendChild(innerUl);
                         ul.appendChild(liContainer);
                     } else if (key === ".git") {
@@ -983,9 +1034,9 @@ function loadPage() {
         column1.style.flexDirection = 'column';
         instrucciones.style.width = '100%';
         instrucciones.style.height = 'auto';
-        consoleArea.style.height = '500px';
+        consoleArea.style.height = '340px';
         terminal.style.width = '100%';
-        terminal.style.height = '500px';
+        terminal.style.height = '340px';
         terminal.style.marginTop = '0';
         setTimeout(function() {
             column2.classList.toggle('hidden');
