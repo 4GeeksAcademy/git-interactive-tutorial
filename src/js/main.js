@@ -28,8 +28,8 @@ function loadPage() {
     var leccionesTotal = getObjLength(lecciones);
     var avanceActual = 0;
     var leccionPorcentaje = 100 / leccionesTotal;
-    
-    // User command history 
+
+    // User command history
     var commandHist = [];
     var commandPos = 1;
     // General areas
@@ -62,10 +62,10 @@ function loadPage() {
         // Agregar nuevas Tareas
         for (var i = 0; i < lecciones[leccionActual].tareas.length; i++) {
             let parrafo = createElementNode("p" ,lecciones[leccionActual].tareas[i]);
-            areaTareas.appendChild(parrafo);     
+            areaTareas.appendChild(parrafo);
         }
 
-        // Actualizar Navbar 
+        // Actualizar Navbar
         deleteAllChilds(navbar, "a");
         navbar.appendChild(createNavbarLinks());
 
@@ -98,8 +98,8 @@ function loadPage() {
                 let parrafo = createElementNode("p", lecciones[leccionActual].successMessages[i]);
                 consoleArea.appendChild(parrafo);
             }
-            let parrafo = createElementNode("p", config.success);                                  
-            parrafo.classList.add('success');                                    
+            let parrafo = createElementNode("p", config.success);
+            parrafo.classList.add('success');
             consoleArea.appendChild(parrafo);
             // Actualizar Staged
             deleteAllChilds(repoStagedArea, 'h3');
@@ -133,33 +133,35 @@ function loadPage() {
         } else {
             // FAILED
             let userCommand = textarea.value;
-            let splitCommand = userCommand.match(/(git)\s(\w+)/g)[0];
+            // console.log(userCommand.match(/(git)\s(\w+)/g)[0]);
+            let splitCommand = userCommand.match(/(git)\s(\w+)/g) !== null ? userCommand.match(/(git)\s(\w+)/g)[0] : undefined;
+            console.log(splitCommand);
             let comando = lecciones[leccionActual].comando;
-            if (comando.match(/(git)\s(\w+)/g)[0] == splitCommand) {
-                let parrafo = createElementNode("p", "Used " + splitCommand);  
+            if (splitCommand != undefined && comando.match(/(git)\s(\w+)/g)[0] == splitCommand) {
+                let parrafo = createElementNode("p", "Used " + splitCommand);
                 parrafo.classList.add('blue');
                 consoleArea.appendChild(parrafo);
-                parrafo = createElementNode("p", "Check your arguments");  
+                parrafo = createElementNode("p", "Check your arguments");
                 consoleArea.appendChild(parrafo);
             } else if (RegExp("(git)", "g").test(textarea.value.trim())) {
                 for (var i = 0; i < config.errorMessages.length; i++) {
-                    let parrafo = createElementNode("p", config.errorMessages[i]);  
-                    consoleArea.appendChild(parrafo);
-                    // Red error message
-                    parrafo = createElementNode("p", lecciones[leccionActual].alert);
-                    parrafo.classList.add('error');                                    
+                    let parrafo = createElementNode("p", config.errorMessages[i]);
                     consoleArea.appendChild(parrafo);
                 }
+                // Red error message
+                let parrafo = createElementNode("p", lecciones[leccionActual].alert);
+                parrafo.classList.add('error');
+                consoleArea.appendChild(parrafo);
             } else {
                 let comandError = createElementNode("p", textarea.value + ": " + config.errorComando);
-                comandError.style.marginTop                                  
+                comandError.style.marginTop
                 consoleArea.appendChild(comandError);
                 // Red error message
                 let parrafo = createElementNode("p", lecciones[leccionActual].alert);
-                parrafo.classList.add('error');                                    
+                parrafo.classList.add('error');
                 consoleArea.appendChild(parrafo);
             }
-            
+
         }
     }
     // Changes line and shows result every time the users presses Enter in console area
@@ -170,11 +172,11 @@ function loadPage() {
         let parrafo = createElementNode("p", textarea.value);
         parrafo.style.marginTop  = "15px";
         parrafo.style.marginBottom  = "15px";
-        
+
         let img = document.createElement('img');
         img.classList.add('line-marker');
         img.setAttribute('src', './img/logo-blue.png');
-        
+
         consoleArea.removeChild(lineaActual);
         div.appendChild(img);
         div.appendChild(parrafo);
@@ -195,7 +197,7 @@ function loadPage() {
                 // Mark navbar element as completed
                 document.querySelector('.main-menu ul li:last-child a').classList.remove('learning');
                 document.querySelector('.main-menu ul li:last-child a').classList.add('completed');
-                
+
                 setTimeout(function() {
                     sweetAlert({
                         title: "Congratulations!",
@@ -213,13 +215,13 @@ function loadPage() {
                 textarea.focus();
             }
         }, 1000);
-        
+
     }
     // Add listener to text area every time it's appended in the console area
     function addTextareaListener() {
         textarea = document.querySelector('#console-input');
         textarea.addEventListener('keydown', (e) => {
-            
+
             if (e.keyCode === 13) {
                 e.preventDefault();
                 if (textarea.value.trim().length < 1) {
@@ -248,13 +250,13 @@ function loadPage() {
                     cambiarLineaActual();
                 }
             }
-            
+
             if (e.keyCode === 38 && commandPos <= commandHist.length  && commandHist.length > 0) {
                 // Up presses
                 textarea.value = "";
                 textarea.value = commandHist[commandHist.length - commandPos];
                 commandPos++;
-            } 
+            }
         });
     }
     // Every time a lesson changes the navbar is rebuilt based on current lesson
@@ -330,7 +332,7 @@ function loadPage() {
         div.appendChild(newTextarea);
         return div;
     }
-    
+
     // =================================================
     //  HELPER FUNCTIONS
     // ==================================================
@@ -426,14 +428,14 @@ function loadPage() {
     document.querySelector('.comando').addEventListener('click', () => {
         textarea.value = "";
         textarea.classList.add("typed");
-        textarea.value = lecciones[leccionActual].comando;        
+        textarea.value = lecciones[leccionActual].comando;
         setTimeout(function() {
             textarea.classList.remove("typed");
             textarea.focus();
         }, 1000);
     });
 
-    // Mostrar y ocultar Sidebar menu 
+    // Mostrar y ocultar Sidebar menu
     document.querySelector('#showNavbar').addEventListener('mouseover', () => {
         setTimeout(function() {
             navbar.classList.add('expanded');
@@ -456,12 +458,12 @@ function loadPage() {
         // Reordenar columna 1
         let instrucciones = document.querySelector('#instrucciones');
         let terminal = document.querySelector('#terminal');
-        instrucciones.style.width = '50%';
+        instrucciones.style.flex = '2';
         instrucciones.style.height = '100%';
         consoleArea.style.height = '100%';
-        terminal.style.width = '50%';
+        terminal.style.flex = '3';
         terminal.style.height = '100%';
-        terminal.style.marginTop = 'auto';
+        terminal.style.marginTop = '38.39px';
     })
     // Volver a mostrar columna del repositorio
     document.querySelector('.show-repo').addEventListener('click', () => {
@@ -472,17 +474,13 @@ function loadPage() {
         let terminal = document.querySelector('#terminal');
         column1.style.width = '70%';
         column1.style.flexDirection = 'column';
-        instrucciones.style.width = '100%';
+        instrucciones.style.flex = '3';
         instrucciones.style.height = 'auto';
-        consoleArea.style.height = '340px';
-        terminal.style.width = '100%';
-        terminal.style.height = '340px';
+        terminal.style.flex = '2';
         terminal.style.marginTop = '0';
         setTimeout(function() {
             column2.classList.toggle('hidden');
         }, 900);
-        setTimeout( () => {
-            document.querySelector('.show-repo').classList.toggle('hidden');    
-        }, 1000);
+        document.querySelector('.show-repo').classList.toggle('hidden');
     })
 };

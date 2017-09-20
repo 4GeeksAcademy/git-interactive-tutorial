@@ -17,7 +17,7 @@
     button.comando {
         left: 0;
     }
-    
+
     button.comando:active {
         top: 1px;
         left: 0;
@@ -28,7 +28,7 @@
     }
 }
 
-@media screen and (max-width: 940px) { 
+@media screen and (max-width: 940px) {
     body {
         font-size: 16px !important;
     }
@@ -47,13 +47,13 @@
         margin-left: 5px;
         width: 100%;
     }
-    
+
     #repository ul li > ul {
         margin-top: 1px !important;
         margin-left: 5px !important;
         margin-bottom: 10px;
     }
-    
+
     #repository .repo-status li {
         width: 100% !important;
         -webkit-user-select: none;
@@ -110,7 +110,7 @@
         width: 290px;
         overflow: visible;
         overflow-y: auto;
-        padding-bottom: 40px; 
+        padding-bottom: 40px;
     }
 
     #showNavbar {
@@ -124,7 +124,7 @@
         background: #434343;
         border-right: 1px solid #666;
         border-top: 1px solid #666;
-        border-bottom: 1px solid #666;   
+        border-bottom: 1px solid #666;
         top: 0;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;

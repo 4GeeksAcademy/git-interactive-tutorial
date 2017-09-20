@@ -9,11 +9,11 @@
         "emptyCommitsAreaMessage": "Nothing commited yet",
         "_comment2": "if user writes 'git', show following error",
         "errorMessages": [
-            "usage: git [--version] [--exec-path[=&lt;path&gt;]] [--html-path]",
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-p|--paginate|--no-pager] [--no-replace-objects] ",
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[--git-dir=&lt;path>] [--work-tree=&lt;path&gt;]",
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-c name=value] [--help]",
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;command> [&lt;args&gt;]",
+            "usage: git [--version] [--exec-path[=&lt;path&gt;]]",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-p|--paginate|--no-pager]",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [--git-dir=&lt;path>] [--work-tree=&lt;path&gt;]",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-c name=value] [--help]",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;command> [&lt;args&gt;]",
             "&nbsp;"
         ],
         "_comment3": "the following field must have those parragraph tags to work properly. You can add as many as you need.",
@@ -25,7 +25,7 @@
             "titulo": "¿Quieres aprender a usar Git?",
             "tituloCorto": "¿Quieres aprender Git?",
             "tareas": [
-                "Git es un <em>sistema de control de versiones distribuido</em> que permite a equipos de trabajo tratar con un mismo documento o código al mismo tiempo, evitando choques entre los miembros.", 
+                "Git es un <em>sistema de control de versiones distribuido</em> que permite a equipos de trabajo tratar con un mismo documento o código al mismo tiempo, evitando choques entre los miembros.",
                 "En la terminal que puedes ver en pantalla hemos creado un <em>repositorio</em>, un contendor de archivos, llamado  \"mi_proyecto\". Para inicializar un repositorio en Git debes escribir el siguiente comando: <strong>git init</strong>."
             ],
             "comando": "git init",
@@ -66,7 +66,7 @@
             "tituloCorto": "Primer uso del repositorio",
             "tareas": [
                 "Si a lo largo de este tutorial sientes que en tu terminal hay demasiado texto, puedes usar el comando <strong>clear</strong> para limpiar todo el contenido de ella.",
-                "Sigamos. Imagina que agregas un nuevo archivo llamado <strong>mi_plan.txt</strong> a tu repositorio.", 
+                "Sigamos. Imagina que agregas un nuevo archivo llamado <strong>mi_plan.txt</strong> a tu repositorio.",
                 "Ahora, si usamos de nuevo el comando <strong>git status</strong> podrás notar que el estado de tu repositorio ha cambiado."
             ],
             "comando": "git status",
@@ -96,7 +96,7 @@
             "tituloCorto": "Haciendo cambios",
             "tareas": [
                 "¿Notaste cómo el archivo <strong>mi_plan.txt</strong> apareció como <strong>untracked</strong> en la terminal?",
-                "Eso significa que el archivo es nuevo y Git aún no está siguiendo sus cambios.", 
+                "Eso significa que el archivo es nuevo y Git aún no está siguiendo sus cambios.",
                 "Para que Git pueda seguir todos los cambios que se realicen en el archivo, primero debemos agregarlo a la zona de preparación o <strong>Stage</strong> con el comando <strong>git add [nombre del archivo]</strong>."
             ],
             "comando": "git add mi_plan.txt",
@@ -570,10 +570,10 @@
                 "branch": "mi_version",
                 "repoFolder": [
                     { ".git": [  ]  },
-                    { "tareas" : 
-                        [ 
+                    { "tareas" :
+                        [
                         "desarrollo.txt",
-                        "maquetado.txt" 
+                        "maquetado.txt"
                         ]
                     },
                     "reuniones_del_mes.txt",
@@ -603,10 +603,10 @@
                 "branch": "mi_version",
                 "repoFolder": [
                     { ".git": [  ]  },
-                    { "tareas" : 
-                        [ 
+                    { "tareas" :
+                        [
                         "desarrollo.txt",
-                        "maquetado.txt" 
+                        "maquetado.txt"
                         ]
                     },
                     "reuniones_del_mes.txt",
@@ -672,10 +672,10 @@
                 "branch": "master",
                 "repoFolder": [
                     { ".git": [  ]  },
-                    { "tareas" : 
-                        [ 
+                    { "tareas" :
+                        [
                         "desarrollo.txt",
-                        "maquetado.txt" 
+                        "maquetado.txt"
                         ]
                     },
                     "reuniones_del_mes.txt",
@@ -707,10 +707,10 @@
                 "branch": "master",
                 "repoFolder": [
                     { ".git": [  ]  },
-                    { "tareas" : 
-                        [ 
+                    { "tareas" :
+                        [
                         "desarrollo.txt",
-                        "maquetado.txt" 
+                        "maquetado.txt"
                         ]
                     },
                     "reuniones_del_mes.txt",

@@ -12,8 +12,8 @@
     display: none;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
 html {
@@ -47,6 +47,20 @@ main {
             flex: 1;
     background: #fbfbfb;
     margin-left: 59px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.overlay {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+        flex: 1;
+    background: #fbfbfb;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -121,7 +135,7 @@ li {
     NAVIGATION
 =================================== */
 
-nav ul, 
+nav ul,
 nav li {
     outline: 0;
     margin: 0;
@@ -137,7 +151,7 @@ nav li {
     top: 0;
     bottom: 0;
     height: 100vh;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     left: 0;
     width: 59px;
     overflow: hidden;
@@ -154,11 +168,17 @@ nav li {
     transition: width .2s linear;
 }
 
-.main-menu:hover {
+.main-menu.expanded {
     display: block !important;
     width: 330px;
     overflow: visible;
     overflow-y: auto;
+}
+
+.main-menu.main-menu.expanded + main {
+    background-color: black;
+    content: "";
+    height: 10vh;z-index: 9;
 }
 
 a.logo-link {
@@ -207,7 +227,7 @@ a.logo-link {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
-            flex-direction: row;   
+            flex-direction: row;
 }
 
 .main-menu li:hover > a {
@@ -310,9 +330,9 @@ a.logo-link {
 #instrucciones {
     background-color: #FBFBFB;
     color: #434343;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
     padding: 30px 30px 10px 30px;
     min-height: 300px;
     display: -webkit-box;
@@ -348,16 +368,15 @@ a.logo-link {
     margin-top: 10px;
     padding: 10px;
     border: none;
-    border-top-right-radius: 3px;
     font-size: .9rem;
     letter-spacing: 1px;
     font-family: 'Source Code Pro', monospace;
     background-color: #37474F;
     position: relative;
     color: #eee;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
     margin-top: auto;
+    width: 100%;
+    text-align: left;
 }
 
 .comando::before {
@@ -383,9 +402,14 @@ a.logo-link {
 
 div#terminal {
     padding: 0;
+    flex: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .console-area {
+    flex: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -394,9 +418,9 @@ div#terminal {
         -ms-flex-direction: column;
             flex-direction: column;
     font-size: .8rem !important;
-    height: 340px;
+
     padding: 10px 30px;
-    font-family: 'Source Code Pro', monospace;    
+    font-family: 'Source Code Pro', monospace;
     background-color: hsl(220, 13%, 18%);
     overflow-y: auto;
     overflow-x: hidden;
@@ -415,7 +439,7 @@ div#terminal {
 
 .line-marker + p {
     display: inline-block;
-    padding: 0 10px 5px 10px; 
+    padding: 0 10px 5px 10px;
     margin: 0 !important;
 }
 
@@ -467,14 +491,14 @@ div#terminal {
 .console-area textarea {
     height: 43.4px;
     overflow: auto;
-    font-family: 'Source Code Pro', monospace !important;    
+    font-family: 'Source Code Pro', monospace !important;
     width: 100%;
     resize: none;
     background-color: transparent;
     color: #eee;
     border: none;
     padding: 0 10px 5px 10px;
-    line-height: 1.5;    
+    line-height: 1.5;
 }
 
 .console-area textarea:focus {
@@ -501,7 +525,7 @@ div#terminal {
     padding: 3px 20px;
     height: 38.4px;
     width: 50px;
-    z-index: 0;
+    z-index: 9;
     background-color: #424242;
     border: none;
     font-size: 1.5rem;
@@ -663,7 +687,8 @@ footer > p {
     margin-left: 60px;
 }
 
-footer a {
+footer a:link,
+footer a:visited {
     color: #EEE;
 }
 
@@ -682,10 +707,10 @@ footer a:hover {
             animation: type 4s steps(60, end);
 }
 
-@-webkit-keyframes type{ 
-    from { width: 0; } 
+@-webkit-keyframes type{
+    from { width: 0; }
 }
 
-@keyframes type{ 
-    from { width: 0; } 
+@keyframes type{
+    from { width: 0; }
 }
