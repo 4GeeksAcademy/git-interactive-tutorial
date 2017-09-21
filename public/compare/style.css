@@ -12,8 +12,8 @@
     display: none;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
 html {
@@ -121,7 +121,7 @@ li {
     NAVIGATION
 =================================== */
 
-nav ul, 
+nav ul,
 nav li {
     outline: 0;
     margin: 0;
@@ -207,7 +207,7 @@ a.logo-link {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
-            flex-direction: row;   
+            flex-direction: row;
 }
 
 .main-menu li:hover > a {
@@ -396,7 +396,7 @@ div#terminal {
     font-size: .8rem !important;
     height: 340px;
     padding: 10px 30px;
-    font-family: 'Source Code Pro', monospace;    
+    font-family: 'Source Code Pro', monospace;
     background-color: hsl(220, 13%, 18%);
     overflow-y: auto;
     overflow-x: hidden;
@@ -415,7 +415,7 @@ div#terminal {
 
 .line-marker + p {
     display: inline-block;
-    padding: 0 10px 5px 10px; 
+    padding: 0 10px 5px 10px;
     margin: 0 !important;
 }
 
@@ -467,14 +467,14 @@ div#terminal {
 .console-area textarea {
     height: 43.4px;
     overflow: auto;
-    font-family: 'Source Code Pro', monospace !important;    
+    font-family: 'Source Code Pro', monospace !important;
     width: 100%;
     resize: none;
     background-color: transparent;
     color: #eee;
     border: none;
     padding: 0 10px 5px 10px;
-    line-height: 1.5;    
+    line-height: 1.5;
 }
 
 .console-area textarea:focus {
@@ -671,6 +671,16 @@ footer a:hover {
     font-weight: bold;
 }
 
+footer div {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#lang {
+    border: none;
+}
+
 /* =================================
     ANIMACIONES
 =================================== */
@@ -682,10 +692,10 @@ footer a:hover {
             animation: type 4s steps(60, end);
 }
 
-@-webkit-keyframes type{ 
-    from { width: 0; } 
+@-webkit-keyframes type{
+    from { width: 0; }
 }
 
-@keyframes type{ 
-    from { width: 0; } 
+@keyframes type{
+    from { width: 0; }
 }

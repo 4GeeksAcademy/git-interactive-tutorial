@@ -1,11 +1,10 @@
 import {} from 'sweetalert';
 
 // Loading JSON
-var lecciones, config;
+var json;
 var oReq = new XMLHttpRequest();
 oReq.onload = (e) => {
-    lecciones = JSON.parse(e.target.responseText).lecciones;
-    config = JSON.parse(e.target.responseText).config;
+    json = JSON.parse(e.target.responseText);
     loadPage();
 };
 oReq.onerror = function () {
@@ -15,7 +14,7 @@ oReq.onerror = function () {
                                 </div>`;
     document.body.style.opacity = 1;
 }
-oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/config.json", true);
+oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/test/config.json", true);
 oReq.send();
 
 function loadPage() {
@@ -24,6 +23,9 @@ function loadPage() {
     //  GLOBAL VARIABLES
     // ==================================================
 
+    var lang = document.querySelector('#lang').value;
+    var lecciones = json.lecciones[lang];
+    var config = json.config;
     var leccionActual = 1;
     var leccionesTotal = getObjLength(lecciones);
     var avanceActual = 0;
@@ -33,6 +35,7 @@ function loadPage() {
     var commandHist = [];
     var commandPos = 1;
     // General areas
+    var langSwitch = document.querySelector('#lang');
     var navbar = document.querySelector('nav');
     var consoleArea = document.querySelector('.console-area');
     var textarea = document.querySelector('#console-input');
@@ -438,6 +441,44 @@ function loadPage() {
         }, 1000);
     });
 
+    // Cambiar lenguaje
+    langSwitch.addEventListener('change', () => {
+        lang = langSwitch.value;
+        lecciones = json.lecciones[lang];
+
+        consoleArea.appendChild(clearTerminal());
+        addTextareaListener();
+        actualizarInfoLeccion();
+        // Actualizar Staged
+        deleteAllChilds(repoStagedArea, 'h3');
+        if (lecciones[leccionActual].repoStatus.staged != undefined) {
+            let folderStructure = createFolderStructure(lecciones[leccionActual].repoStatus.staged);
+            repoStagedArea.appendChild(folderStructure);
+        } else {
+            let ul = document.createElement('ul');
+            let li = createElementNode("li", config.emptyStageAreaMessage);
+            ul.appendChild(li).classList.add('commit');
+            repoStagedArea.appendChild(ul);
+        }
+        // Actualizar Repo Commits
+        deleteAllChilds(repoCommitsArea, 'h3');
+        if (lecciones[leccionActual].repoStatus.commits != undefined) {
+            let ul = document.createElement('ul');
+            for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
+                let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
+                ul.appendChild(li).classList.add('commit');
+            }
+            repoCommitsArea.appendChild(ul)
+        } else {
+            let ul = document.createElement('ul');
+            let li = createElementNode("li", config.emptyCommitsAreaMessage);
+            ul.appendChild(li).classList.add('commit');
+            repoCommitsArea.appendChild(ul);
+        }
+        // Ayudar listener para el textarea
+        textarea.focus();
+    });
+
     // Mostrar y ocultar Menu principal
     navbar.addEventListener('click', (e) => {
         if (navbar.classList.contains('expanded') === false) {
@@ -462,7 +503,7 @@ function loadPage() {
         navbar.classList.remove('expanded');
     });
 
-    // Ocultar columna del repositorio
+    // Mostrar y ccultar columna del repositorio
     document.querySelector('.hide-repo').addEventListener('click', () => {
         let column1 = document.querySelector('.column-1');
         let column2 = document.querySelector('.column-2');
@@ -481,7 +522,7 @@ function loadPage() {
         terminal.style.height = '100%';
         terminal.style.marginTop = '38.39px';
     })
-    // Volver a mostrar columna del repositorio
+
     document.querySelector('.show-repo').addEventListener('click', () => {
         let column1 = document.querySelector('.column-1');
         let column2 = document.querySelector('.column-2');

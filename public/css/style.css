@@ -690,7 +690,7 @@ footer {
         -ms-flex-pack: justify;
             justify-content: space-between;
     font-size: .8rem !important;
-    padding: 13px;
+    padding: 0 13px 13px 13px;
     background-color: #434343;
     color: #EEE !important;
     z-index: 99;
@@ -698,6 +698,7 @@ footer {
 }
 
 footer > p {
+    margin-top: 13px;
     margin-left: 50px;
 }
 
@@ -708,6 +709,34 @@ footer a:visited {
 
 footer a:hover {
     font-weight: bold;
+}
+
+footer div {
+    position: relative;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.coder {
+    margin-top: 13px;
+    margin-right: 75px;
+}
+
+#lang {
+    background-color: #EEE;
+    color: #1976D2;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 65px;
+    padding:5px;
+    border: 0;
+    border-radius: 0;
+    height: 25px;
+    -webkit-appearance: none;
 }
 
 /* =================================
