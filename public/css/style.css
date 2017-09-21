@@ -601,9 +601,8 @@ div#terminal {
 #repository .repo-status .staged,
 #repository .repo-status .repo-folder,
 #repository .repo-status .commits {
-    height: 40%;
+    height: 33.333%;
     width: 100%;
-    min-height: 200px;
     padding: 5px 10px;
     color: #434343;
     overflow-y: auto;
@@ -611,10 +610,6 @@ div#terminal {
     background-color: #fbfbfb;
     -webkit-box-shadow: 1px 0 1px 0 #aaa inset;
             box-shadow: 1px 0 1px 0 #aaa inset;
-}
-
-#repository .repo-status .commits {
-    height: 20%;
 }
 
 #repository .repo-status ul {

@@ -3,7 +3,7 @@
         "repoName": "my_project",
         "_comment": "errorComando, in case of no command match",
         "errorComando": "command not found",
-        "success": "¡Éxito!",
+        "success": "Success!",
         "emptyFolderMessage": "No files in this folder yet",
         "emptyStageAreaMessage": "No files to commit",
         "emptyCommitsAreaMessage": "Nothing commited yet",
@@ -733,7 +733,7 @@
         "en": {
             "1": {
                 "orden": "1",
-                "titulo": "What to learn some Git?",
+                "titulo": "Want to learn some Git?",
                 "tituloCorto": "Learn Git",
                 "tareas": [
                     "Git es un <em>sistema de control de versiones distribuido</em> que permite a equipos de trabajo tratar con un mismo documento o código al mismo tiempo, evitando choques entre los miembros.",

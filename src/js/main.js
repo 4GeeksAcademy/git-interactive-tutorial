@@ -58,7 +58,12 @@ function loadPage() {
 
         // Actualizar comando en boton
         let button = document.querySelector('.comando');
-        button.innerHTML = lecciones[leccionActual].comando;
+        // Acortar el texto si es muy largo
+        if (lecciones[leccionActual].comando.length > 50) {
+            button.innerHTML = lecciones[leccionActual].comando.substring(0, 41) + "...";
+        } else {
+            button.innerHTML = lecciones[leccionActual].comando;
+        }
 
         // Limpiar areaTareas
         deleteAllChilds(areaTareas);
