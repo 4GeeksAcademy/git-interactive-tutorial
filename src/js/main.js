@@ -133,9 +133,7 @@ function loadPage() {
         } else {
             // FAILED
             let userCommand = textarea.value;
-            // console.log(userCommand.match(/(git)\s(\w+)/g)[0]);
             let splitCommand = userCommand.match(/(git)\s(\w+)/g) !== null ? userCommand.match(/(git)\s(\w+)/g)[0] : undefined;
-            console.log(splitCommand);
             let comando = lecciones[leccionActual].comando;
             if (splitCommand != undefined && comando.match(/(git)\s(\w+)/g)[0] == splitCommand) {
                 let parrafo = createElementNode("p", "Used " + splitCommand);
@@ -275,6 +273,7 @@ function loadPage() {
             li.addEventListener('click', (e) => {
                 if (navbar.classList.contains('expanded')) {
                     e.stopPropagation();
+                    navbar.scrollTop = 0;
                     consoleArea.appendChild(clearTerminal());
                     addTextareaListener();
                     leccionActual = i;
@@ -441,15 +440,14 @@ function loadPage() {
 
     // Mostrar y ocultar Menu principal
     navbar.addEventListener('click', (e) => {
-        let ul = document.querySelector('nav ul');
         if (navbar.classList.contains('expanded') === false) {
             navbar.classList.toggle('expanded');
         }
     });
 
     document.querySelector('main').addEventListener('click', () => {
-        let ul = document.querySelector('nav ul');
         navbar.classList.remove('expanded');
+        navbar.scrollTop = 0;
     });
 
 
