@@ -50,7 +50,8 @@
                 "#",
                 "# Initial commit",
                 "#",
-                "nothing to commit (create/copy files and use \"git add\" to track)"
+                "nothing to commit",
+                "(create/copy files and use \"git add\" to track)"
             ],
             "repoStatus": {
                 "branch": "master",
@@ -77,10 +78,12 @@
                 "# Initial commit",
                 "#",
                 "# Untracked files:",
-                "#   (use \"git add <file>...\" to include in what will be committed)",
+                "#   (use \"git add <file>...\" to include files)",
                 "#",
                 "#   <strong class=\"red\">mi_plan.txt</strong>",
-                "nothing added to commit but untracked files present (use 'git add' to track)"
+                "nothing added to commit",
+                "but untracked files present",
+                "(use 'git add' to track)"
             ],
             "repoStatus": {
                 "branch": "master",
@@ -218,7 +221,7 @@
             "comando": "git reset",
             "alert": "Did not use git reset",
             "successMessages": [
-                "<span class=\"success\">¡Bien hecho! Los archivos de texto ya no están en el <strong>Stage</strong></span>"
+                "<span class=\"success\">Los archivos de texto ya no están en el <strong>Stage</strong></span>"
             ],
             "repoStatus": {
                 "branch": "master",
@@ -277,7 +280,8 @@
             "comando": "git commit -m \"Agregar todos los archivos de texto\"",
             "alert": "Did not use git commit",
             "successMessages": [
-                "[master (root-commit) 3852b4d] Agregar todos los archivos de texto",
+                "[master (root-commit) 3852b4d]",
+                "'Agregar todos los archivos de texto'",
                 "3 file changed, 3 insertion(+)",
                 "create mode 100644 desarrollo.txt",
                 "create mode 100644 maquetado.txt",
@@ -375,7 +379,7 @@
             "comando": "git push -u origin master",
             "alert": "Did not use git push",
             "successMessages": [
-                "Branch master set up to track remote branch master from origin."
+                "Branch master set up to track remote branch"
             ],
             "repoStatus": {
                 "branch": "master",
