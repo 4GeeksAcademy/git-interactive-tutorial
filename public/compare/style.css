@@ -12,8 +12,8 @@
     display: none;
 }
 
-::-webkit-scrollbar {
-    display: none;
+::-webkit-scrollbar { 
+    display: none; 
 }
 
 html {
@@ -24,7 +24,7 @@ html {
 
 body {
     opacity: 0;
-    height: 100vh !important;
+    min-height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -37,12 +37,11 @@ body {
     color: #333;
     -webkit-transition: opacity 1s;
     transition: opacity 1s;
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 main {
-    position: relative;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -55,21 +54,6 @@ main {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-}
-
-main:after {
-    content: " ";
-    width: 100%;
-    opacity: .9;
-    z-index: 9;
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear;
-    position: absolute;
-}
-
-.main-menu.expanded + main:after {
-    height: 100vh;
-    background-color: #212121;
 }
 
 .container {
@@ -137,7 +121,7 @@ li {
     NAVIGATION
 =================================== */
 
-nav ul,
+nav ul, 
 nav li {
     outline: 0;
     margin: 0;
@@ -170,17 +154,11 @@ nav li {
     transition: width .2s linear;
 }
 
-.main-menu.expanded {
+.main-menu:hover {
     display: block !important;
     width: 330px;
     overflow: visible;
     overflow-y: auto;
-}
-
-.main-menu.main-menu.expanded + main {
-    background-color: black;
-    height: 10vh;
-    z-index: 9;
 }
 
 a.logo-link {
@@ -188,7 +166,7 @@ a.logo-link {
     background: url('../img/logo-smaller.png') no-repeat center;
     background-size: contain;
     display: block;
-    margin: 15px 3px 20px 3px;
+    margin: 15px auto 20px 0;
     width: 53px;
     height: 53px;
 }
@@ -199,7 +177,7 @@ a.logo-link {
     outline: none;
 }
 
-.main-menu.expanded a.logo-link {
+.main-menu:hover a.logo-link {
     background: url('../img/logo.png') no-repeat center;
     background-size: contain;
     width: 200px !important;
@@ -229,10 +207,10 @@ a.logo-link {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
-            flex-direction: row;
+            flex-direction: row;   
 }
 
-.main-menu.main-menu.expanded li:hover > a {
+.main-menu li:hover > a {
     cursor: pointer;
     color: #FFF;
     background-color: #555;
@@ -332,10 +310,10 @@ a.logo-link {
 #instrucciones {
     background-color: #FBFBFB;
     color: #434343;
-    -webkit-box-flex: 3;
-        -ms-flex: 3;
-            flex: 3;
-    padding: 30px 20px 10px 20px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding: 30px 30px 10px 30px;
     min-height: 300px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -370,15 +348,16 @@ a.logo-link {
     margin-top: 10px;
     padding: 10px;
     border: none;
+    border-top-right-radius: 3px;
     font-size: .9rem;
     letter-spacing: 1px;
     font-family: 'Source Code Pro', monospace;
     background-color: #37474F;
     position: relative;
     color: #eee;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
     margin-top: auto;
-    width: 100%;
-    text-align: left;
 }
 
 .comando::before {
@@ -404,22 +383,9 @@ a.logo-link {
 
 div#terminal {
     padding: 0;
-    -webkit-box-flex: 2;
-        -ms-flex: 2;
-            flex: 2;
-    flex-grow: 2;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
 }
 
 .console-area {
-    height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -428,9 +394,9 @@ div#terminal {
         -ms-flex-direction: column;
             flex-direction: column;
     font-size: .8rem !important;
-
+    height: 340px;
     padding: 10px 30px;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Source Code Pro', monospace;    
     background-color: hsl(220, 13%, 18%);
     overflow-y: auto;
     overflow-x: hidden;
@@ -449,7 +415,7 @@ div#terminal {
 
 .line-marker + p {
     display: inline-block;
-    padding: 0 10px 5px 10px;
+    padding: 0 10px 5px 10px; 
     margin: 0 !important;
 }
 
@@ -476,7 +442,7 @@ div#terminal {
 }
 
 .console-area > * {
-    margin-top: 10px;
+    margin-top: 5px;
     width: 100%;
 }
 
@@ -501,14 +467,14 @@ div#terminal {
 .console-area textarea {
     height: 43.4px;
     overflow: auto;
-    font-family: 'Source Code Pro', monospace !important;
+    font-family: 'Source Code Pro', monospace !important;    
     width: 100%;
     resize: none;
     background-color: transparent;
     color: #eee;
     border: none;
     padding: 0 10px 5px 10px;
-    line-height: 1.5;
+    line-height: 1.5;    
 }
 
 .console-area textarea:focus {
@@ -535,7 +501,7 @@ div#terminal {
     padding: 3px 20px;
     height: 38.4px;
     width: 50px;
-    z-index: 9;
+    z-index: 0;
     background-color: #424242;
     border: none;
     font-size: 1.5rem;
@@ -634,10 +600,6 @@ div#terminal {
     margin-top: 2px;
 }
 
-#repository .repo-status li.commit {
-    margin-top: 6px;
-}
-
 #repository .repo-status li::before {
     font-family: FontAwesome;
     margin-right: 6px !important ;
@@ -698,11 +660,10 @@ footer {
 }
 
 footer > p {
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
-footer a:link,
-footer a:visited {
+footer a {
     color: #EEE;
 }
 
@@ -721,10 +682,10 @@ footer a:hover {
             animation: type 4s steps(60, end);
 }
 
-@-webkit-keyframes type{
-    from { width: 0; }
+@-webkit-keyframes type{ 
+    from { width: 0; } 
 }
 
-@keyframes type{
-    from { width: 0; }
+@keyframes type{ 
+    from { width: 0; } 
 }
