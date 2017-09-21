@@ -42,6 +42,18 @@
         font-size: .8rem !important;
     }
 
+    #instrucciones {
+        padding-top: 10px;
+    }
+
+    #instrucciones .tareas p {
+        font-size: .94rem !important;
+    }
+
+    .comando {
+        font-size: .8rem;
+    }
+
     #repository .repo-status ul {
         margin-top: 5px;
         margin-left: 5px;

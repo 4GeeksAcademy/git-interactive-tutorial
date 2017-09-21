@@ -832,43 +832,47 @@ function loadPage() {
             } else {
                 li.appendChild(a).classList.add('learning');
             }
-            li.addEventListener('click', () => {
-                navbar.classList.remove('expanded');
-                consoleArea.appendChild(clearTerminal());
-                addTextareaListener();
-                leccionActual = i;
-                avanceActual = (leccionActual - 1)  * leccionPorcentaje;
-                document.querySelector('#myBar').style.width = avanceActual + "%";
-                actualizarInfoLeccion();
-                // Actualizar Staged
-                deleteAllChilds(repoStagedArea, 'h3');
-                if (lecciones[leccionActual - 1].repoStatus.staged !== undefined) {
-                    let folderStructure = createFolderStructure(lecciones[leccionActual - 1].repoStatus.staged);
-                    repoStagedArea.appendChild(folderStructure);
-                } else {
-                    let ul = document.createElement('ul');
-                    let li = createElementNode("li", config.emptyStageAreaMessage);
-                    ul.appendChild(li).classList.add('commit');
-                    repoStagedArea.appendChild(ul);
-                }
-                // Actualizar Repo Commits
-                deleteAllChilds(repoCommitsArea, 'h3');
-                if (lecciones[leccionActual - 1].repoStatus.commits !== undefined) {
-                    let ul = document.createElement('ul');
-                    for (let i = 0; i < lecciones[leccionActual - 1].repoStatus.commits.length; i++) {
-                        let li = createElementNode("li", lecciones[leccionActual - 1].repoStatus.commits[i]);
+            li.addEventListener('click', (e) => {
+                if (navbar.classList.contains('expanded')) {
+                    e.stopPropagation();
+                    consoleArea.appendChild(clearTerminal());
+                    addTextareaListener();
+                    leccionActual = i;
+                    avanceActual = (leccionActual - 1)  * leccionPorcentaje;
+                    document.querySelector('#myBar').style.width = avanceActual + "%";
+                    actualizarInfoLeccion();
+                    // Actualizar Staged
+                    deleteAllChilds(repoStagedArea, 'h3');
+                    let leccionPrevia = leccionActual - 1 < 1 ? 1 : leccionActual - 1;
+                    if (lecciones[leccionPrevia].repoStatus.staged != undefined) {
+                        let folderStructure = createFolderStructure(lecciones[leccionPrevia].repoStatus.staged);
+                        repoStagedArea.appendChild(folderStructure);
+                    } else {
+                        let ul = document.createElement('ul');
+                        let li = createElementNode("li", config.emptyStageAreaMessage);
                         ul.appendChild(li).classList.add('commit');
+                        repoStagedArea.appendChild(ul);
                     }
-                    repoCommitsArea.appendChild(ul)
-                } else {
-                    let ul = document.createElement('ul');
-                    let li = createElementNode("li", config.emptyCommitsAreaMessage);
-                    ul.appendChild(li).classList.add('commit');
-                    repoCommitsArea.appendChild(ul);
+                    // Actualizar Repo Commits
+                    deleteAllChilds(repoCommitsArea, 'h3');
+                    if (lecciones[leccionPrevia].repoStatus.commits != undefined) {
+                        let ul = document.createElement('ul');
+                        for (let i = 0; i < lecciones[leccionPrevia].repoStatus.commits.length; i++) {
+                            let li = createElementNode("li", lecciones[leccionPrevia].repoStatus.commits[i]);
+                            ul.appendChild(li).classList.add('commit');
+                        }
+                        repoCommitsArea.appendChild(ul)
+                    } else {
+                        let ul = document.createElement('ul');
+                        let li = createElementNode("li", config.emptyCommitsAreaMessage);
+                        ul.appendChild(li).classList.add('commit');
+                        repoCommitsArea.appendChild(ul);
+                    }
+                    navbar.classList.remove('expanded');
+                    // Ayudar listener para el textarea
+                    textarea.value = "";
+                    textarea.focus();
                 }
-                // Ayudar listener para el textarea
-                textarea.value = "";
-                textarea.focus();
             })
             ul.appendChild(li);
         }
@@ -994,6 +998,20 @@ function loadPage() {
             textarea.focus();
         }, 1000);
     });
+
+    // Mostrar y ocultar Menu principal
+    navbar.addEventListener('click', (e) => {
+        let ul = document.querySelector('nav ul');
+        if (navbar.classList.contains('expanded') === false) {
+            navbar.classList.toggle('expanded');
+        }
+    });
+
+    document.querySelector('main').addEventListener('click', () => {
+        let ul = document.querySelector('nav ul');
+        navbar.classList.remove('expanded');
+    });
+
 
     // Mostrar y ocultar Sidebar menu
     document.querySelector('#showNavbar').addEventListener('mouseover', () => {
