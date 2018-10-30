@@ -1,21 +1,7 @@
 import {} from 'sweetalert';
+import json from '../config/config.json';
 
-// Loading JSON
-var json;
-var oReq = new XMLHttpRequest();
-oReq.onload = (e) => {
-    json = JSON.parse(e.target.responseText);
-    loadPage();
-};
-oReq.onerror = function () {
-    document.body.innerHTML = `<div class="container no-json">
-                                    <h1 class="red animated pulse loop">Error loading course data :'(</h1>
-                                    <p>Please check your internet connection and reload this page.</p>
-                                </div>`;
-    document.body.style.opacity = 1;
-}
-oReq.open("get", "https://s3.us-east-2.amazonaws.com/manten-files/test/config.json", true);
-oReq.send();
+window.onload = () => loadPage();
 
 function loadPage() {
 
@@ -129,7 +115,7 @@ function loadPage() {
                     let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
                     ul.appendChild(li).classList.add('commit');
                 }
-                repoCommitsArea.appendChild(ul)
+                repoCommitsArea.appendChild(ul);
             } else {
                 let ul = document.createElement('ul');
                 let li = createElementNode("li", config.emptyCommitsAreaMessage);

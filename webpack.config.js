@@ -7,7 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, 'public')
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 include: [
@@ -23,5 +23,10 @@ module.exports = {
                 }
             }
         ]
+    },
+    devtool: 'source-map',
+    devServer: {
+        contentBase:  './dist',
+        disableHostCheck: true
     }
 };
