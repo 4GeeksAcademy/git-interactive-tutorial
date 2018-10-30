@@ -1,30 +1,4 @@
-# Git Tutorial - 4Geeks #
+# Git Interactive Tutorial
 
-## JSON Structure for Repo Folders ##
+Learning git can be hard without the right tutorial.
 
-- img
-    - picture.jpg
-- dist
-    - bundle
-        - bundled_files.txt
-    - style.css
-- index.html
-- favicon.ico
-
-This is the JSON necessary to create that folder structure:
-
-```JSON
-"root-folder": [
-    { "img": [ //folder
-        "picture.jpg" 
-    ] },
-    { "dist": [ // folder
-        { "bundle": [ // subfolder
-            "bundled_files.txt"
-        ] },
-        "style.css"
-    ] },
-    "index.html", // file in root folder
-    "favicon.ico"  // file in root folder
-]
-```
