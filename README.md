@@ -5,7 +5,7 @@
 <p>
     <h2 align="center"> Git Interactive Tutorial (beta) </h2>
 </p>
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)
 
 Learning git can be hard without the right tutorial, hopefully this guided tour will point you in the right direction. :bowtie:
 
@@ -25,7 +25,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/426452?v=4" width="100px;"/><br /><sub><b>Alejandro Sanchez</b></sub>](https://alesanchezr.com)<br />[💻](https://github.com/Alejandro Sanchez/git-interactive-tutorial/commits?author=alesanchezr "Code") [🎨](#design-alesanchezr "Design") [📖](https://github.com/Alejandro Sanchez/git-interactive-tutorial/commits?author=alesanchezr "Documentation") [👀](#review-alesanchezr "Reviewed Pull Requests") [💵](#financial-alesanchezr "Financial") [🤔](#ideas-alesanchezr "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/9019783?v=4" width="100px;"/><br /><sub><b>insomnux</b></sub>](https://github.com/insomnux)<br />[🌍](#translation-insomnux "Translation") | [<img src="https://avatars3.githubusercontent.com/u/7689660?v=4" width="100px;"/><br /><sub><b>Jorge Soto</b></sub>](https://ve.linkedin.com/in/jorgemsm19)<br />[💻](https://github.com/Alejandro Sanchez/git-interactive-tutorial/commits?author=Jmsm19 "Code") [🎨](#design-Jmsm19 "Design") |
+| [<img src="https://avatars0.githubusercontent.com/u/426452?v=4" width="100px;"/><br /><sub><b>Alejandro Sanchez</b></sub>](https://alesanchezr.com)<br />[💻](https://github.com/breatheco-de/git-interactive-tutorial/commits?author=alesanchezr "Code") [🎨](#design-alesanchezr "Design") [📖](https://github.com/breatheco-de/git-interactive-tutorial/commits?author=alesanchezr "Documentation") [👀](#review-alesanchezr "Reviewed Pull Requests") [💵](#financial-alesanchezr "Financial") [🤔](#ideas-alesanchezr "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/9019783?v=4" width="100px;"/><br /><sub><b>insomnux</b></sub>](https://github.com/insomnux)<br />[🌍](#translation-insomnux "Translation") | [<img src="https://avatars3.githubusercontent.com/u/7689660?v=4" width="100px;"/><br /><sub><b>Jorge Soto</b></sub>](https://ve.linkedin.com/in/jorgemsm19)<br />[💻](https://github.com/breatheco-de/git-interactive-tutorial/commits?author=Jmsm19 "Code") [🎨](#design-Jmsm19 "Design") |
 | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
