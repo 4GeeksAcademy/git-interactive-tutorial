@@ -5,6 +5,7 @@
 <p>
     <h2 align="center"> Git Interactive Tutorial (beta) </h2>
 </p>
+
 ![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)
 
 Learning git can be hard without the right tutorial, hopefully this guided tour will point you in the right direction. :bowtie:
