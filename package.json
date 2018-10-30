@@ -11,6 +11,7 @@
     "sweetalert": "^1.1.3"
   },
   "devDependencies": {
+    "all-contributors-cli": "^5.4.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
@@ -27,7 +28,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "c9": "webpack-dev-server --mode development --open --host $IP --port $PORT",
     "build": "webpack --mode production",
-    "deploy": "node deploy-to-github.js"
+    "deploy": "node deploy-to-github.js",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "repository": {
     "type": "git",

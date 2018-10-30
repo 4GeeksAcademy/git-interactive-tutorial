@@ -1,4 +1,5 @@
 <p align="center">
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
   <img src="https://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=4geeks,128">
 </p>
 
@@ -17,3 +18,15 @@ Just [click here](https://4GeeksAcademy.github.io/git-interactive-tutorial) to s
 ### :exclamation: Report errors, misspels or any other feedback [here](https://github.com/4GeeksAcademy/git-interactive-tutorial/issues).
 
 ![Preview for Git Interactive Tutorial](https://raw.githubusercontent.com/4GeeksAcademy/git-interactive-tutorial/master/preview.gif)
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars0.githubusercontent.com/u/426452?v=4" width="100px;"/><br /><sub><b>Alejandro Sanchez</b></sub>](https://alesanchezr.com)<br />[💻](https://github.com/Alejandro Sanchez/git-interactive-tutorial/commits?author=alesanchezr "Code") [🎨](#design-alesanchezr "Design") [📖](https://github.com/Alejandro Sanchez/git-interactive-tutorial/commits?author=alesanchezr "Documentation") [👀](#review-alesanchezr "Reviewed Pull Requests") [💵](#financial-alesanchezr "Financial") [🤔](#ideas-alesanchezr "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/9019783?v=4" width="100px;"/><br /><sub><b>insomnux</b></sub>](https://github.com/insomnux)<br />[🌍](#translation-insomnux "Translation") | [<img src="https://avatars3.githubusercontent.com/u/7689660?v=4" width="100px;"/><br /><sub><b>Jorge Soto</b></sub>](https://ve.linkedin.com/in/jorgemsm19)<br />[💻](https://github.com/Alejandro Sanchez/git-interactive-tutorial/commits?author=Jmsm19 "Code") [🎨](#design-Jmsm19 "Design") |
+| :---: | :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
