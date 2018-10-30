@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Git Tutorial</title>
+    <!-- FontAwesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <!-- Sweet Alerts Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <!-- My Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/mediaQueries.css">
+</head>
+<body>
+    <a id="showNavbar"></a>
+    <nav class="main-menu">
+        <a class="logo-link" href="//4geeksacademy.co" target="_blank"></a>
+    </nav>
+
+    <main>
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
+
+        <div id="area-practica">
+            <section id="leccion">
+                <div class="column-1">
+                    <i class="fa fa-angle-left not-mobile show-repo hidden"></i>
+                    <div id="instrucciones">
+                        <h3 id="instruccion"><span class="orden"> 1.X </span> - <span class="titulo">Instrucciones</span></h3>
+                        <div class="tareas">
+                            <!-- Tareas cargadas como parrafos desde JSON -->
+                        </div>
+                    </div>
+                    <div id="terminal">
+                        <button class="comando"></button>
+                        <div class="console-area">
+                            <p>Presiona Enter para ingresar tus comandos.</p>
+                            <div class="current-line">
+                                <img class="line-marker" src="./img/logo-blue.png"></img>
+                                <textarea id="console-input" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column-2">
+                    <div id="repository">
+                        <div class="header">
+                            <i class="fa fa-angle-right hide-repo not-mobile"></i>
+                            <p class="title"></p>
+                        </div>
+                        <div class="repo-status">
+                            <div class="repo-folder">
+                                <h3>Root folder <span class="branch"></span></h3>
+                            </div>
+                            <div class="staged">
+                                <h3>Staged</h3>
+                            </div>
+                            <div class="commits">
+                                <h3>Commits</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p class="company">
+            &copy;
+            <a href="https://4geeksacademy.co/" target="_blank">4Geeks Academy LLC</a> 2017.
+            All rights reserved.
+        </p>
+        <div>
+            <p class="coder">Coded by <a href="//manten-dev.me" target="_blank">Manten Dev</a>, a 4Geeks Academy student</p>
+            <select id="lang">
+                <option value="en">English</option>
+                <option value="es" selected>Español</option>
+            </select>
+        </div>
+    </footer>
+    <!-- My script -->
+    <script src="./bundle.js"></script>
+</body>
+</html>
