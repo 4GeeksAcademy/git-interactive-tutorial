@@ -736,8 +736,8 @@
                 "titulo": "Want to learn some Git?",
                 "tituloCorto": "Learn Git",
                 "tareas": [
-                    "Git es un <em>sistema de control de versiones distribuido</em> que permite a equipos de trabajo tratar con un mismo documento o código al mismo tiempo, evitando choques entre los miembros.",
-                    "En la terminal que puedes ver en pantalla hemos creado un <em>repositorio</em>, un contendor de archivos. Para inicializar un repositorio en Git debes escribir el siguiente comando: <strong>git init</strong>."
+                    "Git is a <em>distributed version control system</em> that allows people and teams to collaborate, editing the same document or code at the same time, without conflicts,",
+                    "In the terminal displayed on the lower part of your screen, we have created a <em>repository</em>, a container of files. To initialize the repository, type the following command: <strong>git init</strong>."
                 ],
                 "comando": "git init",
                 "alert": "Did not create a Git repo",
@@ -751,8 +751,8 @@
                 "titulo": "Checking your repo",
                 "tituloCorto": "Repo status",
                 "tareas": [
-                    "Well done. Has logrado crear tu primer repositorio. Ahora en nuestro repositorio se ha creado una carpeta llamada <strong>/.git/</strong>. Si creas un repositorio en tu equipo, esta carpeta estará oculta. En ella se encuentran una serie de subdirectorios con archivos que contienen referencias a todos los cambios que han ocurrido en tu repositorio.",
-                    "Ahora, usando el comando <strong>git status</strong> veamos cuál es el estado actual de nuestro repositorio."
+                    "Well done. You have created your first repository. The <strong>git init</strong> command adds a hidden subfolder within the existing directory named <strong>/.git/</strong>. If you create a git repository in your computer, this folder will be hidden. This hidden folder contains subfolders and files that reference every change you did in your repository after initializing it.",
+                    "Now let's check the current status of our repository with the command: <strong>git status</strong>."
                 ],
                 "comando": "git status",
                 "alert": "Did not use git status",
@@ -774,12 +774,12 @@
             },
             "3": {
                 "orden": "3",
-                "titulo": "Agregar archivos y hacer commit",
-                "tituloCorto": "Primer uso del repositorio",
+                "titulo": "Start working on the new repo",
+                "tituloCorto": "Getting started",
                 "tareas": [
-                    "Si a lo largo de este tutorial sientes que en tu terminal hay demasiado texto, puedes usar el comando <strong>clear</strong> para limpiar todo el contenido de ella.",
-                    "Sigamos. Imagina que agregas un nuevo archivo llamado <strong>mi_plan.txt</strong> a tu repositorio.",
-                    "Ahora, si usamos de nuevo el comando <strong>git status</strong> podrás notar que el estado de tu repositorio ha cambiado."
+                    "If at any point during this tutorial you feel your terminal is too cluttered with text, you can clear its contents with the <strong>clear</strong> command.",
+                    "Let's continue. Let's imagine we added a new file called <strong>mi_plan.txt</strong> in the repository.",
+                    "Use again the command <strong>git status</strong> now. You will notice that the status of the repository has changed  ."
                 ],
                 "comando": "git status",
                 "alert": "Did not use git status",
@@ -806,17 +806,17 @@
             },
             "4": {
                 "orden": "4",
-                "titulo": "Haciendo cambios",
-                "tituloCorto": "Haciendo cambios",
+                "titulo": "Adding and updating files",
+                "tituloCorto": "Adding and updating files",
                 "tareas": [
-                    "¿Notaste cómo el archivo <strong>mi_plan.txt</strong> apareció como <strong>untracked</strong> en la terminal?",
-                    "Eso significa que el archivo es nuevo y Git aún no está siguiendo sus cambios.",
-                    "Para que Git pueda seguir todos los cambios que se realicen en el archivo, primero debemos agregarlo a la zona de preparación o <strong>Stage</strong> con el comando <strong>git add [nombre del archivo]</strong>."
+                    "The output of the <strong>git status</strong> command is telling us that <strong>mi_plan.txt</strong> is <strong>untracked</strong>",
+                    "This means that the new file has not yet been added to the Git tracking process",
+                    "To have Git to track this file, type the command <strong>git add [nombre del archivo]</strong>. This process is called <strong>Staging</strong>, or moving files to the <strong>Staging index tree</strong>, meaning our changes are ready to be committed"
                 ],
                 "comando": "git add mi_plan.txt",
                 "alert": "Did not add mi_plan.txt",
                 "successMessages": [
-                    "<span class=\"success\">¡Bien hecho! mi_plan.txt ha sido agregado al <strong>Stage</strong></span>"
+                    "<span class=\"success\">Well done! mi_plan.txt has been <strong>Staged</strong></span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -831,10 +831,10 @@
             },
             "5": {
                 "orden": "5",
-                "titulo": "Revisando los cambios",
-                "tituloCorto": "Revisando los cambios",
+                "titulo": "Reviewing changes",
+                "tituloCorto": "Reviewing changes",
                 "tareas": [
-                    "¡Excelente! Ahora que git ya está pendiente de los cambios de nuestro archivo, podemos usar de nuevo el comando <strong>git status</strong> para asegurarnos de que todo está bien."
+                    "Excellent! Now that we made Git aware of the changes in our file, let's check again the status with the <strong>git status</strong> command to make sure everything is good."
                 ],
                 "comando": "git status",
                 "alert": "Did not use git status",
@@ -862,17 +862,17 @@
             },
             "6": {
                 "orden": "6",
-                "titulo": "Haciendo commit",
-                "tituloCorto": "Haciendo commit",
+                "titulo": "Committing your staged changes",
+                "tituloCorto": "Committing changes",
                 "tareas": [
-                    "Ahora con tu archivo preparado y en el <strong>Stage</strong> podemos seguir con el siguiente paso, hacer <strong>commit</strong>.",
-                    "Hacer <strong>commit</strong> es simplemente enviar nuestros cambios desde el <strong>Stage</strong> a nuestro repositorio. Si así quisieras, podrías agregar y quitar archivos del <strong>Stage</strong> antes de hacer commit.",
-                    "Para guardar tus cambios en el repositorio usamos el comando <strong>git commit -m</strong> seguido de un mensaje que describa los cambios que hemos realizado. En este caso, solo hemos agregado un nuevo archivo, así que solo escribiremos <i>Agregar mi_plan.txt</i> entre comillas."
+                    "Now that our changes are <strong>Staged</strong>, we are ready to <strong>commit</strong> the changes.",
+                    "<strong>Commit</strong> means simply to that our <strong>Staged</strong> changes are ready to be added to our repository. If you wish, you can add or remove files and add them to the <strong>Staging index</strong> them as necessary before committing the changes",
+                    "To save the changes in our repository, use the command <strong>git commit -m</strong> followed by a commit message that briefly states what exactly happened in between the last version and this. In this case, we added a new archive in an empty repository, so the commit message will be simple: <i>Added mi_plan.txt</i> (enclosed in double quotes)."
                 ],
-                "comando": "git commit -m \"Agregar mi_plan.txt\"",
+                "comando": "git commit -m \"Added mi_plan.txt\"",
                 "alert": "Did not use git commit",
                 "successMessages": [
-                    "[master (root-commit) 20b5ccd] Agregar mi_plan.txt",
+                    "[master (root-commit) 20b5ccd] Added mi_plan.txt",
                     "1 file changed, 1 insertion(+)",
                     "create mode 100644 mi_plan.txt",
                     "&nbsp;"
@@ -884,22 +884,22 @@
                         "mi_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt"
+                        "20b5ccd - Added mi_plan.txt"
                     ]
                 }
             },
             "7": {
                 "orden": "7",
-                "titulo": "Agregando varios archivos",
-                "tituloCorto": "Agregando varios archivos",
+                "titulo": "Adding multiple files",
+                "tituloCorto": "Adding multiple files",
                 "tareas": [
-                    "Nuestro repositorio ya tiene un commit. Pero ahora, imagina que has estado trabajando todo el día en tu proyecto y has terminado creando varios archivos de texto. Usar el comando <strong>git add</strong> para agregarlos uno a uno es bastante fastidioso, ¿verdad? Pues Git nos ofrece un metodo un poco más comodo.",
-                    "Para ello usaremos el comando <strong>git add \"*.txt\"</strong> el cual agregará todos los archivos de texto que hayan sido editados en nuestro repositorio."
+                    "Our repository already has one commit. But what if you have been working all day in this project, and now you have a few new text files to commit? Adding them one by one with the <strong>git add</strong> command is quite tedious, right? No worries, Git has a better method to add multiple files.",
+                    "Type the command <strong>git add \"*.txt\"</strong>, in order to add all the text tiles that have been added or edited in our repository."
                 ],
                 "comando": "git add \"*.txt\"",
                 "alert": "Did not use git add",
                 "successMessages": [
-                    "<span class=\"success\">Archivos agregados</span>"
+                    "<span class=\"success\"Added files</span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -916,23 +916,23 @@
                         "reuniones_del_mes.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt"
+                        "20b5ccd - Adding mi_plan.txt"
                     ]
                 }
             },
             "8": {
                 "orden": "8",
-                "titulo": "Revertir el Stage",
+                "titulo": "Revert to Stage",
                 "tituloCorto": "Git reset",
                 "tareas": [
-                    "Así como <strong>git add</strong> envía tus archivos editados al <strong>Stage</strong>, existe el comando <strong>git reset</strong> que hace todo lo contrario. Retira los archivos del <strong>Stage</strong>.",
-                    "Este comando puede recibir los mismos argumentos que hemos visto hasta ahora con <strong>git add</strong>.",
-                    "Probemos retirando los archivos de texto que acabamos de agregar al <strong>Stage</strong>."
+                    "We know that the <strong>git add</strong> command sends edited files to the <strong>Staging index</strong>. The command <strong>git reset</strong> does the the exact opposite: It reverts to the previous state of <strong>Stage</strong>.",
+                    "This command accepts the same arguments as <strong>git add</strong>.",
+                    "Let's try to reset the last files we added to <strong>Stage</strong>."
                 ],
                 "comando": "git reset",
                 "alert": "Did not use git reset",
                 "successMessages": [
-                    "<span class=\"success\">Los archivos de texto ya no están en el <strong>Stage</strong></span>"
+                    "<span class=\"success\">Text files were removed from <strong>Stage</strong></span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -944,22 +944,22 @@
                         "mi_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt"
+                        "20b5ccd - Adding mi_plan.txt"
                     ]
                 }
             },
             "9": {
                 "orden": "9",
-                "titulo": "Agregando archivos de nuevo",
+                "titulo": "Adding files again",
                 "tituloCorto": "Git add #2",
                 "tareas": [
-                    "Como podrás notar nuestros archivos de texto ya no están en en la zona de preparación.",
-                    "Ahora, volvamos a agregarlos."
+                    "As you see on the right panel, our files are not anymore on the <strong>Staging index</strong>.",
+                    "Let's add them again."
                 ],
                 "comando": "git add \"*.txt\"",
                 "alert": "Did not use git add",
                 "successMessages": [
-                    "<span class=\"success\">Archivos agregados</span>"
+                    "<span class=\"success\">Added files</span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -976,23 +976,23 @@
                         "reuniones_del_mes.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt"
+                        "20b5ccd - Adding mi_plan.txt"
                     ]
                 }
             },
             "10": {
                 "orden": "10",
-                "titulo": "Volviendo a hacer commit",
-                "tituloCorto": "Haciendo commit #2",
+                "titulo": "Committing newly staged changes",
+                "tituloCorto": "Committing files #2",
                 "tareas": [
-                    "Hagamos un commit con los nuevos cambios.",
-                    "¿Qué te parece usar el mensaje <em>Agregar todos los archivos de texto</em>?"
+                    "Let's commit our newly staged changes.",
+                    "How about adding a more descriptive commit message, such as <em>Added all text files</em>?"
                 ],
-                "comando": "git commit -m \"Agregar todos los archivos de texto\"",
+                "comando": "git commit -m \"Added all text files\"",
                 "alert": "Did not use git commit",
                 "successMessages": [
                     "[master (root-commit) 3852b4d]",
-                    "'Agregar todos los archivos de texto'",
+                    "'Added all text files'",
                     "3 file changed, 3 insertion(+)",
                     "create mode 100644 desarrollo.txt",
                     "create mode 100644 maquetado.txt",
@@ -1009,8 +1009,8 @@
                         "mi_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto"
+                        "20b5ccd - Added mi_plan.txt",
+                        "3852b4d - Added all text files"
                     ]
                 }
             },
