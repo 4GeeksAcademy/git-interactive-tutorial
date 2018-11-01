@@ -768,7 +768,7 @@
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        "mi_plan.txt"
+                        "my_plan.txt"
                     ]
                 }
             },
@@ -778,7 +778,7 @@
                 "tituloCorto": "Getting started",
                 "tareas": [
                     "If at any point during this tutorial you feel your terminal is too cluttered with text, you can clear its contents with the <strong>clear</strong> command.",
-                    "Let's continue. Let's imagine we added a new file called <strong>mi_plan.txt</strong> in the repository.",
+                    "Let's continue. Let's imagine we added a new file called <strong>my_plan.txt</strong> in the repository.",
                     "Use again the command <strong>git status</strong> now. You will notice that the status of the repository has changed  ."
                 ],
                 "comando": "git status",
@@ -791,7 +791,7 @@
                     "# Untracked files:",
                     "#   (use \"git add <file>...\" to include files)",
                     "#",
-                    "#   <strong class=\"red\">mi_plan.txt</strong>",
+                    "#   <strong class=\"red\">my_plan.txt</strong>",
                     "nothing added to commit",
                     "but untracked files present",
                     "(use 'git add' to track)"
@@ -800,7 +800,7 @@
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        "mi_plan.txt"
+                        "my_plan.txt"
                     ]
                 }
             },
@@ -809,23 +809,23 @@
                 "titulo": "Adding and updating files",
                 "tituloCorto": "Adding and updating files",
                 "tareas": [
-                    "The output of the <strong>git status</strong> command is telling us that <strong>mi_plan.txt</strong> is <strong>untracked</strong>",
+                    "The output of the <strong>git status</strong> command is telling us that <strong>my_plan.txt</strong> is <strong>untracked</strong>",
                     "This means that the new file has not yet been added to the Git tracking process",
-                    "To have Git to track this file, type the command <strong>git add [nombre del archivo]</strong>. This process is called <strong>Staging</strong>, or moving files to the <strong>Staging index tree</strong>, meaning our changes are ready to be committed"
+                    "To have Git to track this file, type the command <strong>git add [file name]</strong>. This process is called <strong>Staging</strong>, or moving files to the <strong>Staging index tree</strong>, meaning our changes are ready to be committed"
                 ],
-                "comando": "git add mi_plan.txt",
-                "alert": "Did not add mi_plan.txt",
+                "comando": "git add my_plan.txt",
+                "alert": "Did not add my_plan.txt",
                 "successMessages": [
-                    "<span class=\"success\">Well done! mi_plan.txt has been <strong>Staged</strong></span>"
+                    "<span class=\"success\">Well done! my_plan.txt has been <strong>Staged</strong></span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        "mi_plan.txt"
+                        "my_plan.txt"
                     ],
                     "staged": [
-                        "mi_plan.txt"
+                        "my_plan.txt"
                     ]
                 }
             },
@@ -846,17 +846,17 @@
                     "# Changes to be committed:",
                     "#   (use \"git rm --cached <file>...\" to unstage)",
                     "#",
-                    "#   <span class=\"green\">new file:   mi_plan.txt</span>",
+                    "#   <span class=\"green\">new file:   my_plan.txt</span>",
                     "#"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        "mi_plan.txt"
+                        "my_plan.txt"
                     ],
                     "staged": [
-                        "mi_plan.txt"
+                        "my_plan.txt"
                     ]
                 }
             },
@@ -867,24 +867,24 @@
                 "tareas": [
                     "Now that our changes are <strong>Staged</strong>, we are ready to <strong>commit</strong> the changes.",
                     "<strong>Commit</strong> means simply to that our <strong>Staged</strong> changes are ready to be added to our repository. If you wish, you can add or remove files and add them to the <strong>Staging index</strong> them as necessary before committing the changes",
-                    "To save the changes in our repository, use the command <strong>git commit -m</strong> followed by a commit message that briefly states what exactly happened in between the last version and this. In this case, we added a new archive in an empty repository, so the commit message will be simple: <i>Added mi_plan.txt</i> (enclosed in double quotes)."
+                    "To save the changes in our repository, use the command <strong>git commit -m</strong> followed by a commit message that briefly states what exactly happened in between the last version and this. In this case, we added a new archive in an empty repository, so the commit message will be simple: <i>Added my_plan.txt</i> (enclosed in double quotes)."
                 ],
-                "comando": "git commit -m \"Added mi_plan.txt\"",
+                "comando": "git commit -m \"Added my_plan.txt\"",
                 "alert": "Did not use git commit",
                 "successMessages": [
-                    "[master (root-commit) 20b5ccd] Added mi_plan.txt",
+                    "[master (root-commit) 20b5ccd] Added my_plan.txt",
                     "1 file changed, 1 insertion(+)",
-                    "create mode 100644 mi_plan.txt",
+                    "create mode 100644 my_plan.txt",
                     "&nbsp;"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        "mi_plan.txt"
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Added mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt"
                     ]
                 }
             },
@@ -905,18 +905,18 @@
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "staged": [
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Adding mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt"
                     ]
                 }
             },
@@ -938,13 +938,13 @@
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Adding mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt"
                     ]
                 }
             },
@@ -965,18 +965,18 @@
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "staged": [
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Adding mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt"
                     ]
                 }
             },
@@ -994,33 +994,33 @@
                     "[master (root-commit) 3852b4d]",
                     "'Added all text files'",
                     "3 file changed, 3 insertion(+)",
-                    "create mode 100644 desarrollo.txt",
-                    "create mode 100644 maquetado.txt",
-                    "create mode 100644 reuniones_del_mes.txt",
+                    "create mode 100644 development.txt",
+                    "create mode 100644 mockup.txt",
+                    "create mode 100644 monthly_meetings.txt",
                     "&nbsp;"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Added mi_plan.txt",
+                        "20b5ccd - Added my_plan.txt",
                         "3852b4d - Added all text files"
                     ]
                 }
             },
             "11": {
                 "orden": "11",
-                "titulo": "Reviweing the history with git log",
+                "titulo": "Reviewing history of changes with git log",
                 "tituloCorto": "Using git log",
                 "tareas": [
-                    "How is it going? We have made two commits so far.",
-                    "Git offers us a command that allows us to review a history with all the commits we have made so far in chronological order. This command is <strong>git log</strong>"
+                    "How about it? We have already done two commits.",
+                    "Git has a command that allows us to review a log of all of our commits in chronological order. Type <strong>git log</strong> on the terminal:"
                 ],
                 "comando": "git log",
                 "alert": "Did not use git log",
@@ -1028,25 +1028,25 @@
                     "<span class=\"yellow\">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>",
                     "Author: 4Geeks Student <student@4geeksacademy.co>",
                     "Date: Fri Sep 19 18:30:00 2017 -0400",
-                    "&nbsp;&nbsp;&nbsp; Add mi_plan.txt",
+                    "&nbsp;&nbsp;&nbsp; Added my_plan.txt",
                     "&nbsp;",
                     "<span class=\"yellow\">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>",
                     "Author: 4Geeks Student <student@4geeksacademy.co>",
                     "Date: Thu Sep 18 18:00:32 2017 -0400",
-                    "&nbsp;&nbsp;&nbsp; Add all the text files"
+                    "&nbsp;&nbsp;&nbsp; Added all text files"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Add mi_plan.txt",
-                        "3852b4d - Add all the text files"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files"
                     ]
                 }
             },
@@ -1055,26 +1055,26 @@
                 "titulo": "Managing remote repositories",
                 "tituloCorto": "Git remote",
                 "tareas": [
-                    "Now, we have already learned the most basic Git commands. Now let's look at its practical use. Imagine that you want other people to have access to your repository. For that you need to upload our repository to a platform like <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong> which is in charge of storing public and private repositories in its servers.",
-                    "Now, once a repository is created, we will need to link it to our local repository; for that we use <strong>git remote add</strong> followed by the name that we want to associate with the remote repository that we want to add and its URL. Usually we call the main remote repository <strong>origin</strong> so we'll do that. And its URL is <strong>https://github.com/4geeksAcademy/project.git</strong>. This time we don't need quotes."
+                    "Great, we have now learned the most basic Git commands. Let's put our knowledge in practice. Imagine that you need other people to access your repository. To do this, you have to upload the repository to a platform such as <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong> a service that hosts public and private repositories.",
+                    "Once our Github repository is created, we have to associate it with our local repository. For this, we will use the <strong>git remote add</strong> command, followed by the name and the URL of the remote repository. Usually, the main remote repository is named <strong>origin</strong>. The URL of the remote repository should be <strong>https://github.com/4geeksAcademy/project.git</strong> (double quotes are not needed)"
                 ],
                 "comando": "git remote add origin https://github.com/4geeksAcademy/project.git",
                 "alert": "Did not use git remote add",
                 "successMessages": [
-                    "<span class=\"success\">Repository added successfully</span>"
+                    "<span class=\"success\">Successfully added repository</span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Added mi_plan.txt",
-                        "3852b4d - Added all the text files"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files"
                     ]
                 }
             },
@@ -1083,27 +1083,27 @@
                 "titulo": "Using git push",
                 "tituloCorto": "Git push",
                 "tareas": [
-                    "Once our local repository has been associated, we just need to upload our local files to that online repository. This is called making a <strong>push</strong>.",
-                    "For that we use the command <strong>git push -u</strong> followed by the name of the remote repository where we want to make the push to (origin) and then the name of the <em>branch</em> of the local repository where our files live. By default, when intializing a repository, a local branch is created called <strong>master</strong>, that's where our documents live.",
-                    "How about you try it?"
+                    "After associating our local repository with the remote, we will upload our files to the remote, or <strong>push</strong> our local repository.",
+                    "Type <strong>git push -u</strong> followed by the name of the remote repository (origin) and then the name of the local <em>branch</em> we want to push. When we initialize a repository, a local branch called <strong>master</strong> is created automatically, and contains our files.",
+                    "Let's try it?"
                 ],
                 "comando": "git push -u origin master",
                 "alert": "Did not use git push",
                 "successMessages": [
-                    "Branch master configurada para observar rama remota"
+                    "Branch master set up to track remote branch"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Added mi_plan.txt",
-                        "3852b4d - Added all the text files"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files"
                     ]
                 }
             },
@@ -1112,202 +1112,202 @@
                 "titulo": "Using git pull",
                 "tituloCorto": "Git pull",
                 "tareas": [
-                    "It's good for you to always work with the most recent version of your repository, that's why before anything else you should always update your local repository because maybe someone from your team has made an important change",
-                    "In order to update our local repository, we use <strong>git pull</strong> followed by the online repository we will copy our files from (origin) and then the name of our local repository branch where we want them to be copied to (master)."
+                    "It is a good practice to always work with the most recent version of your repository, to make sure that you are not ignoring possible important changes by a team member. This is easily done with Git, as we can update our local repository to match the content of the remote repository.",
+                    "To update your local repository, type <strong>git pull</strong>, followed by the name of the remote repository(origin) and the name of the local branch where that will get updated (master)."
                 ],
                 "comando": "git pull origin master",
                 "alert": "Did not use git pull",
                 "successMessages": [
                     "Updating 3852b4d..3e70b0f",
                     "Fast-forward",
-                    "&nbsp; resumen_mensual.txt | <span class=\"green\">1+</span>",
+                    "&nbsp; monthly_summary.txt | <span class=\"green\">1+</span>",
                     "&nbsp; 1 file changed, 1 insertion(+)",
-                    "&nbsp; create mode 100644 resumen_mensual.txt"
+                    "&nbsp; create mode 100644 monthly_summary.txt"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Added mi_plan.txt",
-                        "3852b4d - Added all the text files",
-                        "7d8d808 - Edit meeting frequency in mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt"
                     ]
                 }
             },
             "15": {
                 "orden": "15",
-                "titulo": "Observando las ediciones con git diff",
+                "titulo": "Comparing different versions with git diff",
                 "tituloCorto": "Git diff",
                 "tareas": [
-                    "¿Notas algo diferente en la carpeta de tu repositorio?",
-                    "Parece que un miembro de tu equipo ha editado nuestro archivo mi_plan.txt y ha hecho un push al repositorio en GitHub. Antes de comenzar a trabajar creo que mejor revisamos qué cambios realizó nuestro compañero.",
-                    "Para ello podemos usar el comando <strong>git diff HEAD</strong> donde HEAD es una referencia al commit más reciente."
+                    "Did you notice something different in your repository?",
+                    "Looks like a team member has edited our my_plan.txt file and pushed the changes to the GitHub repository. Let's review the edits from our teammate before starting work.",
+                    "Let's use the command <strong>git diff HEAD</strong>, where HEAD refers to the most recent commit."
                 ],
                 "comando": "git diff HEAD",
                 "alert": "Did not use git diff",
                 "successMessages": [
-                    "diff --git a/mi_plan.txt b/mi_plan.txt",
+                    "diff --git a/my_plan.txt b/my_plan.txt",
                     "index 7d8d808..e725ef6 100644",
-                    "--- a/mi_plan.txt",
-                    "+++ b/mi_plan.txt",
+                    "--- a/my_plan.txt",
+                    "+++ b/my_plan.txt",
                     "<span class=\"blue\">@@ -1 +1 @@</span>",
-                    "<span class=\"red\">-Realizar reuniones mensuales</span>",
-                    "<span class=\"green\">+Realizar reuniones quincenales</span>"
+                    "<span class=\"red\">-Monthly meetings</span>",
+                    "<span class=\"green\">+Meetings twice a month</span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt"
                     ]
                 }
             },
             "16": {
                 "orden": "16",
-                "titulo": "Eliminando cambios",
+                "titulo": "Reverting changes",
                 "tituloCorto": "Git checkout",
                 "tareas": [
-                    "Bien, ya podemos ver las diferencias. Ahora, imagina que luego de unos minutos de trabajo has realizado un par de cambios en <strong>reuniones_del_mes.txt</strong>, pero resulta que has cometido un error. Podemos deshacer estos cambios con un comando de Git.",
-                    "Para ello, usamos el comando <strong>git checkout</strong> seguido del nombre del archivo al cual deseas eliminarle los cambios."
+                    "So we now know how to see review changes. Now, imagine that, after working for a few minutes updating the content of <strong>monthly_meetings.txt</strong>, you realize that you made a mistake. Not to worry; we can revert these changes with a Git command.",
+                    "Type <strong>git checkout</strong>, followed by the name of the file that you need to revert your changes to."
                 ],
-                "comando": "git checkout \"reuniones_del_mes.txt\"",
+                "comando": "git checkout \"monthly_meetings.txt\"",
                 "alert": "Did not use git checkout",
                 "successMessages": [
-                    "<span class=\"green\">Cambios eliminados</span>"
+                    "<span class=\"green\">Reverted changes</span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt"
                     ]
                 }
             },
             "17": {
                 "orden": "17",
-                "titulo": "Trabajando con ramas",
-                "tituloCorto": "Ramificación",
+                "titulo": "Working with branches",
+                "tituloCorto": "Branching",
                 "tareas": [
-                    "¿Recuerdas que dijimos que Git permitía a un equipo de trabajo tratar con un mismo código sin problemas? Bueno, esto es posible gracias a la ramificación del código.",
-                    "Git permite crear <strong>ramas</strong> o <strong>branches</strong>. Estas son copias de tu código en las que puedes trabajar sin afectar la versión original.",
-                    "¿Por qué no creamos una? Para ello usa el comando <strong>git branch</strong> seguido del nombre de la rama. Llamaremos a la nuestra <strong>mi_version</strong>."
+                    "Remember we said that Git allows a work team to work on the same code simultaneously without conflicts? This is made possible with the Git branching model.",
+                    "Git allows the creation of <strong>branches</strong>. <strong>Branches</strong>. Branches are complete copies of the code that can be used to work on, independently of the original version.",
+                    "How about creating a branch? Type the command <strong>git branch</strong>, followed by the branch names. Let's name our branch <strong>my_version</strong>."
                 ],
-                "comando": "git branch mi_version",
+                "comando": "git branch my_version",
                 "alert": "Did not use git branch",
                 "successMessages": [
-                    "<span class=\"green\">Rama creada</span>"
+                    "<span class=\"green\">Created branch</span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt"
                     ]
                 }
             },
             "18": {
                 "orden": "18",
-                "titulo": "Cambiando de ramas",
-                "tituloCorto": "Ramificación #2",
+                "titulo": "Switching branches",
+                "tituloCorto": "Branching #2",
                 "tareas": [
-                    "Bien, hemos creado una nueva rama. Pero como puedes ver a tu derecha en la sección <strong>Root folder</strong> aún seguimos en la rama principal <strong>master</strong>. Si queremos trabajar con nuestra copia debemos cambiar de <strong>rama</strong>.",
-                    "Para hacerlo usamos el comando <strong>git checkout</strong> seguido del nombre de la rama."
+                    "We have created a new branch. As you can see at the right panel, in the <strong>Root folder</strong> section, we are still working on the main, or <strong>master</strong> branch. To use our newly created <strong>branch</strong>, we have to switch to it.",
+                    "Type <strong>git checkout</strong>, followed by the branch name"
                 ],
-                "comando": "git checkout mi_version",
+                "comando": "git checkout my_version",
                 "alert": "Did not use git checkout",
                 "successMessages": [
-                    "Switched to branch 'mi_version'"
+                    "Switched to branch 'my_version'"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt"
                     ]
                 }
             },
             "19": {
                 "orden": "19",
-                "titulo": "Realizando cambios en nuestra rama",
-                "tituloCorto": "Ramificación #3",
+                "titulo": "Committing changes to our branch",
+                "tituloCorto": "Branching #3",
                 "tareas": [
-                    "Como podrás notar, ya estamos en nuestra rama. Ahora, ¿qué tal si organizamos un poco mejor nuestro proyecto? Hemos creado una carpeta llamada <strong>tareas</strong> y allí moveremos los archivos que están en <strong>planes_septiembre</strong> y <strong>planes_octubre</strong>.",
-                    "Hemos hecho esto por ti, como puedes ver en <strong>Root folder</strong>. Ahora, a veces es algo tedioso tener que agregar los archivos al <strong>Stage</strong> y luego hacer commit. Es por ello que Git nos permie agregar <strong>-a</strong> al comando <strong>git commit</strong> el cual se hará cargo de agregar todos los archivos editados al <strong>Stage</strong> e inmediatamente hacer commit.",
-                    "Bien, ejecuta el comando correspodiente y agrega el mensaje: <em>Reorganizar el proyecto</em>."
+                    "As you can see, now we are working in our own branch. How about improving the structure of our project? We have created a folder named <strong>tasks</strong>, where we can move the files that are currently located in <strong>september_plans</strong> and <strong>october_plans</strong>.",
+                    "As you can see on the <strong>Root folder</strong> section, we have already done this. Now, instead of adding the files to the <strong>Stage</strong> and then committing them, Git allows us to use the  <strong>-a</strong> argument for the <strong>git commit</strong> command, which will add all the changed files to <strong>Stage</strong> and then commit the changes.",
+                    "Commit the changes using the <strong>-a</strong> option and the message: <em>Reorganized project</em>."
                 ],
-                "comando": "git commit -a -m \"Reorganizar el proyecto\"",
+                "comando": "git commit -a -m \"Reorganized project\"",
                 "alert": "Did not use git commit",
                 "successMessages": [
-                    "[mi_version a5cd2f1] Reorganizar proyecto",
+                    "[my_version a5cd2f1] Reorganized project",
                     "&nbsp; 2 files changed, 0 insertions(+), 0 deletions(-)",
-                    "&nbsp; rename {1 => tareas}/desarrollo.txt",
-                    "&nbsp; rename {1 => tareas}/maquetado.txt"
+                    "&nbsp; rename {1 => tasks}/development.txt",
+                    "&nbsp; rename {1 => tasks}/mockup.txt"
                 ],
                 "repoStatus": {
-                    "branch": "mi_version",
+                    "branch": "my_version",
                     "repoFolder": [
                         { ".git": [  ]  },
                         { "tareas" :
                             [
-                            "desarrollo.txt",
-                            "maquetado.txt"
+                            "development.txt",
+                            "mockup.txt"
                             ]
                         },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt",
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt",
                         "a5cd2f1 - Reorganizar el proyecto"
                     ]
                 }
             },
             "20": {
                 "orden": "20",
-                "titulo": "Regresando a la rama principal",
-                "tituloCorto": "Ramificación #4",
+                "titulo": "Switching to master branch",
+                "tituloCorto": "Branching #4",
                 "tareas": [
-                    "Ahora que ya hemos hecho un commit de nuestros cambios, debemos unirlo a la rama principal para que todo nuestro equipo trabaje con la misma estructura. Para ello primero debemos regresar a la rama principal usando el comando <strong>git checkout master</strong>."
+                    "After committing our changes to our branch, we should merge it with the main branch, so that the rest of our team all have the same project structure. Let's switch to the main branch with the command <strong>git checkout master</strong>."
                 ],
                 "comando": "git checkout master",
                 "alert": "Did not use git checkout",
@@ -1315,73 +1315,73 @@
                     "Switched to branch 'master'"
                 ],
                 "repoStatus": {
-                    "branch": "mi_version",
+                    "branch": "my_version",
                     "repoFolder": [
                         { ".git": [  ]  },
                         { "tareas" :
                             [
-                            "desarrollo.txt",
-                            "maquetado.txt"
+                            "development.txt",
+                            "mockup.txt"
                             ]
                         },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt"
                     ]
                 }
             },
             "21": {
                 "orden": "21",
-                "titulo": "Uniendo nuestros cambios a Master",
+                "titulo": "Merging changes to the Master branch",
                 "tituloCorto": "Git merge",
                 "tareas": [
-                    "Como podrás ver la rama <strong>master</strong> no ha sido alternada y todavía tiene la versión anterior de la estructura de nuestras carpetas. ¿Qué tal si aplicamos los cambios que hicimos en nuestra versión a la rama principal?",
-                    "Para ello usa el comando <strong>git merge</strong>. Esto lo que hará será tomar los cambios realizados en <strong>mi_version</strong> y unirlos a <strong>master</strong>."
+                    "As you can see, the branch <strong>master</strong> has not been altered, so the changes we did in our own branch are not reflected to the master's branch folder structure.  Let's apply our changes to the master branch!",
+                    "Type <strong>git merge</strong>. With this command, the changes in the branch <strong>my_version</strong> will be merged with the <strong>master</strong>. branch"
                 ],
-                "comando": "git merge mi_version",
+                "comando": "git merge my_version",
                 "alert": "Did not use git merge",
                 "successMessages": [
                     "Updating 7d8d808..ec6888b",
                     "Fast-forward",
-                    "&nbsp;  {1 => tareas}/desarrollo.txt | 0",
-                    "&nbsp;  {1 => tareas}/maquetado.txt | 0",
+                    "&nbsp;  {1 => tasks}/development.txt | 0",
+                    "&nbsp;  {1 => tasks}/mockup.txt | 0",
                     "&nbsp; 2 files changed, 0 insertions(+), 0 deletions(-)",
-                    "&nbsp; rename {1 => tareas}/desarrollo.txt",
-                    "&nbsp; rename {1 => tareas}/maquetado.txt"
+                    "&nbsp; rename {1 => tasks}/development.txt",
+                    "&nbsp; rename {1 => tasks}/mockup.txt"
                 ],
                 "repoStatus": {
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "planes_septiembre" : [ "desarrollo.txt" ] },
-                        { "planes_octubre" : [ "maquetado.txt" ] },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        { "september_plans" : [ "development.txt" ] },
+                        { "october_plans" : [ "mockup.txt" ] },
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt"
                     ]
                 }
             },
             "22": {
                 "orden": "22",
-                "titulo": "Eliminando ramas en desuso",
-                "tituloCorto": "Eliminan ramas",
+                "titulo": "Deleting unused branches",
+                "tituloCorto": "Deleting branches",
                 "tareas": [
-                    "Ya que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_vesion</strong>, ¿por qué no eliminamos esa rama?",
-                    "Siempre es bueno eliminar ramas en desuso, ya que a lo largo de un proyecto pueden generarse muchas ramas y debemos evitar que nuestros compañeros se confundan al usar ramas desactualizadas.",
-                    "Para ello usamos el comando <strong>git branch -d</strong> seguido del nombre de la rama a eliminar: <strong>mi_version</strong>."
+                    "We have merged our changes with the main branch, so we won't be using <strong>mi_vesion</strong> anymore. Let's remove this branch.",
+                    "It is a good practice to delete unused branches, as, as our project increases, having many branches can be hard to maintain and many of the older branches can be left behind in updates.",
+                    "Type <strong>git branch -d</strong>, followed by the name of the branch we want to delete: <strong>my_version</strong>."
                 ],
-                "comando": "git branch -d mi_version",
+                "comando": "git branch -d my_version",
                 "alert": "Did not use git branch",
                 "successMessages": [
-                    "Deleted branch mi_version (was a5cd2f1)."
+                    "Deleted branch my_version (was a5cd2f1)."
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -1389,28 +1389,28 @@
                         { ".git": [  ]  },
                         { "tareas" :
                             [
-                            "desarrollo.txt",
-                            "maquetado.txt"
+                            "development.txt",
+                            "mockup.txt"
                             ]
                         },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt",
-                        "a5cd2f1 - Reorganizar el proyecto"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt",
+                        "a5cd2f1 - Reorganized project"
                     ]
                 }
             },
             "23": {
                 "orden": "23",
-                "titulo": "Compartiendo nuestro proyecto",
+                "titulo": "Sharing our project",
                 "tituloCorto": "Git push #2",
                 "tareas": [
-                    "Ya habiendo realizado todos los cambios necesarios es hora de que nuestro equipo comience a trabajar con nuestro repositorio.",
-                    "Así que subamoslo a GitHub para ponernos en marcha."
+                    "We have now made all the necessary changes to our project, so it is time to share the repository with our team so that we can all work in it.",
+                    "Let's upload our repository to GitHub."
                 ],
                 "comando": "git push",
                 "alert": "Did not use git push",
@@ -1424,18 +1424,18 @@
                         { ".git": [  ]  },
                         { "tareas" :
                             [
-                            "desarrollo.txt",
-                            "maquetado.txt"
+                            "development.txt",
+                            "mockup.txt"
                             ]
                         },
-                        "reuniones_del_mes.txt",
-                        "mi_plan.txt"
+                        "monthly_meetings.txt",
+                        "my_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt",
-                        "a5cd2f1 - Reorganizar el proyecto"
+                        "20b5ccd - Added my_plan.txt",
+                        "3852b4d - Added all text files",
+                        "7d8d808 - Edited meetings frequency in my_plan.txt",
+                        "a5cd2f1 - Reorganized project"
                     ]
                 }
             }
