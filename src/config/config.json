@@ -1016,11 +1016,11 @@
             },
             "11": {
                 "orden": "11",
-                "titulo": "Revisando el historial con git log",
-                "tituloCorto": "Usado git log",
+                "titulo": "Reviweing the history with git log",
+                "tituloCorto": "Using git log",
                 "tareas": [
-                    "¿Qué tal? Ya llevamos dos commits hasta ahora.",
-                    "Git nos ofrece un comando que permite revisar un historial con todos los commits que hemos hecho hasta el momento en orden cronológico. Este comando es <strong>git log</strong>"
+                    "How is it going? We have made two commits so far.",
+                    "Git offers us a command that allows us to review a history with all the commits we have made so far in chronological order. This command is <strong>git log</strong>"
                 ],
                 "comando": "git log",
                 "alert": "Did not use git log",
@@ -1028,12 +1028,12 @@
                     "<span class=\"yellow\">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>",
                     "Author: 4Geeks Student <student@4geeksacademy.co>",
                     "Date: Fri Sep 19 18:30:00 2017 -0400",
-                    "&nbsp;&nbsp;&nbsp; Agregar mi_plan.txt",
+                    "&nbsp;&nbsp;&nbsp; Add mi_plan.txt",
                     "&nbsp;",
                     "<span class=\"yellow\">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>",
                     "Author: 4Geeks Student <student@4geeksacademy.co>",
                     "Date: Thu Sep 18 18:00:32 2017 -0400",
-                    "&nbsp;&nbsp;&nbsp; Agregar todos los archivos de texto"
+                    "&nbsp;&nbsp;&nbsp; Add all the text files"
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -1045,23 +1045,23 @@
                         "mi_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto"
+                        "20b5ccd - Add mi_plan.txt",
+                        "3852b4d - Add all the text files"
                     ]
                 }
             },
             "12": {
                 "orden": "12",
-                "titulo": "Manejando repositorios remotos",
+                "titulo": "Managing remote repositories",
                 "tituloCorto": "Git remote",
                 "tareas": [
-                    "Bien, ya hemos aprendido los comandos más básicos de Git. Ahora veamos su utilidad práctica. Imagina que quieres que otras personas tengan acceso a tu repositorio. Para lograr debes subir nuestro repositorio a una plataforma como <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong> que se encarga resguardar repositorios publicos y privados en sus servidores.",
-                    "Ahora, una vez creado un repositorio en GitHub tendremos que asociarlo a nuestro repositorio local, para ello usamos <strong>git remote add</strong> seguido del nombre con el cual queremos asociar el repositorio remoto que deseamos agregar y de su URL. Se acostumbra llamar al repositorio remoto principal <strong>origin</strong>, así que haremos eso. Y su URL es <strong>https://github.com/4geeksAcademy/project.git</strong>. Esta vez no son necesarias las comillas."
+                    "Now, we have already learned the most basic Git commands. Now let's look at its practical use. Imagine that you want other people to have access to your repository. For that you need to upload our repository to a platform like <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong> which is in charge of storing public and private repositories in its servers.",
+                    "Now, once a repository is created, we will need to link it to our local repository; for that we use <strong>git remote add</strong> followed by the name that we want to associate with the remote repository that we want to add and its URL. Usually we call the main remote repository <strong>origin</strong> so we'll do that. And its URL is <strong>https://github.com/4geeksAcademy/project.git</strong>. This time we don't need quotes."
                 ],
                 "comando": "git remote add origin https://github.com/4geeksAcademy/project.git",
                 "alert": "Did not use git remote add",
                 "successMessages": [
-                    "<span class=\"success\">Repositorio agregado con éxito</span>"
+                    "<span class=\"success\">Repository added successfully</span>"
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -1073,24 +1073,24 @@
                         "mi_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto"
+                        "20b5ccd - Added mi_plan.txt",
+                        "3852b4d - Added all the text files"
                     ]
                 }
             },
             "13": {
                 "orden": "13",
-                "titulo": "Usando git push",
+                "titulo": "Using git push",
                 "tituloCorto": "Git push",
                 "tareas": [
-                    "Una vez asociado nuestro repositorio local solo tenemos que subir nuestros archivos locales a ese repositorio en línea, a esto se le llama hacer un <strong>push</strong>.",
-                    "Para hacerlo usamos el comando <strong>git push -u</strong> seguido del nombre del repositorio remoto a donde queremos hacer el push (origin) y luego el nombre de la <em>rama</em> del repositorio local donde están nuestros archivos. Por defecto, al inicializar un repositorio se crea una rama local llamada <strong>master</strong>, allí están nuestros documentos.",
-                    "¿Qué tal si lo intentas?"
+                    "Once our local repository has been associated, we just need to upload our local files to that online repository. This is called making a <strong>push</strong>.",
+                    "For that we use the command <strong>git push -u</strong> followed by the name of the remote repository where we want to make the push to (origin) and then the name of the <em>branch</em> of the local repository where our files live. By default, when intializing a repository, a local branch is created called <strong>master</strong>, that's where our documents live.",
+                    "How about you try it?"
                 ],
                 "comando": "git push -u origin master",
                 "alert": "Did not use git push",
                 "successMessages": [
-                    "Branch master set up to track remote branch"
+                    "Branch master configurada para observar rama remota"
                 ],
                 "repoStatus": {
                     "branch": "master",
@@ -1102,18 +1102,18 @@
                         "mi_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto"
+                        "20b5ccd - Added mi_plan.txt",
+                        "3852b4d - Added all the text files"
                     ]
                 }
             },
             "14": {
                 "orden": "14",
-                "titulo": "Usando git pull",
+                "titulo": "Using git pull",
                 "tituloCorto": "Git pull",
                 "tareas": [
-                    "Es bueno que siempre trabajes con la versión más actual de tu repositorio, es por ello que antes de hacer cualquier cosa siempre actualices tu repositorio local porque tal vez algún miembro de tu equipo ha realizado algún cambio importante",
-                    "Para actualizar nuestro repositorio local usamos <strong>git pull</strong> seguido del nombre del repositorio en línea de donde copiaremos los archivos (origin) y luego el nombre de la rama de nuestro repositorio local donde deseamos que se copien (master)."
+                    "It's good for you to always work with the most recent version of your repository, that's why before anything else you should always update your local repository because maybe someone from your team has made an important change",
+                    "In order to update our local repository, we use <strong>git pull</strong> followed by the online repository we will copy our files from (origin) and then the name of our local repository branch where we want them to be copied to (master)."
                 ],
                 "comando": "git pull origin master",
                 "alert": "Did not use git pull",
@@ -1134,9 +1134,9 @@
                         "mi_plan.txt"
                     ],
                     "commits": [
-                        "20b5ccd - Agregar mi_plan.txt",
-                        "3852b4d - Agregar todos los archivos de texto",
-                        "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"
+                        "20b5ccd - Added mi_plan.txt",
+                        "3852b4d - Added all the text files",
+                        "7d8d808 - Edit meeting frequency in mi_plan.txt"
                     ]
                 }
             },
