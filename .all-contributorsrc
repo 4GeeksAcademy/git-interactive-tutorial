@@ -41,6 +41,15 @@
         "code",
         "design"
       ]
+    },
+    {
+      "login": "aliciaphes",
+      "name": "Alicia Pérez",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5432702?v=4",
+      "profile": "http://www.linkedin.com/in/aliciapr",
+      "contributions": [
+        "translation"
+      ]
     }
   ]
 }
