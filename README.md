@@ -16,7 +16,7 @@ Just [click here](https://4GeeksAcademy.github.io/git-interactive-tutorial) to s
 
 ### :star: Give it a start if you like it!
 
-### :exclamation: Report errors, misspels or any other feedback [here](https://github.com/4GeeksAcademy/git-interactive-tutorial/issues).
+### :exclamation: Report errors, misspells or give us suggestions [here](https://github.com/4GeeksAcademy/git-interactive-tutorial/issues).
 
 ![Preview for Git Interactive Tutorial](https://raw.githubusercontent.com/4GeeksAcademy/git-interactive-tutorial/master/preview.gif)
 
