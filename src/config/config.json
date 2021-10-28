@@ -664,7 +664,7 @@
                 "titulo": "Eliminando ramas en desuso",
                 "tituloCorto": "Eliminan ramas",
                 "tareas": [
-                    "Ya que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_vesion</strong>, ¿por qué no eliminamos esa rama?",
+                    "Ya que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_version</strong>, ¿por qué no eliminamos esa rama?",
                     "Siempre es bueno eliminar ramas en desuso, ya que a lo largo de un proyecto pueden generarse muchas ramas y debemos evitar que nuestros compañeros se confundan al usar ramas desactualizadas.",
                     "Para ello usamos el comando <strong>git branch -d</strong> seguido del nombre de la rama a eliminar: <strong>mi_version</strong>."
                 ],
@@ -1374,7 +1374,7 @@
                 "titulo": "Deleting unused branches",
                 "tituloCorto": "Deleting branches",
                 "tareas": [
-                    "We have merged our changes with the main branch, so we won't be using <strong>mi_vesion</strong> anymore. Let's remove this branch.",
+                    "We have merged our changes with the main branch, so we won't be using <strong>my_version</strong> anymore. Let's remove this branch.",
                     "It is a good practice to delete unused branches, as, as our project increases, having many branches can be hard to maintain and many of the older branches can be left behind in updates.",
                     "Type <strong>git branch -d</strong>, followed by the name of the branch we want to delete: <strong>my_version</strong>."
                 ],
