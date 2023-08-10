@@ -710,7 +710,7 @@
                orden: "4",
                titulo: "Adding and updating files",
                tituloCorto: "Adding and updating files",
-               tareas: ["The output of the <strong>git status</strong> command is telling us that <strong>my_plan.txt</strong> is <strong>untracked</strong>", "This means that the new file has not yet been added to the Git tracking process", "To have Git to track this file, type the command <strong>git add [file name]</strong>. This process is called <strong>Staging</strong>, or moving files to the <strong>Staging index tree</strong>, meaning our changes are ready to be committed"],
+               tareas: ["The output of the <strong>git status</strong> command is telling us that <strong>my_plan.txt</strong> is <strong>untracked</strong>.", "This means that the new file has not yet been added to the Git tracking process.", "To have Git track this file, type the command <strong>git add [file name]</strong>. This process is called <strong>Staging</strong>, or moving files to the <strong>Staging index tree</strong>, meaning our changes are ready to be committed."],
                comando: "git add my_plan.txt",
                alert: "Did not add my_plan.txt",
                successMessages: ['<span class="success">Well done! my_plan.txt has been <strong>Staged</strong></span>'],
@@ -729,7 +729,7 @@
                tareas: ["Excellent! Now that we made Git aware of the changes in our file, let's check again the status with the <strong>git status</strong> command to make sure everything is good."],
                comando: "git status",
                alert: "Did not use git status",
-               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Changes to be committed:", '#   (use "git rm --cached <file>..." to unstage)', "#", '#   <span class="green">new file:   my_plan.txt</span>', "#"],
+               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Changes to be committed:", '#   (use "git rm --cached &lt;file&gt;..." to unstage)', "#", '#   <span class="green">new file:   my_plan.txt</span>', "#"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -742,7 +742,7 @@
                orden: "6",
                titulo: "Committing your staged changes",
                tituloCorto: "Committing changes",
-               tareas: ["Now that our changes are <strong>Staged</strong>, we are ready to <strong>commit</strong> the changes.", "<strong>Commit</strong> means simply to that our <strong>Staged</strong> changes are ready to be added to our repository. If you wish, you can add or remove files and add them to the <strong>Staging index</strong> them as necessary before committing the changes", "To save the changes in our repository, use the command <strong>git commit -m</strong> followed by a commit message that briefly states what exactly happened in between the last version and this. In this case, we added a new archive in an empty repository, so the commit message will be simple: <i>Added my_plan.txt</i> (enclosed in double quotes)."],
+               tareas: ["Now that our changes are <strong>Staged</strong>, we are ready to <strong>commit</strong> the changes.", "To <strong>Commit</strong> means simply that our <strong>Staged</strong> changes are ready to be added to our repository. If you wish, you can add or remove files and add them to the <strong>Staging index</strong> as necessary before committing the changes", "To save the changes in our repository, use the command <strong>git commit -m</strong> followed by a commit message that briefly states what exactly happened in between the last version and this. In this case, we added a new file in an empty repository, so the commit message will be simple: <i>Added my_plan.txt</i> (enclosed in double quotes)."],
                comando: 'git commit -m "Added my_plan.txt"',
                alert: "Did not use git commit",
                successMessages: ["[master (root-commit) 20b5ccd] Added my_plan.txt", "1 file changed, 1 insertion(+)", "create mode 100644 my_plan.txt", " "],
@@ -758,10 +758,10 @@
                orden: "7",
                titulo: "Adding multiple files",
                tituloCorto: "Adding multiple files",
-               tareas: ["Our repository already has one commit. But what if you have been working all day in this project, and now you have a few new text files to commit? Adding them one by one with the <strong>git add</strong> command is quite tedious, right? No worries, Git has a better method to add multiple files.", 'Type the command <strong>git add "*.txt"</strong>, in order to add all the text tiles that have been added or edited in our repository.'],
+               tareas: ["Our repository already has one commit. But what if you have been working all day in this project, and now you have a few new text files to commit? Adding them one by one with the <strong>git add</strong> command is quite tedious, right? No worries, Git has a better method to add multiple files.", 'Type the command <strong>git add "*.txt"</strong>, in order to add all the text files that have been added or edited in our repository.'],
                comando: 'git add "*.txt"',
                alert: "Did not use git add",
-               successMessages: ['<span class="success"Added files</span>'],
+               successMessages: ['<span class="success">Added files</span>'],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -831,7 +831,7 @@
                tareas: ["Let's commit our newly staged changes.", "How about adding a more descriptive commit message, such as <em>Added all text files</em>?"],
                comando: 'git commit -m "Added all text files"',
                alert: "Did not use git commit",
-               successMessages: ["[master (root-commit) 3852b4d]", "'Added all text files'", "3 file changed, 3 insertion(+)", "create mode 100644 development.txt", "create mode 100644 mockup.txt", "create mode 100644 monthly_meetings.txt", " "],
+               successMessages: ["[master (root-commit) 3852b4d] Added all text files", "3 files changed, 3 insertions(+)", "create mode 100644 development.txt", "create mode 100644 mockup.txt", "create mode 100644 monthly_meetings.txt", " "],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -851,7 +851,7 @@
                tareas: ["How about it? We have already done two commits.", "Git has a command that allows us to review a log of all of our commits in chronological order. Type <strong>git log</strong> on the terminal:"],
                comando: "git log",
                alert: "Did not use git log",
-               successMessages: ['<span class="yellow">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>', "Author: 4Geeks Student <student@4geeksacademy.co>", "Date: Fri Sep 19 18:30:00 2017 -0400", "    Added my_plan.txt", " ", '<span class="yellow">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>', "Author: 4Geeks Student <student@4geeksacademy.co>", "Date: Thu Sep 18 18:00:32 2017 -0400", "    Added all text files"],
+               successMessages: ['<span class="yellow">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Fri Sep 19 18:30:00 2017 -0400", "    Added all text files", " ", '<span class="yellow">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Thu Sep 18 18:00:32 2017 -0400", "    Added my_plan.txt"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -868,7 +868,7 @@
                orden: "12",
                titulo: "Managing remote repositories",
                tituloCorto: "Git remote",
-               tareas: ["Great, we have now learned the most basic Git commands. Let's put our knowledge in practice. Imagine that you need other people to access your repository. To do this, you have to upload the repository to a platform such as <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong> a service that hosts public and private repositories.", "Once our Github repository is created, we have to associate it with our local repository. For this, we will use the <strong>git remote add</strong> command, followed by the name and the URL of the remote repository. Usually, the main remote repository is named <strong>origin</strong>. The URL of the remote repository should be <strong>https://github.com/4geeksAcademy/project.git</strong> (double quotes are not needed)"],
+               tareas: ["Great, we have now learned the most basic Git commands. Let's put our knowledge to practice. Imagine that you need other people to access your repository. To do this, you have to upload the repository to a platform such as <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong>, a service that hosts public and private repositories.", "Once our GitHub repository is created, we have to associate it with our local repository. For this, we will use the <strong>git remote add</strong> command, followed by the name and the URL of the remote repository. Usually, the main remote repository is named <strong>origin</strong>. The URL of the remote repository should be <strong>https://github.com/4geeksAcademy/project.git</strong> (double quotes are not needed)."],
                comando: "git remote add origin https://github.com/4geeksAcademy/project.git",
                alert: "Did not use git remote add",
                successMessages: ['<span class="success">Successfully added repository</span>'],
@@ -888,7 +888,7 @@
                orden: "13",
                titulo: "Using git push",
                tituloCorto: "Git push",
-               tareas: ["After associating our local repository with the remote, we will upload our files to the remote, or <strong>push</strong> our local repository.", "Type <strong>git push -u</strong> followed by the name of the remote repository (origin) and then the name of the local <em>branch</em> we want to push. When we initialize a repository, a local branch called <strong>master</strong> is created automatically, and contains our files.", "Let's try it?"],
+               tareas: ["After associating our local repository with the remote, we will upload our files to the remote, or <strong>push</strong> our local repository.", "Type <strong>git push -u</strong> followed by the name of the remote repository (origin) and then the name of the local <em>branch</em> we want to push. When we initialize a repository, a local branch called <strong>master</strong> is created automatically, and contains our files.", "Let's try it..."],
                comando: "git push -u origin master",
                alert: "Did not use git push",
                successMessages: ["Branch master set up to track remote branch"],
@@ -908,7 +908,7 @@
                orden: "14",
                titulo: "Using git pull",
                tituloCorto: "Git pull",
-               tareas: ["It is a good practice to always work with the most recent version of your repository, to make sure that you are not ignoring possible important changes by a team member. This is easily done with Git, as we can update our local repository to match the content of the remote repository.", "To update your local repository, type <strong>git pull</strong>, followed by the name of the remote repository(origin) and the name of the local branch where that will get updated (master)."],
+               tareas: ["It is a good practice to always work with the most recent version of your repository, to make sure that you are not ignoring possible important changes by a team member. This is easily done with Git, as we can update our local repository to match the content of the remote repository.", "To update your local repository, type <strong>git pull</strong>, followed by the name of the remote repository (origin) and the name of the local branch where that will get updated (master)."],
                comando: "git pull origin master",
                alert: "Did not use git pull",
                successMessages: ["Updating 3852b4d..3e70b0f", "Fast-forward", '  monthly_summary.txt | <span class="green">1+</span>', "  1 file changed, 1 insertion(+)", "  create mode 100644 monthly_summary.txt"],
@@ -948,7 +948,7 @@
                orden: "16",
                titulo: "Reverting changes",
                tituloCorto: "Git checkout",
-               tareas: ["So we now know how to see review changes. Now, imagine that, after working for a few minutes updating the content of <strong>monthly_meetings.txt</strong>, you realize that you made a mistake. Not to worry; we can revert these changes with a Git command.", "Type <strong>git checkout</strong>, followed by the name of the file that you need to revert your changes to."],
+               tareas: ["So we now know how to review changes. Now, imagine that, after working for a few minutes updating the content of <strong>monthly_meetings.txt</strong>, you realize that you made a mistake. Not to worry; we can revert these changes with a Git command.", "Type <strong>git checkout</strong>, followed by the name of the file that you need to revert your changes to."],
                comando: 'git checkout "monthly_meetings.txt"',
                alert: "Did not use git checkout",
                successMessages: ['<span class="green">Reverted changes</span>'],
@@ -968,7 +968,7 @@
                orden: "17",
                titulo: "Working with branches",
                tituloCorto: "Branching",
-               tareas: ["Remember we said that Git allows a work team to work on the same code simultaneously without conflicts? This is made possible with the Git branching model.", "Git allows the creation of <strong>branches</strong>. <strong>Branches</strong>. Branches are complete copies of the code that can be used to work on, independently of the original version.", "How about creating a branch? Type the command <strong>git branch</strong>, followed by the branch names. Let's name our branch <strong>my_version</strong>."],
+               tareas: ["Remember we said that Git allows a work team to work on the same code simultaneously without conflicts? This is made possible with the Git branching model.", "Git allows the creation of <strong>branches</strong>. <strong>Branches</strong> are complete copies of the code that can be used to work on, independently of the original version.", "How about creating a branch? Type the command <strong>git branch</strong>, followed by the branch name. Let's name our branch <strong>my_version</strong>."],
                comando: "git branch my_version",
                alert: "Did not use git branch",
                successMessages: ['<span class="green">Created branch</span>'],
@@ -1017,7 +1017,7 @@
                   repoFolder: [{
                      ".git": []
                   }, {
-                     tareas: ["development.txt", "mockup.txt"]
+                     tasks: ["development.txt", "mockup.txt"]
                   }, "monthly_meetings.txt", "my_plan.txt"],
                   commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt", "a5cd2f1 - Reorganizar el proyecto"]
                }
@@ -1035,7 +1035,7 @@
                   repoFolder: [{
                      ".git": []
                   }, {
-                     tareas: ["development.txt", "mockup.txt"]
+                     tasks: ["development.txt", "mockup.txt"]
                   }, "monthly_meetings.txt", "my_plan.txt"],
                   commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt"]
                }
