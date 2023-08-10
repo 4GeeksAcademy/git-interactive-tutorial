@@ -1019,7 +1019,7 @@
                   }, {
                      tasks: ["development.txt", "mockup.txt"]
                   }, "monthly_meetings.txt", "my_plan.txt"],
-                  commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt", "a5cd2f1 - Reorganizar el proyecto"]
+                  commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt", "a5cd2f1 - Reorganized project"]
                }
             },
             20: {
@@ -1057,14 +1057,14 @@
                   }, {
                      october_plans: ["mockup.txt"]
                   }, "monthly_meetings.txt", "my_plan.txt"],
-                  commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt"]
+                  commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt", "a5cd2f1 - Reorganized project"]
                }
             },
             22: {
                orden: "22",
                titulo: "Deleting unused branches",
                tituloCorto: "Deleting branches",
-               tareas: ["We have merged our changes with the main branch, so we won't be using <strong>mi_vesion</strong> anymore. Let's remove this branch.", "It is a good practice to delete unused branches, as, as our project increases, having many branches can be hard to maintain and many of the older branches can be left behind in updates.", "Type <strong>git branch -d</strong>, followed by the name of the branch we want to delete: <strong>my_version</strong>."],
+               tareas: ["We have merged our changes with the main branch, so we won't be using <strong>my_version</strong> anymore. Let's remove this branch.", "It is a good practice to delete unused branches as our project increases, having many branches can be hard to maintain and many of the older branches can be left behind in updates.", "Type <strong>git branch -d</strong>, followed by the name of the branch we want to delete: <strong>my_version</strong>."],
                comando: "git branch -d my_version",
                alert: "Did not use git branch",
                successMessages: ["Deleted branch my_version (was a5cd2f1)."],
@@ -1073,7 +1073,7 @@
                   repoFolder: [{
                      ".git": []
                   }, {
-                     tareas: ["development.txt", "mockup.txt"]
+                     tasks: ["development.txt", "mockup.txt"]
                   }, "monthly_meetings.txt", "my_plan.txt"],
                   commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt", "a5cd2f1 - Reorganized project"]
                }
@@ -1091,7 +1091,7 @@
                   repoFolder: [{
                      ".git": []
                   }, {
-                     tareas: ["development.txt", "mockup.txt"]
+                     tasks: ["development.txt", "mockup.txt"]
                   }, "monthly_meetings.txt", "my_plan.txt"],
                   commits: ["20b5ccd - Added my_plan.txt", "3852b4d - Added all text files", "7d8d808 - Edited meetings frequency in my_plan.txt", "a5cd2f1 - Reorganized project"]
                }
