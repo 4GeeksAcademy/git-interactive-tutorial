@@ -698,7 +698,7 @@
                tareas: ["If at any point during this tutorial you feel your terminal is too cluttered with text, you can clear its contents with the <strong>clear</strong> command.", "Let's continue. Let's imagine we added a new file called <strong>my_plan.txt</strong> in the repository.", "Use again the command <strong>git status</strong> now. You will notice that the status of the repository has changed."],
                comando: "git status",
                alert: "Did not use git status",
-               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Untracked files:", '#   (use "git add \<file\>..." to include files)', "#", '#   <strong class="red">my_plan.txt</strong>', "nothing added to commit", "but untracked files present", "(use 'git add' to track)"],
+               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Untracked files:", '#   (use "git add &ltfile&gt..." to include files)', "#", '#   <strong class="red">my_plan.txt</strong>', "nothing added to commit", "but untracked files present", "(use 'git add' to track)"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
