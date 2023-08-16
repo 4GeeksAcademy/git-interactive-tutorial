@@ -229,7 +229,7 @@
          emptyCommitsAreaMessage: "Nothing commited yet",
          _comment2: "if user writes 'git', show following error",
          errorMessages: ["usage: git [--version] [--exec-path[=<path>]]", "            [-p|--paginate|--no-pager]", "            [--git-dir=<path>] [--work-tree=<path>]", "            [-c name=value] [--help]", "            <command> [<args>]", " "],
-         _comment3: "the following field must have the parragraph tag to work properly. You can add as many as you need.",
+         _comment3: "the following field must have the paragraph tag to work properly. You can add as many as you need.",
          tutorialCompletedMessage: "<p>Well done!</p>"
       },
       lecciones: {
@@ -256,8 +256,7 @@
                   branch: "master",
                   repoFolder: [{
                      ".git": []
-                  }, "mi_plan.txt"]
-               }
+                  }
             },
             3: {
                orden: "3",
