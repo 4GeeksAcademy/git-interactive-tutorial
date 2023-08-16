@@ -256,7 +256,7 @@
                   branch: "master",
                   repoFolder: [{
                      ".git": []
-                  }]
+                  },]
                }                               
             },
             3: {
@@ -436,7 +436,7 @@
                orden: "12",
                titulo: "Manejando repositorios remotos",
                tituloCorto: "Git remote",
-               tareas: ["Bien, ya hemos aprendido los comandos más básicos de Git. Ahora veamos su utilidad práctica. Imagina que quieres que otras personas tengan acceso a tu repositorio. Para lograr debes subir nuestro repositorio a una plataforma como <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong> que se encarga resguardar repositorios publicos y privados en sus servidores.", "Ahora, una vez creado un repositorio en GitHub tendremos que asociarlo a nuestro repositorio local, para ello usamos <strong>git remote add</strong> seguido del nombre con el cual queremos asociar el repositorio remoto que deseamos agregar y de su URL. Se acostumbra llamar al repositorio remoto principal <strong>origin</strong>, así que haremos eso. Y su URL es <strong>https://github.com/4geeksAcademy/project.git</strong>. Esta vez no son necesarias las comillas."],
+               tareas: ["Bien, ya hemos aprendido los comandos más básicos de Git. Ahora veamos su utilidad práctica. Imagina que quieres que otras personas tengan acceso a tu repositorio. Para lograrlo debes subir nuestro repositorio a una plataforma como <strong><a href='https://github.com/' target='_blank'>GitHub</a></strong> que se encarga resguardar repositorios públicos y privados en sus servidores.", "Ahora, una vez creado un repositorio en GitHub tendremos que asociarlo a nuestro repositorio local, para ello usamos <strong>git remote add</strong> seguido del nombre con el cual queremos asociar el repositorio remoto que deseamos agregar y de su URL. Se acostumbra llamar al repositorio remoto principal <strong>origin</strong>, así que haremos eso. Y su URL es <strong>https://github.com/4geeksAcademy/project.git</strong>. Esta vez no son necesarias las comillas."],
                comando: "git remote add origin https://github.com/4geeksAcademy/project.git",
                alert: "Did not use git remote add",
                successMessages: ['<span class="success">Repositorio agregado con éxito</span>'],
