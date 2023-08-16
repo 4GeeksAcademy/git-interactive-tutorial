@@ -256,7 +256,8 @@
                   branch: "master",
                   repoFolder: [{
                      ".git": []
-                  }
+                  }]
+               }                               
             },
             3: {
                orden: "3",
@@ -265,7 +266,7 @@
                tareas: ["Si a lo largo de este tutorial sientes que en tu terminal hay demasiado texto, puedes usar el comando <strong>clear</strong> para limpiar todo el contenido de ella.", "Sigamos. Imagina que agregas un nuevo archivo llamado <strong>mi_plan.txt</strong> a tu repositorio.", "Ahora, si usamos de nuevo el comando <strong>git status</strong> podrás notar que el estado de tu repositorio ha cambiado."],
                comando: "git status",
                alert: "Did not use git status",
-               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Untracked files:", '#   (use "git add <file>..." to include files)', "#", '#   <strong class="red">mi_plan.txt</strong>', "nothing added to commit", "but untracked files present", "(use 'git add' to track)"],
+               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Untracked files:", '#   (use "git add &lt;file&gt;..." to include files)', "#", '#   <strong class="red">mi_plan.txt</strong>', "nothing added to commit", "but untracked files present", "(use 'git add' to track)"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -293,10 +294,10 @@
                orden: "5",
                titulo: "Revisando los cambios",
                tituloCorto: "Revisando los cambios",
-               tareas: ["¡Excelente! Ahora que git ya está pendiente de los cambios de nuestro archivo, podemos usar de nuevo el comando <strong>git status</strong> para asegurarnos de que todo está bien."],
+               tareas: ["¡Excelente! Ahora que Git ya está pendiente de los cambios de nuestro archivo, podemos usar de nuevo el comando <strong>git status</strong> para asegurarnos de que todo está bien."],
                comando: "git status",
                alert: "Did not use git status",
-               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Changes to be committed:", '#   (use "git rm --cached <file>..." to unstage)', "#", '#   <span class="green">new file:   mi_plan.txt</span>', "#"],
+               successMessages: ["# On branch master", "#", "# Initial commit", "#", "# Changes to be committed:", '#   (use "git rm --cached &lt;file&gt;..." to unstage)', "#", '#   <span class="green">new file:   mi_plan.txt</span>', "#"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -325,7 +326,7 @@
                orden: "7",
                titulo: "Agregando varios archivos",
                tituloCorto: "Agregando varios archivos",
-               tareas: ["Nuestro repositorio ya tiene un commit. Pero ahora, imagina que has estado trabajando todo el día en tu proyecto y has terminado creando varios archivos de texto. Usar el comando <strong>git add</strong> para agregarlos uno a uno es bastante fastidioso, ¿verdad? Pues Git nos ofrece un metodo un poco más comodo.", 'Para ello usaremos el comando <strong>git add "*.txt"</strong> el cual agregará todos los archivos de texto que hayan sido editados en nuestro repositorio.'],
+               tareas: ["Nuestro repositorio ya tiene un commit. Pero ahora, imagina que has estado trabajando todo el día en tu proyecto y has terminado creando varios archivos de texto. Usar el comando <strong>git add</strong> para agregarlos uno a uno es bastante fastidioso, ¿verdad? Pues Git nos ofrece un método un poco más cómodo.", 'Para ello usaremos el comando <strong>git add "*.txt"</strong> el cual agregará todos los archivos de texto que hayan sido editados en nuestro repositorio.'],
                comando: 'git add "*.txt"',
                alert: "Did not use git add",
                successMessages: ['<span class="success">Archivos agregados</span>'],
@@ -370,7 +371,7 @@
                orden: "9",
                titulo: "Agregando archivos de nuevo",
                tituloCorto: "Git add #2",
-               tareas: ["Como podrás notar nuestros archivos de texto ya no están en en la zona de preparación.", "Ahora, volvamos a agregarlos."],
+               tareas: ["Como podrás notar nuestros archivos de texto ya no están en la zona de preparación.", "Ahora, volvamos a agregarlos."],
                comando: 'git add "*.txt"',
                alert: "Did not use git add",
                successMessages: ['<span class="success">Archivos agregados</span>'],
@@ -398,7 +399,7 @@
                tareas: ["Hagamos un commit con los nuevos cambios.", "¿Qué te parece usar el mensaje <em>Agregar todos los archivos de texto</em>?"],
                comando: 'git commit -m "Agregar todos los archivos de texto"',
                alert: "Did not use git commit",
-               successMessages: ["[master (root-commit) 3852b4d]", "'Agregar todos los archivos de texto'", "3 file changed, 3 insertion(+)", "create mode 100644 desarrollo.txt", "create mode 100644 maquetado.txt", "create mode 100644 reuniones_del_mes.txt", " "],
+               successMessages: ["[master (root-commit) 3852b4d] Agregar todos los archivos de texto", "3 files changed, 3 insertions(+)", "create mode 100644 desarrollo.txt", "create mode 100644 maquetado.txt", "create mode 100644 reuniones_del_mes.txt", " "],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -418,7 +419,7 @@
                tareas: ["¿Qué tal? Ya llevamos dos commits hasta ahora.", "Git nos ofrece un comando que permite revisar un historial con todos los commits que hemos hecho hasta el momento en orden cronológico. Este comando es <strong>git log</strong>"],
                comando: "git log",
                alert: "Did not use git log",
-               successMessages: ['<span class="yellow">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>', "Author: 4Geeks Student <student@4geeksacademy.co>", "Date: Fri Sep 19 18:30:00 2017 -0400", "    Agregar mi_plan.txt", " ", '<span class="yellow">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>', "Author: 4Geeks Student <student@4geeksacademy.co>", "Date: Thu Sep 18 18:00:32 2017 -0400", "    Agregar todos los archivos de texto"],
+               successMessages: ['<span class="yellow">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Fri Sep 19 18:30:00 2017 -0400", "&emsp;Agregar mi_plan.txt", " ", '<span class="yellow">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Thu Sep 18 18:00:32 2017 -0400", "&emsp;Agregar todos los archivos de texto"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
