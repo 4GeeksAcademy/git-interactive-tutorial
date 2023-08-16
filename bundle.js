@@ -476,10 +476,10 @@
                orden: "14",
                titulo: "Usando git pull",
                tituloCorto: "Git pull",
-               tareas: ["Es bueno que siempre trabajes con la versión más actual de tu repositorio, es por ello que antes de hacer cualquier cosa siempre actualices tu repositorio local porque tal vez algún miembro de tu equipo ha realizado algún cambio importante", "Para actualizar nuestro repositorio local usamos <strong>git pull</strong> seguido del nombre del repositorio en línea de donde copiaremos los archivos (origin) y luego el nombre de la rama de nuestro repositorio local donde deseamos que se copien (master)."],
+               tareas: ["Es bueno que siempre trabajes con la versión más actual de tu repositorio, es por ello que antes de hacer cualquier cosa siempre actualices tu repositorio local porque tal vez algún miembro de tu equipo ha realizado algún cambio importante.", "Para actualizar nuestro repositorio local usamos <strong>git pull</strong> seguido del nombre del repositorio en línea de donde copiaremos los archivos (origin) y luego el nombre de la rama de nuestro repositorio local donde deseamos que se copien (master)."],
                comando: "git pull origin master",
                alert: "Did not use git pull",
-               successMessages: ["Updating 3852b4d..3e70b0f", "Fast-forward", '  resumen_mensual.txt | <span class="green">1+</span>', "  1 file changed, 1 insertion(+)", "  create mode 100644 resumen_mensual.txt"],
+               successMessages: ["Updating 3852b4d..3e70b0f", "Fast-forward", '  mi_plan.txt | <span class="green">1+</span>', "  1 file changed, 1 insertion(+)"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -496,7 +496,7 @@
                orden: "15",
                titulo: "Observando las ediciones con git diff",
                tituloCorto: "Git diff",
-               tareas: ["¿Notas algo diferente en la carpeta de tu repositorio?", "Parece que un miembro de tu equipo ha editado nuestro archivo mi_plan.txt y ha hecho un push al repositorio en GitHub. Antes de comenzar a trabajar creo que mejor revisamos qué cambios realizó nuestro compañero.", "Para ello podemos usar el comando <strong>git diff HEAD</strong> donde HEAD es una referencia al commit más reciente."],
+               tareas: ["¿Notas algo diferente en la carpeta de tu repositorio?", "Parece que un miembro de tu equipo ha editado nuestro archivo <strong>mi_plan.txt</strong> y ha hecho un push al repositorio en GitHub. Antes de comenzar a trabajar creo que mejor revisamos qué cambios realizó nuestro compañero.", "Para ello podemos usar el comando <strong>git diff HEAD</strong> donde HEAD es una referencia al commit más reciente."],
                comando: "git diff HEAD",
                alert: "Did not use git diff",
                successMessages: ["diff --git a/mi_plan.txt b/mi_plan.txt", "index 7d8d808..e725ef6 100644", "--- a/mi_plan.txt", "+++ b/mi_plan.txt", '<span class="blue">@@ -1 +1 @@</span>', '<span class="red">-Realizar reuniones mensuales</span>', '<span class="green">+Realizar reuniones quincenales</span>'],
@@ -576,7 +576,7 @@
                orden: "19",
                titulo: "Realizando cambios en nuestra rama",
                tituloCorto: "Ramificación #3",
-               tareas: ["Como podrás notar, ya estamos en nuestra rama. Ahora, ¿qué tal si organizamos un poco mejor nuestro proyecto? Hemos creado una carpeta llamada <strong>tareas</strong> y allí moveremos los archivos que están en <strong>planes_septiembre</strong> y <strong>planes_octubre</strong>.", "Hemos hecho esto por ti, como puedes ver en <strong>Root folder</strong>. Ahora, a veces es algo tedioso tener que agregar los archivos al <strong>Stage</strong> y luego hacer commit. Es por ello que Git nos permie agregar <strong>-a</strong> al comando <strong>git commit</strong> el cual se hará cargo de agregar todos los archivos editados al <strong>Stage</strong> e inmediatamente hacer commit.", "Bien, ejecuta el comando correspodiente y agrega el mensaje: <em>Reorganizar el proyecto</em>."],
+               tareas: ["Como podrás notar, ya estamos en nuestra rama. Ahora, ¿qué tal si organizamos un poco mejor nuestro proyecto? Hemos creado una carpeta llamada <strong>tareas</strong> y allí moveremos los archivos que están en <strong>planes_septiembre</strong> y <strong>planes_octubre</strong>.", "Hemos hecho esto por ti, como puedes ver en <strong>Root folder</strong>. Ahora, a veces es algo tedioso tener que agregar los archivos al <strong>Stage</strong> y luego hacer commit. Es por ello que Git nos permite agregar <strong>-a</strong> al comando <strong>git commit</strong> el cual se hará cargo de agregar todos los archivos editados al <strong>Stage</strong> e inmediatamente hacer commit.", "Bien, ejecuta el comando correspodiente y agrega el mensaje: <em>Reorganizar el proyecto</em>."],
                comando: 'git commit -a -m "Reorganizar el proyecto"',
                alert: "Did not use git commit",
                successMessages: ["[mi_version a5cd2f1] Reorganizar proyecto", "  2 files changed, 0 insertions(+), 0 deletions(-)", "  rename {1 => tareas}/desarrollo.txt", "  rename {1 => tareas}/maquetado.txt"],
@@ -612,7 +612,7 @@
                orden: "21",
                titulo: "Uniendo nuestros cambios a Master",
                tituloCorto: "Git merge",
-               tareas: ["Como podrás ver la rama <strong>master</strong> no ha sido alternada y todavía tiene la versión anterior de la estructura de nuestras carpetas. ¿Qué tal si aplicamos los cambios que hicimos en nuestra versión a la rama principal?", "Para ello usa el comando <strong>git merge</strong>. Esto lo que hará será tomar los cambios realizados en <strong>mi_version</strong> y unirlos a <strong>master</strong>."],
+               tareas: ["Como podrás ver, la rama <strong>master</strong> no ha sido alterada y todavía tiene la versión anterior de la estructura de nuestras carpetas. ¿Qué tal si aplicamos los cambios que hicimos en nuestra versión a la rama principal?", "Para ello usa el comando <strong>git merge</strong>. Esto lo que hará será tomar los cambios realizados en <strong>mi_version</strong> y unirlos a <strong>master</strong>."],
                comando: "git merge mi_version",
                alert: "Did not use git merge",
                successMessages: ["Updating 7d8d808..ec6888b", "Fast-forward", "   {1 => tareas}/desarrollo.txt | 0", "   {1 => tareas}/maquetado.txt | 0", "  2 files changed, 0 insertions(+), 0 deletions(-)", "  rename {1 => tareas}/desarrollo.txt", "  rename {1 => tareas}/maquetado.txt"],
@@ -625,14 +625,14 @@
                   }, {
                      planes_octubre: ["maquetado.txt"]
                   }, "reuniones_del_mes.txt", "mi_plan.txt"],
-                  commits: ["20b5ccd - Agregar mi_plan.txt", "3852b4d - Agregar todos los archivos de texto", "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt"]
+                  commits: ["20b5ccd - Agregar mi_plan.txt", "3852b4d - Agregar todos los archivos de texto", "7d8d808 - Editar frecuencia de reuniones en mi_plan.txt", "a5cd2f1 - Reorganizar el proyecto"]
                }
             },
             22: {
                orden: "22",
                titulo: "Eliminando ramas en desuso",
                tituloCorto: "Eliminan ramas",
-               tareas: ["Ya que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_vesion</strong>, ¿por qué no eliminamos esa rama?", "Siempre es bueno eliminar ramas en desuso, ya que a lo largo de un proyecto pueden generarse muchas ramas y debemos evitar que nuestros compañeros se confundan al usar ramas desactualizadas.", "Para ello usamos el comando <strong>git branch -d</strong> seguido del nombre de la rama a eliminar: <strong>mi_version</strong>."],
+               tareas: ["Ahora que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_version</strong>, ¿por qué no eliminamos esa rama?", "Siempre es bueno eliminar ramas en desuso, ya que a lo largo de un proyecto pueden generarse muchas ramas y debemos evitar que nuestros compañeros se confundan al usar ramas desactualizadas.", "Para ello usamos el comando <strong>git branch -d</strong> seguido del nombre de la rama a eliminar: <strong>mi_version</strong>."],
                comando: "git branch -d mi_version",
                alert: "Did not use git branch",
                successMessages: ["Deleted branch mi_version (was a5cd2f1)."],
@@ -650,7 +650,7 @@
                orden: "23",
                titulo: "Compartiendo nuestro proyecto",
                tituloCorto: "Git push #2",
-               tareas: ["Ya habiendo realizado todos los cambios necesarios es hora de que nuestro equipo comience a trabajar con nuestro repositorio.", "Así que subamoslo a GitHub para ponernos en marcha."],
+               tareas: ["Ya habiendo realizado todos los cambios necesarios, es hora de que nuestro equipo comience a trabajar con nuestro repositorio.", "Así que subámoslo a GitHub para ponernos en marcha."],
                comando: "git push",
                alert: "Did not use git push",
                successMessages: ["To https://github.com/4geeksAcademy/project.git", "a5cd2f1..a629e2a  master -> master"],
@@ -911,7 +911,7 @@
                tareas: ["It is a good practice to always work with the most recent version of your repository, to make sure that you are not ignoring possible important changes by a team member. This is easily done with Git, as we can update our local repository to match the content of the remote repository.", "To update your local repository, type <strong>git pull</strong>, followed by the name of the remote repository (origin) and the name of the local branch where that will get updated (master)."],
                comando: "git pull origin master",
                alert: "Did not use git pull",
-               successMessages: ["Updating 3852b4d..3e70b0f", "Fast-forward", '  monthly_summary.txt | <span class="green">1+</span>', "  1 file changed, 1 insertion(+)", "  create mode 100644 monthly_summary.txt"],
+               successMessages: ["Updating 3852b4d..3e70b0f", "Fast-forward", '  my_plan.txt | <span class="green">1+</span>', "  1 file changed, 1 insertion(+)"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
@@ -928,7 +928,7 @@
                orden: "15",
                titulo: "Comparing different versions with git diff",
                tituloCorto: "Git diff",
-               tareas: ["Did you notice something different in your repository?", "Looks like a team member has edited our my_plan.txt file and pushed the changes to the GitHub repository. Let's review the edits from our teammate before starting work.", "Let's use the command <strong>git diff HEAD</strong>, where HEAD refers to the most recent commit."],
+               tareas: ["Did you notice something different in your repository?", "Looks like a team member has edited our <strong>my_plan.txt</strong> file and pushed the changes to the GitHub repository. Let's review the edits from our teammate before starting work.", "Let's use the command <strong>git diff HEAD</strong>, where HEAD refers to the most recent commit."],
                comando: "git diff HEAD",
                alert: "Did not use git diff",
                successMessages: ["diff --git a/my_plan.txt b/my_plan.txt", "index 7d8d808..e725ef6 100644", "--- a/my_plan.txt", "+++ b/my_plan.txt", '<span class="blue">@@ -1 +1 @@</span>', '<span class="red">-Monthly meetings</span>', '<span class="green">+Meetings twice a month</span>'],
@@ -1044,7 +1044,7 @@
                orden: "21",
                titulo: "Merging changes to the Master branch",
                tituloCorto: "Git merge",
-               tareas: ["As you can see, the branch <strong>master</strong> has not been altered, so the changes we did in our own branch are not reflected to the master's branch folder structure.  Let's apply our changes to the master branch!", "Type <strong>git merge</strong>. With this command, the changes in the branch <strong>my_version</strong> will be merged with the <strong>master</strong>. branch"],
+               tareas: ["As you can see, the branch <strong>master</strong> has not been altered, so the changes we did in our own branch are not reflected to the master's branch folder structure.  Let's apply our changes to the master branch!", "Type <strong>git merge</strong>. With this command, the changes in the branch <strong>my_version</strong> will be merged with the <strong>master</strong> branch."],
                comando: "git merge my_version",
                alert: "Did not use git merge",
                successMessages: ["Updating 7d8d808..ec6888b", "Fast-forward", "   {1 => tasks}/development.txt | 0", "   {1 => tasks}/mockup.txt | 0", "  2 files changed, 0 insertions(+), 0 deletions(-)", "  rename {1 => tasks}/development.txt", "  rename {1 => tasks}/mockup.txt"],
