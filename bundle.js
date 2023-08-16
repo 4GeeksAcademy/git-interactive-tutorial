@@ -688,7 +688,7 @@
                   branch: "master",
                   repoFolder: [{
                      ".git": []
-                  }, "my_plan.txt"]
+                  },]
                }
             },
             3: {
@@ -851,7 +851,7 @@
                tareas: ["How about it? We have already done two commits.", "Git has a command that allows us to review a log of all of our commits in chronological order. Type <strong>git log</strong> on the terminal:"],
                comando: "git log",
                alert: "Did not use git log",
-               successMessages: ['<span class="yellow">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Fri Sep 19 18:30:00 2017 -0400", "    Added all text files", " ", '<span class="yellow">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Thu Sep 18 18:00:32 2017 -0400", "    Added my_plan.txt"],
+               successMessages: ['<span class="yellow">commit: 3852b4db1634463d0bb4d267edb7b3f9cd02ace1</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Fri Sep 19 18:30:00 2017 -0400", "&emsp;Added all text files", " ", '<span class="yellow">commit: b652edfd888cd3d5e7fcb857d0dabc5a0fcb5e28</span>', "Author: 4Geeks Student &lt;student@4geeksacademy.co&gt;", "Date: Thu Sep 18 18:00:32 2017 -0400", "&emsp;Added my_plan.txt"],
                repoStatus: {
                   branch: "master",
                   repoFolder: [{
