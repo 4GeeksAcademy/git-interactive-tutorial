@@ -415,7 +415,7 @@
             11: {
                orden: "11",
                titulo: "Revisando el historial con git log",
-               tituloCorto: "Usado git log",
+               tituloCorto: "Usando git log",
                tareas: ["¿Qué tal? Ya llevamos dos commits hasta ahora.", "Git nos ofrece un comando que permite revisar un historial con todos los commits que hemos hecho hasta el momento en orden cronológico. Este comando es <strong>git log</strong>"],
                comando: "git log",
                alert: "Did not use git log",
@@ -631,7 +631,7 @@
             22: {
                orden: "22",
                titulo: "Eliminando ramas en desuso",
-               tituloCorto: "Eliminan ramas",
+               tituloCorto: "Eliminando ramas",
                tareas: ["Ahora que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_version</strong>, ¿por qué no eliminamos esa rama?", "Siempre es bueno eliminar ramas en desuso, ya que a lo largo de un proyecto pueden generarse muchas ramas y debemos evitar que nuestros compañeros se confundan al usar ramas desactualizadas.", "Para ello usamos el comando <strong>git branch -d</strong> seguido del nombre de la rama a eliminar: <strong>mi_version</strong>."],
                comando: "git branch -d mi_version",
                alert: "Did not use git branch",
