@@ -26,7 +26,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "c9": "webpack-dev-server --mode development --open --host $IP --port $PORT",
+    "c9": "webpack-dev-server --mode development --open --host localhost --port 8080",
     "build": "webpack --mode production",
     "deploy": "node deploy-to-github.js",
     "contributors:add": "all-contributors add",
