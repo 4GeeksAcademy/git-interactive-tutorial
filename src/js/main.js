@@ -9,7 +9,14 @@ function loadPage() {
     //  GLOBAL VARIABLES
     // ==================================================
 
-    var lang = document.querySelector('#lang').value;
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    let lang = getQueryParam('lang') || document.querySelector('#lang').value || 'defaultLang';
+    console.log(`Language selected: ${lang}`);
+
     var lecciones = json.lecciones[lang];
     var config = json.config;
     var leccionActual = 1;
@@ -21,7 +28,7 @@ function loadPage() {
     var commandHist = [];
     var commandPos = 1;
     // General areas
-    var langSwitch = document.querySelector('#lang');
+   
     var navbar = document.querySelector('nav');
     var consoleArea = document.querySelector('.console-area');
     var textarea = document.querySelector('#console-input');
@@ -31,11 +38,69 @@ function loadPage() {
     var repoStagedArea = document.querySelector('#repository .repo-status .staged');
     var repoCommitsArea = document.querySelector('#repository .repo-status .commits');
 
+    // Cambiar lenguaje
+    const langSwitch = document.querySelector('#lang');
+    langSwitch.addEventListener('change', () => {
+        lang = langSwitch.value;
+        lecciones = json.lecciones[lang];
+
+        // Actualizar la URL con el nuevo parámetro de lenguaje
+        const newUrl = new URL(window.location);
+        newUrl.searchParams.set('lang', lang);
+        window.history.pushState({}, '', newUrl);
+
+        consoleArea.appendChild(clearTerminal());
+        addTextareaListener();
+        actualizarInfoLeccion();
+        // Actualizar Staged
+        deleteAllChilds(repoStagedArea, 'h3');
+        if (lecciones[leccionActual].repoStatus.staged != undefined) {
+          let ul = document.createElement('ul');
+          for (let i = 0; i < lecciones[leccionActual].repoStatus.staged.length; i++) {
+              let li = createElementNode("li", lecciones[leccionActual].repoStatus.staged[i]);
+              ul.appendChild(li).classList.add('staged');
+          }
+          repoStagedArea.appendChild(ul);
+      }
+      // Actualizar Repo Commits
+      deleteAllChilds(repoCommitsArea, 'h3');
+      if (lecciones[leccionActual] && lecciones[leccionActual].repoStatus.staged != undefined) {
+          let ul = document.createElement('ul');
+          for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
+              let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
+              ul.appendChild(li).classList.add('commit');
+          }
+          repoCommitsArea.appendChild(ul)
+      } else {
+          let ul = document.createElement('ul');
+          let li = createElementNode("li", config.emptyCommitsAreaMessage);
+          ul.appendChild(li).classList.add('commit');
+          repoCommitsArea.appendChild(ul);
+      }
+      // Ayudar listener para el textarea
+      textarea.focus();
+  });
+  
+  // Inicializar con el lenguaje de la query string
+  const initialLang = getQueryParam('lang') || 'defaultLang';
+  langSwitch.value = initialLang;
+  langSwitch.dispatchEvent(new Event('change'));
+
+
+
+
+
     // =================================================
     //  COURSE TASKS FUNCTIONS
     // ==================================================
     // Updates every contentn area in the site
     function actualizarInfoLeccion() {
+        if (!lecciones[leccionActual]) {
+            console.error(`Lección ${leccionActual} no encontrada en el lenguaje ${lang}`);
+            return;
+        }
+        
+             
         // Actualizar titulo y orden
         let titulo = document.querySelector('#instrucciones .titulo');
         titulo.innerHTML = lecciones[leccionActual].titulo;
@@ -431,44 +496,55 @@ function loadPage() {
             textarea.focus();
         }, 1000);
     });
+    
 
-    // Cambiar lenguaje
-    langSwitch.addEventListener('change', () => {
-        lang = langSwitch.value;
-        lecciones = json.lecciones[lang];
+    // // Cambiar lenguaje
+    // const langSwitch = document.querySelector('#lang');
+    // langSwitch.addEventListener('change', () => {
+    //     lang = langSwitch.value;
+    //     lecciones = json.lecciones[lang];
 
-        consoleArea.appendChild(clearTerminal());
-        addTextareaListener();
-        actualizarInfoLeccion();
-        // Actualizar Staged
-        deleteAllChilds(repoStagedArea, 'h3');
-        if (lecciones[leccionActual].repoStatus.staged != undefined) {
-            let folderStructure = createFolderStructure(lecciones[leccionActual].repoStatus.staged);
-            repoStagedArea.appendChild(folderStructure);
-        } else {
-            let ul = document.createElement('ul');
-            let li = createElementNode("li", config.emptyStageAreaMessage);
-            ul.appendChild(li).classList.add('commit');
-            repoStagedArea.appendChild(ul);
-        }
-        // Actualizar Repo Commits
-        deleteAllChilds(repoCommitsArea, 'h3');
-        if (lecciones[leccionActual].repoStatus.commits != undefined) {
-            let ul = document.createElement('ul');
-            for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
-                let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
-                ul.appendChild(li).classList.add('commit');
-            }
-            repoCommitsArea.appendChild(ul)
-        } else {
-            let ul = document.createElement('ul');
-            let li = createElementNode("li", config.emptyCommitsAreaMessage);
-            ul.appendChild(li).classList.add('commit');
-            repoCommitsArea.appendChild(ul);
-        }
-        // Ayudar listener para el textarea
-        textarea.focus();
-    });
+    //     // Actualizar la URL con el nuevo parámetro de lenguaje
+    //     const newUrl = new URL(window.location);
+    //     newUrl.searchParams.set('lang', lang);
+    //     window.history.pushState({}, '', newUrl);
+
+    //     consoleArea.appendChild(clearTerminal());
+    //     addTextareaListener();
+    //     actualizarInfoLeccion();
+    //     // Actualizar Staged
+    //     deleteAllChilds(repoStagedArea, 'h3');
+    //     if (lecciones[leccionActual].repoStatus.staged != undefined) {
+    //         let ul = document.createElement('ul');
+    //         for (let i = 0; i < lecciones[leccionActual].repoStatus.staged.length; i++) {
+    //             let li = createElementNode("li", lecciones[leccionActual].repoStatus.staged[i]);
+    //             ul.appendChild(li).classList.add('staged');
+    //         }
+    //         repoStagedArea.appendChild(ul);
+    //     }
+    //     // Actualizar Repo Commits
+    //     deleteAllChilds(repoCommitsArea, 'h3');
+    //     if (lecciones[leccionActual].repoStatus.commits != undefined) {
+    //         let ul = document.createElement('ul');
+    //         for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
+    //             let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
+    //             ul.appendChild(li).classList.add('commit');
+    //         }
+    //         repoCommitsArea.appendChild(ul)
+    //     } else {
+    //         let ul = document.createElement('ul');
+    //         let li = createElementNode("li", config.emptyCommitsAreaMessage);
+    //         ul.appendChild(li).classList.add('commit');
+    //         repoCommitsArea.appendChild(ul);
+    //     }
+    //     // Ayudar listener para el textarea
+    //     textarea.focus();
+    // });
+
+    // // Inicializar con el lenguaje de la query string
+    // // const initialLang = getQueryParam('lang') || 'defaultLang';
+    // langSwitch.value = initialLang;
+    // langSwitch.dispatchEvent(new Event('change'));
 
     // Mostrar y ocultar Menu principal
     navbar.addEventListener('click', (e) => {
