@@ -498,53 +498,7 @@ function loadPage() {
     });
     
 
-    // // Cambiar lenguaje
-    // const langSwitch = document.querySelector('#lang');
-    // langSwitch.addEventListener('change', () => {
-    //     lang = langSwitch.value;
-    //     lecciones = json.lecciones[lang];
-
-    //     // Actualizar la URL con el nuevo parámetro de lenguaje
-    //     const newUrl = new URL(window.location);
-    //     newUrl.searchParams.set('lang', lang);
-    //     window.history.pushState({}, '', newUrl);
-
-    //     consoleArea.appendChild(clearTerminal());
-    //     addTextareaListener();
-    //     actualizarInfoLeccion();
-    //     // Actualizar Staged
-    //     deleteAllChilds(repoStagedArea, 'h3');
-    //     if (lecciones[leccionActual].repoStatus.staged != undefined) {
-    //         let ul = document.createElement('ul');
-    //         for (let i = 0; i < lecciones[leccionActual].repoStatus.staged.length; i++) {
-    //             let li = createElementNode("li", lecciones[leccionActual].repoStatus.staged[i]);
-    //             ul.appendChild(li).classList.add('staged');
-    //         }
-    //         repoStagedArea.appendChild(ul);
-    //     }
-    //     // Actualizar Repo Commits
-    //     deleteAllChilds(repoCommitsArea, 'h3');
-    //     if (lecciones[leccionActual].repoStatus.commits != undefined) {
-    //         let ul = document.createElement('ul');
-    //         for (let i = 0; i < lecciones[leccionActual].repoStatus.commits.length; i++) {
-    //             let li = createElementNode("li", lecciones[leccionActual].repoStatus.commits[i]);
-    //             ul.appendChild(li).classList.add('commit');
-    //         }
-    //         repoCommitsArea.appendChild(ul)
-    //     } else {
-    //         let ul = document.createElement('ul');
-    //         let li = createElementNode("li", config.emptyCommitsAreaMessage);
-    //         ul.appendChild(li).classList.add('commit');
-    //         repoCommitsArea.appendChild(ul);
-    //     }
-    //     // Ayudar listener para el textarea
-    //     textarea.focus();
-    // });
-
-    // // Inicializar con el lenguaje de la query string
-    // // const initialLang = getQueryParam('lang') || 'defaultLang';
-    // langSwitch.value = initialLang;
-    // langSwitch.dispatchEvent(new Event('change'));
+    
 
     // Mostrar y ocultar Menu principal
     navbar.addEventListener('click', (e) => {

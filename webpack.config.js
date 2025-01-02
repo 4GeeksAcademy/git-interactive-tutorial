@@ -26,11 +26,7 @@ module.exports = {
     },
     devtool: 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        disableHostCheck: true,
-        compress: true,
-        port: 8080,
-        host: 'localhost',
-        open: true
+        contentBase:  './dist',
+        disableHostCheck: true
     }
 };
