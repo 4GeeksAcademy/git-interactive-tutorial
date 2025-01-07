@@ -2,6 +2,7 @@ import {} from 'sweetalert';
 import json from '../config/config.json';
 
 window.onload = () => loadPage();
+var lecciones = [];
 
 function loadPage() {
 
@@ -15,9 +16,9 @@ function loadPage() {
     }
 
     let lang = getQueryParam('lang') || document.querySelector('#lang').value || 'defaultLang';
-    console.log(`Language selected: ${lang}`);
+    console.log(`Language selected: ${lang}`, json);
 
-    var lecciones = json.lecciones[lang];
+    lecciones = json.lecciones[lang];
     var config = json.config;
     var leccionActual = 1;
     var leccionesTotal = getObjLength(lecciones);
@@ -41,6 +42,10 @@ function loadPage() {
     // Cambiar lenguaje
     const langSwitch = document.querySelector('#lang');
     langSwitch.addEventListener('change', () => {
+
+        // avoid switching to invalid languages
+        if(!['en', 'es', 'us'].includes(langSwitch.value)) return;
+
         lang = langSwitch.value;
         lecciones = json.lecciones[lang];
 
@@ -82,7 +87,7 @@ function loadPage() {
   });
   
   // Inicializar con el lenguaje de la query string
-  const initialLang = getQueryParam('lang') || 'defaultLang';
+  const initialLang = getQueryParam('lang') || 'en';
   langSwitch.value = initialLang;
   langSwitch.dispatchEvent(new Event('change'));
 
@@ -95,7 +100,7 @@ function loadPage() {
     // ==================================================
     // Updates every contentn area in the site
     function actualizarInfoLeccion() {
-        if (!lecciones[leccionActual]) {
+        if (!lecciones || !lecciones[leccionActual]) {
             console.error(`Lección ${leccionActual} no encontrada en el lenguaje ${lang}`);
             return;
         }
