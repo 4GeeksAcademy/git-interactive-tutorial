@@ -1374,7 +1374,7 @@
                 "titulo": "Deleting unused branches",
                 "tituloCorto": "Deleting branches",
                 "tareas": [
-                    "We have merged our changes with the main branch, so we won't be using <strong>mi_vesion</strong> anymore. Let's remove this branch.",
+                    "We have merged our changes with the main branch, so we won't be using <strong>my_version</strong> anymore. Let's remove this branch.",
                     "It is a good practice to delete unused branches, as, as our project increases, having many branches can be hard to maintain and many of the older branches can be left behind in updates.",
                     "Type <strong>git branch -d</strong>, followed by the name of the branch we want to delete: <strong>my_version</strong>."
                 ],
