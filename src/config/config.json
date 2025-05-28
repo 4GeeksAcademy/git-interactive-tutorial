@@ -1211,7 +1211,7 @@
                 "tituloCorto": "Branching",
                 "tareas": [
                     "Remember we said that Git allows a work team to work on the same code simultaneously without conflicts? This is made possible with the Git branching model.",
-                    "Git allows the creation of <strong>branches</strong>. <strong>Branches</strong>. Branches are complete copies of the code that can be used to work on, independently of the original version.",
+                    "Git allows the creation of <strong>branches</strong>. <strong>Branches</strong> are complete copies of the code that can be used to work on, independently of the original version.",
                     "How about creating a branch? Type the command <strong>git branch</strong>, followed by the branch names. Let's name our branch <strong>my_version</strong>."
                 ],
                 "comando": "git branch my_version",
@@ -1270,7 +1270,7 @@
                 "tituloCorto": "Branching #3",
                 "tareas": [
                     "As you can see, now we are working in our own branch. How about improving the structure of our project? We have created a folder named <strong>tasks</strong>, where we can move the files that are currently located in <strong>september_plans</strong> and <strong>october_plans</strong>.",
-                    "As you can see on the <strong>Root folder</strong> section, we have already done this. Now, instead of adding the files to the <strong>Stage</strong> and then committing them, Git allows us to use the  <strong>-a</strong> argument for the <strong>git commit</strong> command, which will add all the changed files to <strong>Stage</strong> and then commit the changes.",
+                    "As you can see on the <strong>Root folder</strong> section, we have already done this. Now, instead of adding the files to the <strong>Stage</strong> and then committing them, Git allows us to use the  <strong>-a</strong> argument for the <strong>git commit</strong> command, which will add all the changed files to <strong>Stage</strong> and then <strong>commit</strong> the changes.",
                     "Commit the changes using the <strong>-a</strong> option and the message: <em>Reorganized project</em>."
                 ],
                 "comando": "git commit -a -m \"Reorganized project\"",
@@ -1285,7 +1285,7 @@
                     "branch": "my_version",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "tareas" :
+                        { "tasks" :
                             [
                             "development.txt",
                             "mockup.txt"
@@ -1318,7 +1318,7 @@
                     "branch": "my_version",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "tareas" :
+                        { "tasks" :
                             [
                             "development.txt",
                             "mockup.txt"
@@ -1340,7 +1340,7 @@
                 "tituloCorto": "Git merge",
                 "tareas": [
                     "As you can see, the branch <strong>master</strong> has not been altered, so the changes we did in our own branch are not reflected to the master's branch folder structure.  Let's apply our changes to the master branch!",
-                    "Type <strong>git merge</strong>. With this command, the changes in the branch <strong>my_version</strong> will be merged with the <strong>master</strong>. branch"
+                    "Type <strong>git merge</strong>. With this command, the changes in the branch <strong>my_version</strong> will be merged with the <strong>master</strong> branch"
                 ],
                 "comando": "git merge my_version",
                 "alert": "Did not use git merge",
@@ -1374,8 +1374,8 @@
                 "titulo": "Deleting unused branches",
                 "tituloCorto": "Deleting branches",
                 "tareas": [
-                    "We have merged our changes with the main branch, so we won't be using <strong>mi_vesion</strong> anymore. Let's remove this branch.",
-                    "It is a good practice to delete unused branches, as, as our project increases, having many branches can be hard to maintain and many of the older branches can be left behind in updates.",
+                    "We have merged our changes with the main branch, so we won't be using <strong>my_version</strong> anymore. Let's remove this branch.",
+                    "It is a good practice to delete unused branches, as our project increases, having many branches can be hard to maintain and many of the older branches can be left behind in updates.",
                     "Type <strong>git branch -d</strong>, followed by the name of the branch we want to delete: <strong>my_version</strong>."
                 ],
                 "comando": "git branch -d my_version",
@@ -1387,7 +1387,7 @@
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "tareas" :
+                        { "tasks" :
                             [
                             "development.txt",
                             "mockup.txt"
@@ -1422,7 +1422,7 @@
                     "branch": "master",
                     "repoFolder": [
                         { ".git": [  ]  },
-                        { "tareas" :
+                        { "tasks" :
                             [
                             "development.txt",
                             "mockup.txt"
