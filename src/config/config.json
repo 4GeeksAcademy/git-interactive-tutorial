@@ -27,7 +27,7 @@
                 "tituloCorto": "¿Quieres aprender Git?",
                 "tareas": [
                     "Git es un <em>sistema de control de versiones distribuido</em> que permite a equipos de trabajo tratar con un mismo documento o código al mismo tiempo, evitando choques entre los miembros.",
-                    "En la terminal que puedes ver en pantalla hemos creado un <em>repositorio</em>, un contendor de archivos. Para inicializar un repositorio en Git debes escribir el siguiente comando: <strong>git init</strong>."
+                    "En la terminal que puedes ver en pantalla hemos creado un <em>repositorio</em>, un contenedor de archivos. Para inicializar un repositorio en Git debes escribir el siguiente comando: <strong>git init</strong>."
                 ],
                 "comando": "git init",
                 "alert": "Did not create a Git repo",
@@ -664,7 +664,7 @@
                 "titulo": "Eliminando ramas en desuso",
                 "tituloCorto": "Eliminan ramas",
                 "tareas": [
-                    "Ya que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_vesion</strong>, ¿por qué no eliminamos esa rama?",
+                    "Ya que hemos unido nuestros cambios a la rama principal y ya no usaremos más <strong>mi_version</strong>, ¿por qué no eliminamos esa rama?",
                     "Siempre es bueno eliminar ramas en desuso, ya que a lo largo de un proyecto pueden generarse muchas ramas y debemos evitar que nuestros compañeros se confundan al usar ramas desactualizadas.",
                     "Para ello usamos el comando <strong>git branch -d</strong> seguido del nombre de la rama a eliminar: <strong>mi_version</strong>."
                 ],
